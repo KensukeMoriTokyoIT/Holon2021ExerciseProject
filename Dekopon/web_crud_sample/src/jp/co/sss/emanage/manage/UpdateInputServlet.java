@@ -41,9 +41,11 @@ public class UpdateInputServlet extends HttpServlet {
 		updateForm.setGender(empBean.getGender());
 		updateForm.setAddress(empBean.getAddress());
 		updateForm.setBirthday(empBean.getBirthday());
+		updateForm.setAuthority(empBean.getAuthority());
+		updateForm.setDeptId(empBean.getDeptId());
+		updateForm.setDeptName(empBean.getDeptName());
 
 		request.setAttribute("updateForm", updateForm);
-
 		RequestDispatcher dispatcher = request
                 .getRequestDispatcher("jsp/update/update.jsp");
         dispatcher.forward(request, response);
