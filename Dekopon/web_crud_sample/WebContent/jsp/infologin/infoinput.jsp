@@ -18,12 +18,13 @@
 
 		<div id="main">
 			<h2>社員情報登録入力画面</h2>
-           <table class="tac">
+           <table class="infoinput">
                         	<tr>
 							<th>パスワード：</th>
 							<td style="border-style: none">
 								<input type="password" name="empPass" maxlength="16" />
 							</td>
+							</tr>
 
 						<tr>
 							<th>社員名：</th>
@@ -34,8 +35,8 @@
 						<tr>
 						    <th>性別:</th>
 						    <td >
-						   <label><input style="radio" name="gender" value="1">男性</label>
-						   <label><input style="radio" name="gender" value="2">女性</label>
+						   <label><input type="radio" name="gender" value="1">男性</label>
+						   <label><input type="radio" name="gender" value="2">女性</label>
 
 						    </td>
 						</tr>
@@ -60,9 +61,9 @@
 					   </tr>
 					   <tr>
 					        <th>部署名：</th>
-					        <td><form action="<%=request.getContextPath() %>/">
+					        <td><form action="<%=request.getContextPath() %>/InsertForm1">
 					          <select name="dept">
-					           <option value="
+					           <option value="1111"
 
 
 
@@ -79,6 +80,8 @@
 					</table>
 					<input type="submit" value="登録確認" />
 						<input type="submit" value="社員一覧に戻る" />
-
+	<div id="footer">
+			<%@include file="/jsp/common/footer.jsp"%>
+		</div>
 </body>
 </html>
