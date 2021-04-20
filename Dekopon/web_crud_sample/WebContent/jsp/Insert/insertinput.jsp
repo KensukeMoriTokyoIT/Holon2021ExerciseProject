@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<head>
+
 <link href="<%=request.getContextPath()%>/css/stylesheet.css" rel="stylesheet" type="text/css" />
 <title>社員情報登録入力</title>
 
@@ -46,7 +46,7 @@
 						<tr>
 						   <th>住所：</th>
 						   <td style="border-style:none; text-align: center;">
-						    <input type="text" name="adress" maxlength="60">
+						    <input type="text" name="address" maxlength="60">
 						    </td>
 						 </tr>
 					 <tr>
@@ -64,7 +64,7 @@
 
 					        <th>部署名：</th>
 					        <td>
-					          <select name="depertment">
+					          <select name="deptName" value="1">
 				        	         <option value="1">営業部 </option>
 					                 <option value="2">経理部 </option>
 					                 <option value="3">総務部 </option>
