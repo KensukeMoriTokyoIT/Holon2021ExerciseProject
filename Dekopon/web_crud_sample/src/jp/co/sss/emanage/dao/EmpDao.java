@@ -565,6 +565,7 @@ public class EmpDao {
 			ps.setString(5, empBean.getBirthday()); // 生年月日を設定
 			ps.setString(6, empBean.getAuthority()); // 権限を設定
 			ps.setString(7, empBean.getDeptId()); // 部署IDを設定
+			ps.setString(8, empBean.getEmpId()); // 変更する社員のIDを設定
 
 			// UPDATEを実行
 			ps.executeUpdate();
