@@ -15,9 +15,9 @@
 		<div id="header">
 			<%@include file="/jsp/common/header_login.jsp"%>
 		</div>
-		<div id="main">  
+		<div id="main">
 			<div class="contents">
-				<form id="updateform" method="post" action="<%=request.getContextPath()%>/UpdatecheckServlet">
+				<form id="updateform" method="post" action="<%=request.getContextPath()%>/UpdateCheckServlet">
 								<p style="color: red">${errorMessage}</p>
 
 		<div id="main">
@@ -33,7 +33,7 @@
 						<tr>
 							<th>社員名：</th>
 							<td style="border-style: none; text-align: center;">
-								<input type="text" name="empName" maxlength="30" />
+								<input type="text" name="empName" maxlength="30"value="${updateForm.empName}" />
 							</td>
 						</tr>
 						<tr>
@@ -63,16 +63,17 @@
 						    <label><input type="radio" name="authority" value="2">管理</label>
 						    </td>
 					   </tr>
-
+							<tr>
 					        <th>部署名：</th>
-					        <td><form action="<%=request.getContextPath() %>/UpdateForm1">
-					          <select name="deptId">
+
+					          <td><select name="deptId">
 				        	         <option value="1">営業部 </option>
 					                 <option value="2">経理部 </option>
 					                 <option value="3">総務部 </option>
-					           </select>
-                             </form>
-                           　　 </td>
+					           </select></td>
+					           </tr>
+                            </form>
+
 
 
 
