@@ -17,7 +17,7 @@
 		</div>
 		<div id="main">  
 			<div class="contents">
-				<form id="updateform" method="post" action="<%=request.getContextPath()%>/UpdateServlet">
+				<form id="updateform" method="post" action="<%=request.getContextPath()%>/UpdatecheckServlet">
 								<p style="color: red">${errorMessage}</p>
 
 		<div id="main">
