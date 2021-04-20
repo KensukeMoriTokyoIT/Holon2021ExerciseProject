@@ -19,7 +19,7 @@
 		<div id="main">
 			<h2>社員情報登録入力画面</h2>
 			<h3>登録する社員の情報を入力してください</h3>
-			<form action="<%=request.getContextPath() %>/InsertForm1" method="post">
+			<form action="<%=request.getContextPath() %>/Insertformservlet" method="post">
       <table class="insertinput">
                         	<tr>
 							<th>パスワード：</th>
