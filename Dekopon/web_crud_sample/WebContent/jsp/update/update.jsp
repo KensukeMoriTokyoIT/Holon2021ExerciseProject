@@ -76,7 +76,7 @@
 						   		<label><input type="radio" name="authority" value="1" checked="checked">一般</label>
 						   		<label><input type="radio" name="authority" value="2">管理</label>
 								</c:when>
-								<c:when test="${updateForm.gender==2}">
+								<c:when test="${updateForm.authority==2}">
 						   		<label><input type="radio" name="authority" value="1">一般</label>
 						   		<label><input type="radio" name="authority" value="2" checked="checked">管理</label>
 								</c:when>
