@@ -22,7 +22,7 @@
 
 		<div id="main">
 			<h2>社員情報更新入力画面</h2>
-           <table class="infoinput">
+           <table class="updateinput">
                         	<tr>
 							<th>パスワード：</th>
 							<td style="border-style: none">
