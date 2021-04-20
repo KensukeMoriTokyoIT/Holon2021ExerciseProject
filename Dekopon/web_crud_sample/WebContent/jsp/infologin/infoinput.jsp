@@ -29,7 +29,7 @@
 						<tr>
 							<th>社員名：</th>
 							<td style="border-style: none; text-align: center;">
-								<input type="text" name="empId" maxlength="30" />
+								<input type="text" name="empName" maxlength="30" />
 							</td>
 						</tr>
 						<tr>
@@ -44,12 +44,12 @@
 						<tr>
 						   <th>住所：</th>
 						   <td style="border-style:none; text-align: center;">
-						    <input type="text" name="adress" maxlength="60";>
+						    <input type="text" name="adress" maxlength="60">
 						    </td>
 						 </tr>
 					 <tr>
 						  <th>生年月日：</th>
-						   <td >
+						   <td> <input type ="date" name="birthday">
 						   </td>
 				      </tr>
 					  <tr>
@@ -59,24 +59,21 @@
 						    <label><input type="radio" name="authority" value="2">管理</label>
 						    </td>
 					   </tr>
-					   <tr>
+
 					        <th>部署名：</th>
 					        <td><form action="<%=request.getContextPath() %>/InsertForm1">
-					          <select name="dept">
-					           <option value="1111"
+					          <select name="deptId">
+				        	         <option value="1">営業部 </option>
+					                 <option value="2">経理部 </option>
+					                 <option value="3">総務部 </option>
+					           </select>
+                            </form>
+                            </td>
 
 
 
 
-					          </select>
 
-
-
-
-
-					        </form>
-							<!--  <td><html:errors property="empPass" /></td> -->
-						</tr>
 					</table>
 					<input type="submit" value="登録確認" />
 						<input type="submit" value="社員一覧に戻る" />
