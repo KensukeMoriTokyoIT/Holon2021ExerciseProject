@@ -17,7 +17,7 @@
 		</div>
 		<div id="main">
 			<div class="contents">
-				<form id="updateform" method="post" action="<%=request.getContextPath()%>/UpdateCheckServlet">
+				<form id="updateForm" method="post" action="<%=request.getContextPath()%>/UpdateCheckServlet">
 								<p style="color: red">${errorMessage}</p>
 
 		<div id="main">
@@ -33,56 +33,77 @@
 						<tr>
 							<th>社員名：</th>
 							<td style="border-style: none; text-align: center;">
-								<input type="text" name="empName" maxlength="30" />
+								<input type="text" name="empName" maxlength="30"value="${updateForm.empName}" />
 							</td>
 						</tr>
 						<tr>
 						    <th>性別:</th>
 						    <td >
-						   <label><input type="radio" name="gender" value="1">男性</label>
-						   <label><input type="radio" name="gender" value="2">女性</label>
-
+						    <c:choose>
+						    	<c:when test="${updateForm.gender==1}">
+						   		<label><input type="radio" name="gender" value="1" checked="checked">男性</label>
+						   		<label><input type="radio" name="gender" value="2">女性</label>
+								</c:when>
+								<c:when test="${updateForm.gender==2}">
+						   		<label><input type="radio" name="gender" value="1">男性</label>
+						   		<label><input type="radio" name="gender" value="2" checked="checked">女性</label>
+								</c:when>
+								<c:otherwise>
+								<label><input type="radio" name="gender" value="1">男性</label>
+						   		<label><input type="radio" name="gender" value="2">女性</label>
+						   		</c:otherwise>
+							</c:choose>
+						  
 						    </td>
 						</tr>
 
 						<tr>
 						   <th>住所：</th>
 						   <td style="border-style:none; text-align: center;">
-						    <input type="text" name="adress" maxlength="60">
+						    <input type="text" name="adress" maxlength="60"value="${updateForm.address}">
 						    </td>
 						 </tr>
 					 <tr>
 						  <th>生年月日：</th>
-						   <td> <input type ="date" name="birthday">
+						   <td> <input type ="date" name="birthday"value="${updateForm.birthday}">
 						   </td>
 				      </tr>
 					  <tr>
 						    <th>権限：</th>
 						    <td >
-						    <label><input type="radio" name="authority"value="1">一般</label>
-						    <label><input type="radio" name="authority" value="2">管理</label>
+						     <c:choose>
+						    	<c:when test="${updateForm.authority==1}">
+						   		<label><input type="radio" name="authority" value="1" checked="checked">一般</label>
+						   		<label><input type="radio" name="authority" value="2">管理</label>
+								</c:when>
+								<c:when test="${updateForm.authority==2}">
+						   		<label><input type="radio" name="authority" value="1">一般</label>
+						   		<label><input type="radio" name="authority" value="2" checked="checked">管理</label>
+								</c:when>
+								<c:otherwise>
+								<label><input type="radio" name="authority" value="1">一般</label>
+						   		<label><input type="radio" name="authority" value="2">管理</label>
+						   		</c:otherwise>
+							</c:choose>
 						    </td>
 					   </tr>
-
+							<tr>
 					        <th>部署名：</th>
-					        <td><form action="<%=request.getContextPath() %>/UpdateForm1">
-					          <select name="deptId">
+
+					          <td><select name="deptId">
 				        	         <option value="1">営業部 </option>
 					                 <option value="2">経理部 </option>
 					                 <option value="3">総務部 </option>
-					           </select>
-                             </form>
-                           　　 </td>
-
-
-
+					           </select></td>
+					           </tr>
+                            </form>
 
 
 					</table>
 					<input type="submit" value="更新確認" />
 					<input type="submit" value="社員一覧に戻る" />
 	<div id="footer">
-	<%@include file="/jsp/common/footer.jsp"%>
+<%@include file="/jsp/common/footer.jsp"%>
 </div>
 </body>
 </html>
