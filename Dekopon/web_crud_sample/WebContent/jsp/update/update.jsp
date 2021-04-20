@@ -17,7 +17,7 @@
 		</div>
 		<div id="main">
 			<div class="contents">
-				<form id="updateform" method="post" action="<%=request.getContextPath()%>/UpdateCheckServlet">
+				<form id="updateForm" method="post" action="<%=request.getContextPath()%>/UpdateCheckServlet">
 								<p style="color: red">${errorMessage}</p>
 
 		<div id="main">
@@ -73,8 +73,6 @@
 					           </select></td>
 					           </tr>
                             </form>
-
-
 
 
 					</table>
