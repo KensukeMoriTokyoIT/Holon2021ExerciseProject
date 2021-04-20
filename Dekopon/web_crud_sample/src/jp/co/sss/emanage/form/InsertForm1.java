@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.sss.servlet.sample08.HttpSession;
+import jp.co.sss.emanage.bean.EmpBean;
+
 
 /**
  * Servlet implementation class InsertForm1
@@ -16,33 +17,41 @@ import jp.co.sss.servlet.sample08.HttpSession;
 @WebServlet("/InsertForm1")
 public class InsertForm1 extends HttpServlet {
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		    //InsertFromのオブジェクトを生成
-			InsertForm insertform = new InsertForm();
 			//それぞれの入力項目をそれぞれの変数に代入
 			//パスワード
 			String empPass = request.getParameter("empPass");
 			//社員名
-			String empId = request.getParameter("empId");
+			String empname = request.getParameter("empname");
 			//住所
-			String adress = request.getParameter("adress");
+			String address = request.getParameter("adress");
 			//生年月日
 			String birthday = request.getParameter("birthday");
-			//部署
-			String department = request.getParameter("depertment");
-			//セッションスコープを作成
-		    HttpSession session = request.getSession();
+			//部署名
+			String department = request.getParameter("DeptName");
+			//性別
+			String gender = request.getParameter("gender");
+			//権限
+			String authority = request.getParameter("Authority");
+			//EmpBeanのオブジェクトを生成
+			EmpBean emp = new EmpBean();
 		    //パスワード
-		    session.setAttribute("empPass", empPass);
+		    emp.setEmpPass(empPass);
 		    //社員名
-		    session.setAttribute("empId", empId);
+		    emp.setEmpName(empname);
 		    //住所
-		    session.setAttribute("adress", adress);
+		    emp.setAddress(address);
 		    //生年月日
-		    session.setAttribute("birthday", birthday);
+		    emp.setBirthday(birthday);
 		    //部署
-		    session.setAttribute("department", department);
+		    emp.setDeptName(department);
+		    //性別
+		    emp.setGender(gender);
+		    //権限
+		    emp.setAuthority(authority);
+		    //リクエストスコープを設置
+		    request.setAttribute("emp",emp);
 		    //入力確認画面へ遷移する
-		    request.getRequestDispatcher("/jsp/infologin/infocomplete.jsp").forward(request, response);
+		    request.getRequestDispatcher("/jsp/insertlogin/insertcomplete.jsp").forward(request, response);
 	}
 
 }
