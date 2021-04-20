@@ -537,4 +537,8 @@ public class EmpDao {
         }
         return empList;
     }
+
+	public static void delete(String empId) {
+		return;
+	}
 }
