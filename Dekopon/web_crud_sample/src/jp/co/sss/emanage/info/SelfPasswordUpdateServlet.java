@@ -41,15 +41,17 @@ public class SelfPasswordUpdateServlet extends HttpServlet {
 		String empId = request.getParameter("empId");
 		String nowPass = request.getParameter("nowPass");
 		String newPass = request.getParameter("newPass");
-		String newPass2 = request.getParameter("newPass2");
+		String newPassTwo = request.getParameter("newPassTwo");
 
 		// IDで検索する
 		EmpBean empBean = EmpDao.findById(empId);
 		String errorMessage = iv.passwordValidate(newPass);
 
+		request.setAttribute("empBean", empBean);
+
 		//入力した現在のパスワードがデータベースの値と一致しているとき
 		if (empBean != null && empBean.getEmpPass().equals(nowPass)) {
-			if (newPass == newPass2) {
+			if (newPass.equals(newPassTwo)) {
 				//新しいパスワードの入力チェック
 				//OK
 				if (errorMessage == null) {
@@ -63,6 +65,7 @@ public class SelfPasswordUpdateServlet extends HttpServlet {
 					RequestDispatcher dispatcher = request
 							.getRequestDispatcher("jsp/selfPass/selfPassComplete.jsp");
 					dispatcher.forward(request, response);
+
 				} else { //未入力または桁数オーバー
 					request.setAttribute("errorMessageNewPass", errorMessage);
 

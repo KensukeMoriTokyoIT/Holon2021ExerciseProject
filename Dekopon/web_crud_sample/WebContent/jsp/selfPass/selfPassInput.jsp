@@ -23,17 +23,17 @@
 				<table>
 					<tr>
 						<th>現在のパスワード</th>
-						<td><input type="password" name="nowPass" /></td>
+						<td><input type="password" name="nowPass" maxlength='15'/></td>
 						<td><font color=red>${errorMessageNowPass}</font></td>
 					</tr>
 					<tr>
 						<th>新しいパスワード</th>
-						<td><input type="password" name="newPass" /></td>
+						<td><input type="password" name="newPass" maxlength='15' /></td>
 						<td><font color=red>${errorMessageNewPass}</font></td>
 					</tr>
 					<tr>
 						<th>新しいパスワード(再入力)</th>
-						<td><input type="password" name="newPassTwo" /></td>
+						<td><input type="password" name="newPassTwo" maxlength='15'/></td>
 						<td><font color=red>${errorMessageNewPass2}</font></td>
 					</tr>
 				</table>
