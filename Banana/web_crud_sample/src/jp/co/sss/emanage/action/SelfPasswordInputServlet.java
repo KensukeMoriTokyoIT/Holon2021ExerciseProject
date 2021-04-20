@@ -37,15 +37,14 @@ public class SelfPasswordInputServlet extends HttpServlet {
             // setCharacterEncodingメソッドを使って受け取った文字列の文字コードを指定
             request.setCharacterEncoding("UTF-8");
 
-
             String oldpassword = request.getParameter("oldpass");
             String newpassword1 = request.getParameter("newpass1");
             String newpassword2 = request.getParameter("newpass2");
 
-
-
+           
+      
             // 入力されたID、パスワードで検索する
-            EmpBean empBean = EmpDao.findByIdPass (oldpassword);
+            EmpBean empBean = EmpDao.findByIdPass (empid,oldpassword);
 
             // 該当する社員が見つかり、かつ一般権限だった場合
             if (empBean != null
@@ -57,7 +56,7 @@ public class SelfPasswordInputServlet extends HttpServlet {
             	if( newpassword1.equals(newpassword2)){
             	  String newpassword1 = request.getParameter("newpass1");
             	  newpassword1.setnewpassword1("newpass1");
-            	  EmpBean empBean = 
+            	EmpBean empbean = EmpDao. 
               
 
 
