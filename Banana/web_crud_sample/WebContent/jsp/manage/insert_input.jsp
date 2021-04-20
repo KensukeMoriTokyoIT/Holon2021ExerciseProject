@@ -13,63 +13,60 @@
 	</div>
   <article class="main">
 
-    <h2>社員削除確認画面</h2>
-    <h3>以下の社員情報を削除しますか？</h3>
+    <h2>社員登録入力画面</h2>
+    <h3>登録する社員の情報を入力してください</h3>
 
 	<div class=table_manage>
     <table>
     <tr>
 		<td>パスワード：</td>
-		<td>非表示</td>
+		<td><input type="password" name="password"></td>
     </tr>
     <tr>
 		<td>社員名：</td>
-        <td>${emp.empName}</td>
+		<td><input type="text" name="empName"></td>
     </tr>
     <tr>
 		<td>性別：</td>
-        <c:choose>
-			<c:when test="${emp.gender == 1}">
-				<td>男性</td>
-			</c:when>
-			<c:otherwise>
-				<td>女性</td>
-			</c:otherwise>
-		</c:choose>
+		<td>
+		<label><input type="radio" name="gender" value="1"/>男性</label>
+		<label><input type="radio" name="gender" value="2"/>女性</label>
+		</td>
     </tr>
     <tr>
 		<td>住所：</td>
-        <td>${emp.address}</td>
+		<td><input type="text" name="address"></td>
     </tr>
     <tr>
 		<td>生年月日：</td>
-        <td>${emp.birthday}</td>
+		<td><input type="text" name="birthday"></td>
     </tr>
     <tr>
 		<td>権限：</td>
-		<c:choose>
-			<c:when test="${emp.authority == 1}">
-				<td>一般</td>
-			</c:when>
-			<c:otherwise>
-				<td>管理</td>
-			</c:otherwise>
-		</c:choose>
+		<td>
+		<label><input type="radio" name="authority" value="1"/>一般</label>
+		<label><input type="radio" name="authority" value="2"/>管理</label>
+		</td>
     </tr>
     <tr>
 		<td>部署名：</td>
-        <td>${emp.deptName}</td>
+		<td>
+		<select name="deptId">
+		<option value="1">営業部</option>
+		<option value="2">経理部</option>
+		<option value="3">総務部</option>
 
     </table>
+
     </div>
 
-    	<form method="post" action="<%=request.getContextPath()%>/DeleteCompleteServlet">
+    	<form method="post" action="<%=request.getContextPath()%>/InsertConfirmServlet">
 			<input type="hidden" name="empId" value="${emp.empId}" />
-			<input type="submit" value="実行" />
+			<input type="submit" value="登録確認" />
 		</form>
 
 		<form method="post" action="<%=request.getContextPath()%>/ManageReturn">
-		<input type="submit" value="戻る" />
+		<input type="submit" value="社員一覧表示に戻る" />
 		</form>
   </article>
 

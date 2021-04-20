@@ -43,6 +43,11 @@ public class EmpDao {
     /** employee(部署関連、部署名の検索SQL */
     private static final String EMP_FIND_BY_DEPT_DEPT_Name = "select department.dept_id,dept_name, count(employee.dept_id) affiliation from employee right outer join department on employee.dept_id = department.dept_id where department.dept_name LIKE ? group by department.dept_id,dept_name order by department.dept_id asc";
 
+    /** 自作したSQL文 */
+    /** 社員IDによるemployeeの削除SQL */
+    private static final String EMP_DELETE_BY_ID = "delete from employee where emp_id = ?";
+
+
     /**
      * 社員IDによる1件検索メソッド
      *
@@ -539,6 +544,22 @@ public class EmpDao {
     }
 
 	public static void delete(String empId) {
+
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        try {
+            con = DBManager.getConnection();
+            ps = con.prepareStatement(EMP_DELETE_BY_ID);
+            ps.setString(1, empId);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // DB切断処理
+            DBManager.close(ps, con);
+        }
 		return;
 	}
 }
