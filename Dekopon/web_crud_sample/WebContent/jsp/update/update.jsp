@@ -15,14 +15,14 @@
 		<div id="header">
 			<%@include file="/jsp/common/header_login.jsp"%>
 		</div>
-		<div id="main">  
+		<div id="main">
 			<div class="contents">
-				<form id="updateform" method="post" action="<%=request.getContextPath()%>/UpdateServlet">
+				<form id="updateform" method="post" action="<%=request.getContextPath()%>/UpdateCheckServlet">
 								<p style="color: red">${errorMessage}</p>
 
 		<div id="main">
 			<h2>社員情報更新入力画面</h2>
-           <table class="infoinput">
+           <table class="updateinput">
                         	<tr>
 							<th>パスワード：</th>
 							<td style="border-style: none">
