@@ -79,7 +79,7 @@
 					<input type="submit" value="更新確認" />
 					<input type="submit" value="社員一覧に戻る" />
 	<div id="footer">
-	<%@include file="/jsp/common/footer.jsp"%>
+<%@include file="/jsp/common/footer.jsp"%>
 </div>
 </body>
 </html>
