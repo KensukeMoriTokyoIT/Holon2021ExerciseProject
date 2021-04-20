@@ -17,10 +17,10 @@
     <h2>社員削除完了画面</h2>
     <h3><center>社員情報削除処理が完了しました。</center></h3>
 
-    <form action="<%=request.getContextPath()%>/DeleteCompleteServlet" method="post">
-      <input type="hidden" name="empId" value="${emp.empId}" />
-      <input type="submit" value="削除確定" />
+    <form action="<%=request.getContextPath()%>/ManageReturn" method="post">
+      <input type="submit" value="社員一覧に戻る" />
     </form>
+
   </article>
 
   		<div id="footer">
