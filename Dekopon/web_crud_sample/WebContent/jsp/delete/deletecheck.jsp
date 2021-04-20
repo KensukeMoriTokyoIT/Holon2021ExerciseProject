@@ -53,7 +53,7 @@
 		</div>
 
 		<form action="<%=request.getContextPath()%>/DeleteForm" method="post">
-	            		<input type="submit" value="実行" /><br> 
+	            		<input type="submit" value="実行" /><br>
 		            	<input type="submit" value="戻る" />
 		</form>
 
