@@ -69,15 +69,16 @@
 					                 <option value="2">経理部 </option>
 					                 <option value="3">総務部 </option>
 					           </select>
-                            </form>
+
                             </td>
 
 
-
+</form>
 
 
 					</table>
-					<input type="submit" value="登録確認" />
+					<input type="submit" value="登録確認" /></br>
+
 						<input type="submit" value="社員一覧に戻る" />
 	<div id="footer">
 			<%@include file="/jsp/common/footer.jsp"%>
