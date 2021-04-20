@@ -77,7 +77,7 @@
 
 
 					</table>
-					<input type="submit" value="登録確認" /></br>
+				  	<input type="submit" value="登録確認" /></br>
 
 						<input type="submit" value="社員一覧に戻る" />
 	<div id="footer">
