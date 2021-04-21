@@ -13,7 +13,7 @@
 	<div id="contents">
 
 		<div id="header">
-			<%@include file="/jsp/common/header_login.jsp"%>
+			<%@include file="/jsp/common/header.jsp"%>
 		</div>
 
 		<h1>パスワード変更入力画面</h1>
