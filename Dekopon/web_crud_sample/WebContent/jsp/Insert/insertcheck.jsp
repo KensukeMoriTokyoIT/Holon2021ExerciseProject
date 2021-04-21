@@ -55,8 +55,7 @@
 
 
 	</table>
-</div>
-</div>
+
     <form action ="<%=request.getContextPath() %>/jsp/Insert/insertcomplete.jsp" method="post">
 
 	   <input type="hidden" name="empPass" value="${insertform.empPass }"/>
@@ -72,7 +71,8 @@
 	<form action ="<%=request.getContextPath() %>/jsp/Insert/insertinput.jsp" method="post">
 		<input type="submit" value="戻る" />
 	</form>
-
+</div>
+</div>
  <div id="footer">
 			<%@include file="/jsp/common/footer.jsp"%>
  </div>
