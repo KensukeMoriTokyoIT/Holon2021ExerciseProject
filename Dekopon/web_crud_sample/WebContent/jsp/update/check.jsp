@@ -56,14 +56,14 @@
 
 	</table>
 	  <form action ="<%=request.getContextPath() %>/updatecheck" method="post">
-
-	  <input type="hidden" name="empPass" value="${updateform.empPass }"/>
-	   <input type="hidden" name="empName" value="${updateform.empName}"/>
-	   <input type="hidden" name="gender" value="${updateform.gender}"/>
-	    <input type="hidden" name="adress" value="${updateform.adress}"/>
-	    <input type="hidden" name="birthday" value="${updateform.birthday}"/>
-	    <input type="hidden" name="authority" value="${updateform.authority}"/>
-	     <input type="hidden" name="department" value="${updateform.depertment}"/>
+	<input type="hidden" name="empId" value="${updateForm.empId }"/>
+	  <input type="hidden" name="empPass" value="${updateForm.empPass }"/>
+	   <input type="hidden" name="empName" value="${updateForm.empName}"/>
+	   <input type="hidden" name="gender" value="${updateForm.gender}"/>
+	    <input type="hidden" name="adress" value="${updateForm.adress}"/>
+	    <input type="hidden" name="birthday" value="${updateForm.birthday}"/>
+	    <input type="hidden" name="authority" value="${updateForm.authority}"/>
+	     <input type="hidden" name="department" value="${updateForm.depertment}"/>
 
 
 
@@ -75,8 +75,10 @@
 	  </form>
 					<input type="submit" value="実行" />
 						<input type="submit" value="戻る" />
+			</div>
 	<div id="footer">
 			<%@include file="/jsp/common/footer.jsp"%>
+		</div>
 		</div>
 </body>
 </html>

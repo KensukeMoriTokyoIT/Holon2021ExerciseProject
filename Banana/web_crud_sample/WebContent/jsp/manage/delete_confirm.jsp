@@ -65,11 +65,11 @@
 
     	<form method="post" action="<%=request.getContextPath()%>/DeleteCompleteServlet">
 			<input type="hidden" name="empId" value="${emp.empId}" />
-			<input type="submit" value="削除確定" />
+			<input type="submit" value="実行" />
 		</form>
-		<form method="post" action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">
-			<input type="hidden" name="empId" value="${emp.empId}" />
-			<input type="submit" value="削除確定" />
+
+		<form method="post" action="<%=request.getContextPath()%>/ManageReturn">
+		<input type="submit" value="戻る" />
 		</form>
   </article>
 

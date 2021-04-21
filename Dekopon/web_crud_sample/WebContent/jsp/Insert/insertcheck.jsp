@@ -34,7 +34,7 @@
 						</tr>
 						<tr>
 						    <th>住所:</th>
-						    <td>${insertform.adress}
+						    <td>${insertform.address}
 						    </td>
 						</tr>
 						<tr>
@@ -49,34 +49,32 @@
 						 </tr>
 						 <tr>
 						     <th>部署名:</th>
-						     <td>${insertform.depertment}
+						     <td>${insertform.deptName}
 						     </td>
 						  </tr>
 
 
 	</table>
-	  <form action ="<%=request.getContextPath() %>/insertcheck" method="post">
 
-	  <input type="hidden" name="empPass" value="${insertform.empPass }"/>
+    <form action ="<%=request.getContextPath() %>/jsp/Insert/insertcomplete.jsp" method="post">
+
+	   <input type="hidden" name="empPass" value="${insertform.empPass }"/>
 	   <input type="hidden" name="empName" value="${insertform.empName}"/>
 	   <input type="hidden" name="gender" value="${insertform.gender}"/>
-	    <input type="hidden" name="adress" value="${insertform.adress}"/>
-	    <input type="hidden" name="birthday" value="${insertform.birthday}"/>
-	    <input type="hidden" name="authority" value="${insertform.authority}"/>
-	     <input type="hidden" name="department" value="${insertform.depertment}"/>
+	   <input type="hidden" name="adress" value="${insertform.address}"/>
+       <input type="hidden" name="birthday" value="${insertform.birthday}"/>
+       <input type="hidden" name="authority" value="${insertform.authority}"/>
+       <input type="hidden" name="department" value="${insertform.deptName}"/>
 
-
-
-
-
-
-
-
-	  </form>
-					<input type="submit" value="実行" />
-						<input type="submit" value="戻る" />
-	<div id="footer">
+        <input type="submit" value="実行" />
+   	</form>
+	<form action ="<%=request.getContextPath() %>/jsp/Insert/insertinput.jsp" method="post">
+		<input type="submit" value="戻る" />
+	</form>
+</div>
+</div>
+ <div id="footer">
 			<%@include file="/jsp/common/footer.jsp"%>
-		</div>
+ </div>
 </body>
 </html>
