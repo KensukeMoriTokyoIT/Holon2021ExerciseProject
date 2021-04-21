@@ -9,20 +9,19 @@
 <title>社員削除完了画面</title>
 </head>
 <body>
-
-		<div id="header">
+ <div id="header">
 			<%@include file="/jsp/common/header_login.jsp"%>
-		</div>
-			<div id="main">
+ </div>
+ <div id="main">
 			<h2>社員削除完了画面</h2>
 			<h3>社員情報削除処理が完了しました。</h3>
-			  	<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp" >
+		<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp" >
 			 	<input type="submit" value="戻る" />
-                </form>
-
-			 		<div id="footer">
-			<%@include file="/jsp/common/footer.jsp"%>
-		</div>
+        </form>
 </div>
+ <div id="footer">
+			<%@include file="/jsp/common/footer.jsp"%>
+</div>
+
 </body>
 </html>
