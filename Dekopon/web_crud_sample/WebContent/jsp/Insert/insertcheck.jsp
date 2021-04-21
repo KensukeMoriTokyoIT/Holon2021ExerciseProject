@@ -55,7 +55,9 @@
 
 
 	</table>
-	  <form action ="<%=request.getContextPath() %>/insertcheck" method="post">
+	</div>
+	</div>
+	  <form action ="<%=request.getContextPath() %>/jsp/Insert/insertcomplete.jsp" method="post">
 
 	  <input type="hidden" name="empPass" value="${insertform.empPass }"/>
 	   <input type="hidden" name="empName" value="${insertform.empName}"/>
@@ -65,16 +67,12 @@
 	    <input type="hidden" name="authority" value="${insertform.authority}"/>
 	     <input type="hidden" name="department" value="${insertform.deptName}"/>
 
-
-
-
-
-
-
-
-	  </form>
-					<input type="submit" value="実行" />
+           <input type="submit" value="実行" />
+     	</form>
+					 <form action ="<%=request.getContextPath() %>/jsp/Insert/insertinput.jsp" method="post">
 						<input type="submit" value="戻る" />
+					</form>
+
 	<div id="footer">
 			<%@include file="/jsp/common/footer.jsp"%>
 		</div>

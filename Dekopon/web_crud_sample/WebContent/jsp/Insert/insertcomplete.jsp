@@ -18,7 +18,11 @@
 		<div id="main">
 			<h2>社員登録完了画面</h2>
 			<h3>社員登録処理が完了しました。</h3>
-		<input type="submit" value="社員一覧に戻る" />
+			   	<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp" >
+	          	<input type="submit" value="社員一覧に戻る" />
+	          	</form>
+		</div>
+		</div>
      	<div id="footer">
 			<%@include file="/jsp/common/footer.jsp"%>
 		</div>

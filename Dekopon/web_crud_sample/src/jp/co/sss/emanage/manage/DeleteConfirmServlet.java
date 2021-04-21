@@ -40,7 +40,7 @@ public class DeleteConfirmServlet extends HttpServlet {
 		deleteForm.setDeptId(empBean.getDeptId());
 		deleteForm.setDeptName(empBean.getDeptName());
 
-		request.setAttribute("updateForm", deleteForm);
+		request.setAttribute("deleteForm", deleteForm);
 		RequestDispatcher dispatcher = request  .getRequestDispatcher("jsp/delete/deletecheck.jsp");
 		  dispatcher.forward(request, response);
 			}

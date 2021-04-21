@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.jasper.compiler.Node.ForwardAction;
-
 import jp.co.sss.emanage.dao.EmpDao;
 
 /**
@@ -21,9 +19,7 @@ public class Delete extends HttpServlet {
 
     /**
      * @see HttpServlet#HttpServlet()
-     */
-    public Delete() {
-        super();
+
         // TODO Auto-generated constructor stub
     }
 
@@ -31,12 +27,19 @@ public class Delete extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
 		String empId=request.getParameter("empId");
-		EmpDao.delete(empId);
-		request.getRequestDispatcher("/jsp/delete/deletecomplere.jsp"),
-        forward(request,response);
+		 EmpDao.delete( empId);
+		 request.getRequestDispatcher("/jsp/delete/deletecomplete.jsp").forward(request, response);
 
 	}
-
 }
+
+
+
+
+
+
+
+
