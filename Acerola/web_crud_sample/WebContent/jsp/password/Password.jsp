@@ -15,22 +15,34 @@
 	<p>パスワード変更入力画面</p>
 	<input type="hidden" name="">
 	<div id=main>
-	<form action="<%=request.getContextPath()%>/Managepass" method="post">
+	<form action="<%=request.getContextPath()%>/pass" method="post">
 	<table>
+	<tr>
+			<td>現在のパスワード</td>
+			<td><input
+				type="password" name="newpass" maxlength="16"><label style="color: red">${ePassword}</label></td>
+			</tr>
 		<tr>
 			<td>新しいパスワード</td>
 			<td><input
-				type="password" name="newpass" maxlength="16"></td>
+				type="password" name="newpass" maxlength="16">
+				<label style="color: red">${newpass}</label></td>
 			</tr>
+
 			<tr>
 			<td>新しいパスワード(再入力)</td>
-			<td><input type="password" name="newpass2" maxlength="16"></td>
+			<td><input type="password" name="newpass2" maxlength="16">
+
+			</td>
+
+
 		</tr>
+
 	</table>
 	<input type="submit" value="変更">
 	</form>
 </div>
-<form action="<%=request.getContextPath()%>/ManageTopServlet">
+<form action="<%=request.getContextPath()%>/InfoTopServlet">
 		<input type="submit" value="社員一覧に戻る">
 	</form>
 	<div id="footer">

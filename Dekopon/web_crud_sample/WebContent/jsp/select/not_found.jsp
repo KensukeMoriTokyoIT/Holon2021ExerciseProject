@@ -21,7 +21,7 @@
 
 		<div>
 			<c:if test="${user.authority == 1}">
-				<form method="post"
+				<form method="get"
 					action="<%=request.getContextPath()%>/InfoTopServlet">
 					<input type="submit" value="社員一覧に戻る" />
 				</form>
@@ -30,7 +30,7 @@
 
 		<div>
 			<c:if test="${user.authority == 2}">
-				<form method="post"
+				<form method="get"
 					action="<%=request.getContextPath()%>/ManageTopServlet">
 					<input type="submit" value="社員一覧に戻る" />
 				</form>
