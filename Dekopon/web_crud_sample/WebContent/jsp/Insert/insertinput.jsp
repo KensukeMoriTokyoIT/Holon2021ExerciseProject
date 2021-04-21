@@ -16,9 +16,9 @@
 		<div id="header">
 			<%@include file="/jsp/common/header_login.jsp"%>
 		</div>
-
+	<h2>社員情報登録入力画面</h2>
 		<div id="main">
-			<h2>社員情報登録入力画面</h2>
+
 			<h3>登録する社員の情報を入力してください</h3>
 			<form action="<%=request.getContextPath()%>/InsertInputServlet.java"method="post">
 				<table class="insertinput">

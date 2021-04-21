@@ -46,6 +46,8 @@ public class EmpDao {
     /** 自作したSQL文 */
     /** 社員IDによるemployeeの削除SQL */
     private static final String EMP_DELETE_BY_ID = "delete from employee where emp_id = ?";
+    /** 社員新規登録のSQL*/
+    private static final String EMP_INSERT_NEWBIE = "insert into employee values(seq_emp.nextval,?,?,?,?,?,?,?)";
 
 
     /**
@@ -552,6 +554,33 @@ public class EmpDao {
             con = DBManager.getConnection();
             ps = con.prepareStatement(EMP_DELETE_BY_ID);
             ps.setString(1, empId);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // DB切断処理
+            DBManager.close(ps, con);
+        }
+		return;
+	}
+
+
+	public static void insert(EmpBean emp) {
+
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        try {
+            con = DBManager.getConnection();
+            ps = con.prepareStatement(EMP_INSERT_NEWBIE);
+            ps.setString(1, emp.getEmpPass());
+            ps.setString(2, emp.getEmpName());
+            ps.setString(3, emp.getGender());
+            ps.setString(4, emp.getAddress());
+            ps.setString(5, emp.getBirthday());
+            ps.setString(6, emp.getAuthority());
+            ps.setString(7, emp.getDeptId());
             ps.executeUpdate();
 
         } catch (SQLException e) {
