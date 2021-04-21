@@ -69,7 +69,7 @@
 
 				</table>
         </form>
-       <form action="<%=request.getContextPath()%>/jsp/Insert/insertcheck.jsp">
+       <form action="<%=request.getContextPath()%>/jsp/Insert/InsertInputServlet.java">
 		<input type="submit" value="登録確認" />
 		</form>
 		<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">
