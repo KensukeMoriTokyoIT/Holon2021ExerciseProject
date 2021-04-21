@@ -48,6 +48,8 @@ public class EmpDao {
     private static final String EMP_DELETE_BY_ID = "delete from employee where emp_id = ?";
     /** 社員新規登録のSQL*/
     private static final String EMP_INSERT_NEWBIE = "insert into employee values(seq_emp.nextval,?,?,?,?,?,?,?)";
+    /** 社員のパスワード変更のSQL*/
+    private static final String EMP_UPDATE_PASSWORD = "update employee set empPass = ? where empId = ?";
 
 
     /**
@@ -545,6 +547,7 @@ public class EmpDao {
         return empList;
     }
 
+
 	public static void delete(String empId) {
 
         Connection con = null;
@@ -591,4 +594,25 @@ public class EmpDao {
         }
 		return;
 	}
+	public static void updatePassword(String empId,String newPass) {
+
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        try {
+            con = DBManager.getConnection();
+            ps = con.prepareStatement(EMP_UPDATE_PASSWORD);
+            ps.setString(1, newPass);
+            ps.setString(2, empId);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // DB切断処理
+            DBManager.close(ps, con);
+        }
+		return;
+	}
+
 }
