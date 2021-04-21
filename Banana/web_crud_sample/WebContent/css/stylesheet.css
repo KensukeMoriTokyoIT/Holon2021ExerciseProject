@@ -158,6 +158,13 @@ td {
 	padding: 0.5em;
 }
 
+tdl {
+	text-align: left;
+	vertical-align: top;
+	padding: 0.5em;
+}
+
+
 th {
 	text-align: center;
 	vertical-align: top;

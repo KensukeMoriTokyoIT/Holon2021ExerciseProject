@@ -24,9 +24,9 @@
 				<input type="radio" name="radio" value="3" />
 				部署名:
 				<select name="deptId">
-					<c:forEach var="dept" items="${deptList}" varStatus="status">
-						<option value="${dept.deptId}">${dept.deptName}</option>
-					</c:forEach>
+							<option value="1">営業部</option>
+							<option value="2">経理部</option>
+							<option value="3">総務部</option>
 				</select>
 				<input type="submit" value="検索実行" />
 			</form>
@@ -35,6 +35,7 @@
 				<input type="hidden" name="empId" value="${user.empId}" />
 				<input type="submit" value="社員情報更新" />
 			</form>
+
 
 			<form method="post" action="<%=request.getContextPath()%>/SelfPasswordInputServlet">
 				<input type="hidden" name="empId" value="${user.empId}" />
