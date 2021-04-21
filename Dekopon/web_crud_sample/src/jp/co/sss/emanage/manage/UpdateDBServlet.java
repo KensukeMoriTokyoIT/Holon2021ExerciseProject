@@ -32,9 +32,10 @@ public class UpdateDBServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		EmpBean empBean = new EmpBean();
+		String empId=request.getParameter("empId");
+		EmpBean empBean = EmpDao.findById(empId);
 
-		empBean.setEmpId(request.getParameter("empId")); //社員ID
+		empBean.setEmpId(empId); //社員ID
 		empBean.setEmpPass(request.getParameter("empPass")); //パスワード
 		empBean.setEmpName(request.getParameter("empName")); //社員名
 		empBean.setGender(request.getParameter("gender")); //性別
@@ -44,6 +45,7 @@ public class UpdateDBServlet extends HttpServlet {
 		empBean.setDeptId(request.getParameter("deptId")); //部署ID
 
 		EmpDao.update(empBean);
+
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("jsp/update/complete.jsp");
 		dispatcher.forward(request, response);

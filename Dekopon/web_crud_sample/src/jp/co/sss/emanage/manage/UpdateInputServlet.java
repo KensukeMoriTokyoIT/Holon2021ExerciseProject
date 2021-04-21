@@ -37,7 +37,7 @@ public class UpdateInputServlet extends HttpServlet {
 		UpdateForm updateForm = new UpdateForm();
 		//DBからID検索
 		EmpBean empBean = EmpDao.findById(request.getParameter("empId"));
-		String birthday = DateFormat.formatDate((String)empBean.getBirthday());
+		String birthday = DateFormat.selectFormatDate((String)empBean.getBirthday());
 
 		updateForm.setEmpId(empBean.getEmpId()); //社員ID
 		updateForm.setEmpName(empBean.getEmpName()); //社員名
