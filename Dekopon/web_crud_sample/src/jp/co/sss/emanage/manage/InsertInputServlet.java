@@ -57,7 +57,7 @@ public class InsertInputServlet extends HttpServlet {
 		    //リクエストスコープを設置
 		    request.setAttribute("emp",emp);
 		    //入力確認画面へ遷移する
-		    request.getRequestDispatcher("/jsp/Insert/insertcheck.jsp").forward(request, response);
+		    request.getRequestDispatcher("/jsp/Insert/insertinput.jsp").forward(request, response);
 	}
 
 }
