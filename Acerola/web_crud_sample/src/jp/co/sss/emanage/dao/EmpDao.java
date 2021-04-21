@@ -605,7 +605,7 @@ public class EmpDao {
      * データベースから情報削除
      * @param empBean
      */
-    public static void delete(EmpBean empBean) {
+    public static void delete(String empId) {
     	Connection con = null;
     	PreparedStatement ps = null;
 
@@ -614,7 +614,7 @@ public class EmpDao {
     	ps = con.prepareStatement("DELETE FROM employee where emp_id = ? ");
 
 
-    	ps.setString(1, empBean.getEmpId());
+    	ps.setString(1, empId);
 
     	ps.executeUpdate();
     	}catch(SQLException e){
