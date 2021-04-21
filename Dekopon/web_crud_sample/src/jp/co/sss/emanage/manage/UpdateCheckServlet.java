@@ -87,6 +87,12 @@ public class UpdateCheckServlet extends HttpServlet {
 		if ((error = iv.deptIdValidate(deptId)) != null) {
 			errorMessages.add(error);
 		}
+		//部署名
+		String deptName = request.getParameter("deptId");
+		updateForm.setDeptId(deptId);
+		if ((error = iv.deptIdValidate(deptId)) != null) {
+			errorMessages.add(error);
+		}
 
 		//入力チェック
 		if (errorMessages.isEmpty()) {
