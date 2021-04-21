@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <link href="<%=request.getContextPath()%>/css/stylesheet.css"
 	rel="stylesheet" type="text/css" />
-<title>社員削除完了画面</title>
+<title>社員パスワード変更完了画面</title>
 </head>
 <body>
 	<div id="contents">
@@ -15,11 +15,11 @@
 			<%@include file="/jsp/common/header.jsp"%>
 		</div>
 
-		<h1>社員削除完了画面</h1>
+		<h1>パスワード変更完了画面</h1>
 
 		<div id="main">
-			<h2>社員情報削除処理が完了しました。</h2>
-			<h2 style= color:red ></h2>
+			<h2>変更が完了しました。</h2>
+			<h3	style= color:red ></h3>
 
 			<form method="post"
 				action="<%=request.getContextPath()%>/jsp/info/info.jsp">
