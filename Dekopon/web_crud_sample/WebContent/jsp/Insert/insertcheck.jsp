@@ -24,32 +24,32 @@
 						</tr>
 						<tr>
 							 <th>社員名：</th>
-							 <td>${insertform.empName}
+							 <td>${emp.empName}
 							 </td>
 						</tr>
 						<tr>
 							<th>性別:</th>
-							<td>${insertform.gender}
+							<td>${emp.gender}
 							</td>
 						</tr>
 						<tr>
 						    <th>住所:</th>
-						    <td>${insertform.address}
+						    <td>${emp.address}
 						    </td>
 						</tr>
 						<tr>
 						    <th>生年月日:</th>
-						    <td>${insertform.birthday}
+						    <td>${emp.birthday}
 						    </td>
 						 </tr>
 						 <tr>
 						     <th>権限:</th>
-						     <td>${insertform.authority}
+						     <td>${emp.authority}
 						     </td>
 						 </tr>
 						 <tr>
 						     <th>部署名:</th>
-						     <td>${insertform.deptName}
+						     <td>${emp.deptName}
 						     </td>
 						  </tr>
 
