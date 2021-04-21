@@ -14,7 +14,7 @@
   <article class="main">
 
     <h2>社員削除確認画面</h2>
-    <h3>以下の社員情報を削除しますか？</h3>
+    <h3>以下の社員情報を更新しますか？</h3>
 
 	<div class=table_manage>
     <table>
