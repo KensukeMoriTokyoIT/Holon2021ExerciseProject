@@ -57,8 +57,8 @@
 					type="submit" value="変更" />
 			</form>
 
-			<form method="post"
-				action="<%=request.getContextPath()%>/jsp/info/info.jsp">
+			<form method="get"
+				action="<%=request.getContextPath()%>/InfoTopServlet">
 				<input type="submit" value="社員一覧に戻る" />
 			</form>
 		</div>
