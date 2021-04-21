@@ -18,11 +18,10 @@ public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-     * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#HttpServlet()
 	*/
 	public Delete() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
