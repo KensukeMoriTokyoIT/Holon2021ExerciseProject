@@ -16,12 +16,12 @@
 		
 		<div id="main">
 		<div class="contents">
+		</div>
 		
 			
  <article class="main">
    <h3>社員情報更新処理が完了しました。</h3>
    <h3 style="color: red"></h3>
-   <h3 style="padding:100px"></h3>
     <form
       action="<%=request.getContextPath()%>/jsp/update/update.jsp"
       method="post">
@@ -31,7 +31,7 @@
   <div id="footer">
 <%@include file="/jsp/common/footer.jsp" %>
 </div>
-
-
+</div>
+</div>
 </body>
 </html>
