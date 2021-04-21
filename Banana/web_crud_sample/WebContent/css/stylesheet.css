@@ -132,7 +132,7 @@ div.table_manage {
 }
 
 table.w90p {
-	width: 90%;
+	width: 100%;
 }
 
 table.w75p {
@@ -157,6 +157,13 @@ td {
 	vertical-align: top;
 	padding: 0.5em;
 }
+
+tdl {
+	text-align: left;
+	vertical-align: top;
+	padding: 0.5em;
+}
+
 
 th {
 	text-align: center;
