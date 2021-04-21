@@ -15,35 +15,40 @@
 			<div class="contents">
 				<form id="loginform" method="post" action="<%=request.getContextPath()%>/SelfPasswordInputServlet">
 								<p style="color: red">${errorMessage}</p>
-					<table class="tac">
-			<h2>パスワード変更入力画面</h2>
-
-							<tr>
-							<th>現在のパスワード：</th>
-							<td style="border-style: none; text-align: center;">
-								<input type="text" name="oldpass" maxlength="16" />
+					<table class="pass">
+			<p class="tal">パスワード変更入力画面</p>
+                          <tr>
+                         		<th>現在のパスワード：</th>
+							<td style="border-style: none">
+								<input type="password" name="oldpass" maxlength="16" />
 							</td>
 						</tr>
 						<tr>
-							<th>新しいパスワード：</th>
+						</tr>
+						<tr>
+							<th>あたらしいパスワード：</th>
 							<td style="border-style: none">
 								<input type="password" name="newpass1" maxlength="16" />
 							</td>
 						</tr>
-
-						<th>新しいパスワード：</th>
+						<tr>
+							<th>あたらしいパスワード：</th>
 							<td style="border-style: none">
 								<input type="password" name="newpass2" maxlength="16" />
 							</td>
-							<!--  <td><html:errors property="empPass" /></td> -->
-						</tr>
+							</tr>
+						<tr>
+
 				</table>
 				<input type="hidden" name="empId" />
 				<from action="<%=request.getContextPath()%>/SelfPasswordInputServlet" method="post">
 					<input type="submit" value="変更" />
+				</from>
 				<from action="<%=request.getContextPath()%>/InfoRetum" method="post">
 					<input type="submit" value="社員一覧に戻る" />
 				</form>
+
+
 			</div>
 		</div>
 		<div id="footer">

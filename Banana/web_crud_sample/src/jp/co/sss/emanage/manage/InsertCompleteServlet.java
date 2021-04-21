@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.EmpDao;
 
 /**
- * Servlet implementation class DeleteCompleteServlet
+ * Servlet implementation class InsertCompleteServlet
  */
-@WebServlet("/DeleteCompleteServlet")
-public class DeleteCompleteServlet extends HttpServlet {
+@WebServlet("/InsertCompleteServlet")
+public class InsertCompleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteCompleteServlet() {
+    public InsertCompleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,9 +39,27 @@ public class DeleteCompleteServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String empId = request.getParameter("empId");
-		EmpDao.delete(empId);
-		request.getRequestDispatcher("jsp/manage/delete_complete.jsp").forward(request,response);
+		String password  = request.getParameter("password");
+		String empName   = request.getParameter("empName");
+		String gender    = request.getParameter("gender");
+		String address   = request.getParameter("address");
+		String birthday  = request.getParameter("birthday");
+		String authority = request.getParameter("authority");
+		String deptId    = request.getParameter("deptId");
+		String deptName  = request.getParameter("deptName");
+
+		EmpBean emp = new EmpBean();
+		emp.setEmpPass(password);
+		emp.setEmpName(empName);
+		emp.setGender(gender);
+		emp.setAddress(address);
+		emp.setBirthday(birthday);
+		emp.setAuthority(authority);
+		emp.setDeptId(deptId);
+		emp.setDeptName(deptName);
+
+		EmpDao.insert(emp);
+		request.getRequestDispatcher("jsp/manage/insert_complete.jsp").forward(request,response);
 
 	}
 

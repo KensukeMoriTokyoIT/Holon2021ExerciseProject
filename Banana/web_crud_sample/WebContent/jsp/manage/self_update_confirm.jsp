@@ -14,7 +14,7 @@
   <article class="main">
 
     <h2>社員更新確認画面</h2>
-    <h3>以下の内容で社員情報を更新しますか？</h3>
+    <h3>以下の内容で社員情報を変更しますか？</h3>
 
 	<div class=table_manage>
     <table>
@@ -63,7 +63,7 @@
     </table>
     </div>
 
-    	<form method="post" action="<%=request.getContextPath()%>/update_complete">
+    	<form method="post" action="<%=request.getContextPath()%>/selfupok">
 			<input type="hidden" name="empId" value="${emp.empId}" />
 			<input type="hidden" name="empId" value="${emp.empPass}" />
 			<input type="hidden" name="empId" value="${emp.empName}" />
@@ -75,7 +75,7 @@
 			<input type="submit" value="実行" />
 		</form>
 
-		<form method="post" action="<%=request.getContextPath()%>/UpdateForm">
+		<form method="post" action="<%=request.getContextPath()%>/selfupdate">
 		<input type="submit" value="戻る" />
 		</form>
   </article>

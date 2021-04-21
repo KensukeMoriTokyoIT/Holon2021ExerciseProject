@@ -16,13 +16,10 @@ import jp.co.sss.emanage.form.DeleteForm;
 /**
  * Servlet implementation class DeleteConfirmServlet
  */
-@WebServlet("/manage.jsp")
+@WebServlet("/DeleteConfirmServlet")
 public class DeleteConfirmServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-
 
 
 		DeleteForm deleteForm = new DeleteForm();

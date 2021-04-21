@@ -13,8 +13,8 @@
 	</div>
   <article class="main">
 
-    <h2>社員更新確認画面</h2>
-    <h3>以下の内容で社員情報を更新しますか？</h3>
+    <h2>社員登録確認画面</h2>
+    <h3>以下の内容で社員情報を登録しますか？</h3>
 
 	<div class=table_manage>
     <table>
@@ -63,19 +63,20 @@
     </table>
     </div>
 
-    	<form method="post" action="<%=request.getContextPath()%>/update_complete">
-			<input type="hidden" name="empId" value="${emp.empId}" />
-			<input type="hidden" name="empId" value="${emp.empPass}" />
-			<input type="hidden" name="empId" value="${emp.empName}" />
-			<input type="hidden" name="empId" value="${emp.gender}" />
-			<input type="hidden" name="empId" value="${emp.address}" />
-			<input type="hidden" name="empId" value="${emp.birthday}" />
-			<input type="hidden" name="empId" value="${emp.authority}" />
-			<input type="hidden" name="empId" value="${emp.deptId}" />
+    	<form method="post" action="<%=request.getContextPath()%>/InsertCompleteServlet">
+			<input type="hidden" name="password" value="${emp.empPass}" />
+			<input type="hidden" name="empName" value="${emp.empName}" />
+			<input type="hidden" name="gender" value="${emp.gender}" />
+			<input type="hidden" name="address" value="${emp.address}" />
+			<input type="hidden" name="birthday" value="${emp.birthday}" />
+			<input type="hidden" name="authority" value="${emp.authority}" />
+			<input type="hidden" name="deptId" value="${emp.deptId}" />
+			<input type="hidden" name="deptName" value="${emp.deptName}" />
 			<input type="submit" value="実行" />
 		</form>
 
-		<form method="post" action="<%=request.getContextPath()%>/UpdateForm">
+
+		<form method="post" action="<%=request.getContextPath()%>/ManageReturn">
 		<input type="submit" value="戻る" />
 		</form>
   </article>

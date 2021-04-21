@@ -12,11 +12,11 @@
 
 
  <div id="header">
-			<%@include file="/jsp/common/header_login.jsp"%>
+			<%@include file="/jsp/common/header.jsp"%>
  </div>
-
+	<h2>社員情削除確認画面</h2>
  <div id="main">
-			<h2>社員情削除確認画面</h2>
+
 			<h3>以下の社員情報を削除しますか？</h3>
 
 			<table class="deleatecheck">
@@ -27,32 +27,32 @@
 				</tr>
 				<tr>
 					<th>社員名：</th>
-					<td>${deleteForm.EmpName }</td>
+					<td>${deleteForm.empName }</td>
 				</tr>
 				<tr>
 					<th>性別:</th>
-					<td>${deleteForm.Gender}</td>
+					<td>${deleteForm.gender}</td>
 				</tr>
 				<tr>
 					<th>住所:</th>
-					<td>${deleteForm.Address}</td>
+					<td>${deleteForm.address}</td>
 				</tr>
 				<tr>
 					<th>生年月日:</th>
-					<td>${deleteForm.Birthday}</td>
+					<td>${deleteForm.birthday}</td>
 				</tr>
 				<tr>
 					<th>権限:</th>
-					<td>${deleteForm.Authority}</td>
+					<td>${deleteForm.authority}</td>
 				</tr>
 				<tr>
 					<th>部署名:</th>
-					<td>${deleteForm.DeptId}</td>
+					<td>${deleteForm.deptId}</td>
 				</tr>
 			</table>
 
 
-		<form action="<%=request.getContextPath()%>/jsp/delete/deletecomplete.jsp" method="post">
+		<form action="<%=request.getContextPath()%>/Delete" method="post">
 	            		<input type="submit" value="実行" />
 	     </form>
 	     <form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp" >

@@ -11,9 +11,9 @@
 		<div id="header">
 			<%@include file="/jsp/common/header_login.jsp"%>
 		</div>
-
+	<h2>社員登録確認画面</h2>
 	<div id="main">
-		<h2>社員登録確認画面</h2>
+
 		<h3>以下の内容で社員情報を登録しますか？</h3>
 
 	        <table class="insertcheck">
