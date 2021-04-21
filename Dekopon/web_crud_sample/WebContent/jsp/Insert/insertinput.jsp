@@ -59,9 +59,9 @@
 					<tr>
 						<th>部署名：</th>
 						<td><select name="deptName" >
-								<option value="1">営業部</option>
+								<option value="1" selected>営業部</option>
 								<option value="2">経理部</option>
-								<option value="3" selected>総務部</option>
+								<option value="3">総務部</option>
 						</select></td>
 
 					</tr>
