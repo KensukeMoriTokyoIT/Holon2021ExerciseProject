@@ -13,14 +13,20 @@
 		</div>
 
 			<div class="contents">
-				<form id="loginform" method="post" action="<%=request.getContextPath()%>/SelfPasswordInputServlet">
+			<form action"=<%=request.getContextPath()%>/SelfPasswordInputServlet"method="post">
+								</form>
+				<form id="loginform" method="post" action="<%=request.getContextPath()%>/SelfPassupdateServlet">
+				</form>
 								<p style="color: red">${errorMessage}</p>
+		<form action="<%=request.getContextPath()%>/InfoRetum"method="post">
 					<h1>パスワード変更完了画面</h1>
 			<h3>変更が完了しました</h3>
 
 
 
-					<from action="<%=request.getContextPath()%>/InfoRetum"method="post">
+
+					</form>
+					<form action="<%=request.getContextPath()%>/InfoReturn" method="post">
 					<input type="submit" value="社員一覧に戻る" />
 				</form>
 			</div>

@@ -19,8 +19,8 @@
 
 		<div id="main">
 			<h2>変更が完了しました。</h2>
-			<form method="post"
-				action="<%=request.getContextPath()%>/jsp/info/info.jsp">
+			<form method="get"
+				action="<%=request.getContextPath()%>/InfoTopServlet">
 				<input type="submit" value="社員一覧に戻る" />
 			</form>
 		</div>

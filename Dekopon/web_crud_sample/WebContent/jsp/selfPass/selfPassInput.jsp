@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,29 +23,43 @@
 				action="<%=request.getContextPath()%>/SelfPasswordUpdateServlet">
 				<table>
 					<tr>
-						<th>現在のパスワード</th>
-						<td><input type="password" name="nowPass" maxlength='15'/></td>
-						<td><font color=red>${errorMessageNowPass}</font></td>
-					</tr>
-					<tr>
-						<th>新しいパスワード</th>
-						<td><input type="password" name="newPass" maxlength='15' /></td>
-						<td><font color=red>${errorMessageNewPass}</font></td>
-					</tr>
-					<tr>
-						<th>新しいパスワード(再入力)</th>
-						<td><input type="password" name="newPassTwo" maxlength='15'/></td>
-						<td><font color=red>${errorMessageNewPass2}</font></td>
+						<td>
+							<table>
+								<tr>
+									<th>現在のパスワード</th>
+									<td><input type="password" name="nowPass" maxlength='15' /></td>
+								</tr>
+								<tr>
+									<th>新しいパスワード</th>
+									<td><input type="password" name="newPass" maxlength='15' /></td>
+								</tr>
+								<tr>
+									<th>新しいパスワード(再入力)</th>
+									<td><input type="password" name="newPassTwo"
+										maxlength='15' /></td>
+								</tr>
+							</table>
+						</td>
+
+						<%--エラー文の出力 --%>
+						<td>
+							<table>
+								<c:forEach var="errorMessage" items="${errorMessages}">
+									<tr>
+										<td><font color=red>${errorMessage}</font></td>
+									</tr>
+								</c:forEach>
+							</table>
+						</td>
 					</tr>
 				</table>
-
-				<input type="hidden" name="empId" value="${empBean.empId}" />
-				<input type="submit" value="変更" />
+				<input type="hidden" name="empId" value="${empBean.empId}" /> <input
+					type="submit" value="変更" />
 			</form>
 
-			<form  method="post"
-				action="<%=request.getContextPath()%>/jsp/info/info.jsp">
-			<input type="submit" value="社員一覧に戻る" />
+			<form method="get"
+				action="<%=request.getContextPath()%>/InfoTopServlet">
+				<input type="submit" value="社員一覧に戻る" />
 			</form>
 		</div>
 

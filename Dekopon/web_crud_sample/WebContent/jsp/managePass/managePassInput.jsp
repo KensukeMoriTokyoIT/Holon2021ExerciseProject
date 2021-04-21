@@ -20,7 +20,7 @@
 
 		<div id="main">
 			<form method="post"
-				action="<%=request.getContextPath()%>/ManagePasswordUpdateServlet">
+				action="<%=request.getContextPath()%>/ManagePassComplete">
 				<table>
 					<tr>
 						<th>新しいパスワード</th>
@@ -38,8 +38,8 @@
 				<input type="submit" value="変更" />
 			</form>
 
-			<form method="post"
-				action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">
+			<form method="get"
+				action="<%=request.getContextPath()%>/ManageTopServlet">
 				<input type="submit" value="社員一覧に戻る" />
 			</form>
 		</div>

@@ -13,16 +13,21 @@
 
 		<div id="main">
 			<div class="contents">
-				<form id="loginform" method="post" action="<%=request.getContextPath()%>/SelfPasswordInputServlet">
+				<form id="loginform" method="post" action="<%=request.getContextPath()%>/ SelfPassInputServlet">
+</form>
 								<p style="color: red">${errorMessage}</p>
-					<table class="tac">
-			<h2>パスワード変更入力画面</h2>
+								<form action="<%=request.getContextPath()%>/SelfPassupdateServlet" method="post">
 
-							<tr>
-							<th>現在のパスワード：</th>
-							<td style="border-style: none; text-align: center;">
-								<input type="text" name="oldpass" maxlength="16" />
+					<table class="pass">
+			<p class="tal">パスワード変更入力画面</p>
+
+                          <tr>
+             <th>現在のパスワード：</th>
+							<td style="border-style: none">
+								<input type="password" name="oldpass" maxlength="16" />
 							</td>
+						</tr>
+						<tr>
 						</tr>
 						<tr>
 							<th>新しいパスワード：</th>
@@ -30,20 +35,25 @@
 								<input type="password" name="newpass1" maxlength="16" />
 							</td>
 						</tr>
-
-						<th>新しいパスワード：</th>
+						<tr>
+							<th>新しいパスワード（再入力）：</th>
 							<td style="border-style: none">
 								<input type="password" name="newpass2" maxlength="16" />
 							</td>
-							<!--  <td><html:errors property="empPass" /></td> -->
-						</tr>
+							</tr>
+						<tr>
+
 				</table>
-				<input type="hidden" name="empId" />
-				<from action="<%=request.getContextPath()%>/SelfPasswordInputServlet" method="post">
+				<input type="hidden" name="empId"  value="＄{emp.empId}"/>
+
 					<input type="submit" value="変更" />
-				<from action="<%=request.getContextPath()%>/InfoRetum" method="post">
+					</form>
+
+				<form action="<%=request.getContextPath()%>/InfoReturn" method="post">
 					<input type="submit" value="社員一覧に戻る" />
 				</form>
+
+
 			</div>
 		</div>
 		<div id="footer">
