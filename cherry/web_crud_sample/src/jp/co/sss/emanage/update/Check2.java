@@ -11,13 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import jp.co.sss.emanage.bean.EmpBean;
 //DAOとの連携
 
-/**
- * Servlet implementation class Check1
- */
+
 @WebServlet("/Check2")
 public class Check2 extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 			String empId = request.getParameter("empId");
 	        String empPass = request.getParameter("empPass");

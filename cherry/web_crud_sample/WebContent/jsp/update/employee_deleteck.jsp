@@ -32,7 +32,7 @@
 			<p>
 				部署名:${emp.deptName}
 			</p>
-		<form action="<%=request.getContextPath()%>/Update1" method="post">
+		<form action="<%=request.getContextPath()%>/Delete1" method="post">
 			<input type="hidden" name="empId" value="${emp.empId} "/>
 			<input type="submit" value="実行" />
 			<input type="button" value="戻る"/>

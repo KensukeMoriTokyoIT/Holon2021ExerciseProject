@@ -14,7 +14,7 @@ import jp.co.sss.emanage.dao.EmpDao;
 @WebServlet("/Check3")
 public class Check3 extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String empId = request.getParameter("empId");
 		EmpBean emp = EmpDao.findById(empId);

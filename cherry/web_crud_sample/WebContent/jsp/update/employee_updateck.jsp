@@ -9,8 +9,8 @@
 <body>
 	<%@include file="/jsp/common/header.jsp"%>
 	<article class="main">
-		<p>社員登録確認画面</p>
-		<p>以下の内容で社員情報を登録しますか？</p>
+		<p>社員情報更新確認画面</p>
+		<p>以下の内容で社員情報を更新しますか？</p>
 			<p>
 				パスワード:${emp.empPass}
 			</p>

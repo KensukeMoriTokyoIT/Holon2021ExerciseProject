@@ -11,7 +11,7 @@
 	<article class="main">
 		<p>社員情報更新入力画面</p>
 		//コンテキストパス以降のサーブレット未実装
-		<form action="<%=request.getContextPath()%>/" method="post">
+		<form action="<%=request.getContextPath()%>/Check2" method="post">
 		//エラーメッセージ未実装　エラーメッセージのサーブレット有　牧野君と問題点共通
 		//valueに入力する値はどうする？
 			<p>
