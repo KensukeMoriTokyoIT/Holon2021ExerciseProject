@@ -15,7 +15,7 @@ import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.EmpDao;
 import jp.co.sss.emanage.util.InputValidator; //入力チェック
 
-@WebServlet("ManagePassComplete")
+@WebServlet("/ManagePassComplete")
 public class ManagePassComplete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
