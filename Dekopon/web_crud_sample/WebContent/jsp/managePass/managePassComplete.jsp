@@ -19,6 +19,8 @@
 
 		<div id="main">
 			<h2>社員情報削除処理が完了しました。</h2>
+			<h2 style= color:red ></h2>
+
 			<form method="post"
 				action="<%=request.getContextPath()%>/jsp/info/info.jsp">
 				<input type="submit" value="社員一覧に戻る" />
