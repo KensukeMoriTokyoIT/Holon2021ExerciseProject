@@ -10,7 +10,7 @@
 </head>
 <body>
  <div id="header">
-			<%@include file="/jsp/common/header.jsp"%>
+			<%@include file="/jsp/common/header_login.jsp"%>
  </div>
  	<h2>社員削除完了画面</h2>
  <div id="main">

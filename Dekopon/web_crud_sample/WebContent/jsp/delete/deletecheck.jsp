@@ -14,7 +14,7 @@
 
 
  <div id="header">
-			<%@include file="/jsp/common/header.jsp"%>
+			<%@include file="/jsp/common/header_login.jsp"%>
  </div>
 	<h2>社員情削除確認画面</h2>
  <div id="main">
@@ -77,7 +77,7 @@
 		<form action="<%=request.getContextPath()%>/Delete" method="post">
 	            		<input type="submit" value="実行" />
 	     </form>
-	     <form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp" >
+	     <form action="<%=request.getContextPath()%>/ManageTopServlet" >
 		            	<input type="submit" value="戻る" />
 		 </form>
  </div>

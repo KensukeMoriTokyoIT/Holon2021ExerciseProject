@@ -12,7 +12,7 @@
 	<div id="contents">
 
 		<div id="header">
-			<%@include file="/jsp/common/header.jsp"%>
+			<%@include file="/jsp/common/header_login.jsp"%>
 		</div>
 
 		<h1>パスワード変更完了画面</h1>
