@@ -19,6 +19,11 @@ import jp.co.sss.emanage.form.DeleteForm;
 @WebServlet("/DeleteConfirmServlet")
 public class DeleteConfirmServlet extends HttpServlet {
 
+	public DeleteConfirmServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
