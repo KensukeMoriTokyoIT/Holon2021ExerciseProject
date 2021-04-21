@@ -12,11 +12,11 @@
 
 
  <div id="header">
-			<%@include file="/jsp/common/header_login.jsp"%>
+			<%@include file="/jsp/common/header.jsp"%>
  </div>
-
+	<h2>社員情削除確認画面</h2>
  <div id="main">
-			<h2>社員情削除確認画面</h2>
+
 			<h3>以下の社員情報を削除しますか？</h3>
 
 			<table class="deleatecheck">
@@ -52,7 +52,7 @@
 			</table>
 
 
-		<form action="<%=request.getContextPath()%>/jsp/delete/deletecomplete.jsp" method="post">
+		<form action="<%=request.getContextPath()%>/Delete" method="post">
 	            		<input type="submit" value="実行" />
 	     </form>
 	     <form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp" >

@@ -13,7 +13,7 @@ import jp.co.sss.emanage.dao.EmpDao;
 /**
  * Servlet implementation class Delete
  */
-@WebServlet("/deletecheck.jsp")
+@WebServlet("/Delete")
 public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
