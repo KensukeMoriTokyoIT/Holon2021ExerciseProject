@@ -9,7 +9,6 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -19,7 +18,6 @@ import jp.co.sss.emanage.util.Property;
 /**
  * Servlet Filter implementation class AuthorityCheckFilter
  */
-@WebFilter("/AuthorityCheckFilter")
 public class AuthorityCheckFilter implements Filter {
 
     /**
@@ -52,7 +50,6 @@ public class AuthorityCheckFilter implements Filter {
 	        dispatcher.forward(request, response);
 		} else {
 		EmpBean em2 = (EmpBean) session.getAttribute("user");
-		System.out.println("authoritycheck done");
 		if (em2.getAuthority().equals(Property.MANAGER)) {
 		} else {
 			RequestDispatcher dispatcher = request
