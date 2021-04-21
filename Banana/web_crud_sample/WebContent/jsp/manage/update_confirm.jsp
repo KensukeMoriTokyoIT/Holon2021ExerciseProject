@@ -13,8 +13,8 @@
 	</div>
   <article class="main">
 
-    <h2>社員削除確認画面</h2>
-    <h3>以下の社員情報を更新しますか？</h3>
+    <h2>社員更新確認画面</h2>
+    <h3>以下の内容で社員情報を更新しますか？</h3>
 
 	<div class=table_manage>
     <table>
@@ -63,13 +63,20 @@
     </table>
     </div>
 
-    	<form method="post" action="<%=request.getContextPath()%>/DeleteCompleteServlet">
+    	<form method="post" action="<%=request.getContextPath()%>/update_complete">
 			<input type="hidden" name="empId" value="${emp.empId}" />
-			<input type="submit" value="削除確定" />
+			<input type="hidden" name="empId" value="${emp.empPass}" />
+			<input type="hidden" name="empId" value="${emp.empName}" />
+			<input type="hidden" name="empId" value="${emp.gender}" />
+			<input type="hidden" name="empId" value="${emp.address}" />
+			<input type="hidden" name="empId" value="${emp.birthday}" />
+			<input type="hidden" name="empId" value="${emp.authority}" />
+			<input type="hidden" name="empId" value="${emp.deptId}" />
+			<input type="submit" value="実行" />
 		</form>
-		<form method="post" action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">
-			<input type="hidden" name="empId" value="${emp.empId}" />
-			<input type="submit" value="削除確定" />
+
+		<form method="post" action="<%=request.getContextPath()%>/UpdateForm">
+		<input type="submit" value="戻る" />
 		</form>
   </article>
 
