@@ -19,7 +19,7 @@
    <div id="main">
 			<h2>社員変更入力画面</h2>
 			<h3>変更する社員の情報を入力してください</h3>
-   <form action="<%=request.getContextPath() %>/InsertServlet" method="get">
+   <form action="<%=request.getContextPath() %>/InsertServlet">
       <table class="insertinput">
            <tr>
 		   <th>パスワード：</th>
@@ -31,7 +31,7 @@
            <tr>
 		   <th>社員名：
 		   <td style="border-style: none; text-align: center;">
-		   <input type="text" name="empName" maxlength="30" />
+		   <input type="text" name="empName" value="坂井勇一"maxlength="30" />
 		   <p style="color: red">${errormessage1}</p>
 		   </th>
 		   </td>
@@ -47,7 +47,7 @@
            <tr>
 		   <th>住所：</th>
 		   <td style="border-style:none; text-align: center;">
-		   <input type="text" name="address" maxlength="60">
+		   <input type="text" name="address"value maxlength="60">
 		   <p style="color: red">${errormessage3}</p>
 		   </td>
 		   </tr>

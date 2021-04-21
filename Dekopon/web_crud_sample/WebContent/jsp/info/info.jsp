@@ -10,7 +10,7 @@
 	<div id="contents">
 
 		<div id="header">
-			<%@include file="/jsp/common/header_infoTop.jsp"%>
+			<%@include file="/jsp/common/header.jsp"%>
 		</div>
 
 		<div class="select_func">

@@ -14,19 +14,14 @@
 
 		<div id="main">
 			<div class="contents">
-
+				<form id="loginform" method="post" action="<%=request.getContextPath()%>/SelfPasswordInputServlet">
 								<p style="color: red">${errorMessage}</p>
-								<form action"=<%=request.getContextPath()%>/SelfPasswordInputServlet"method="post">
-								</form>
-								<form id="loginform" method="post" action="<%=request.getContextPath()%>/SelfPassupdateServlet">
 					<table class="tac">
 			<h2>パスワード変更入力画面</h2>
-
 							<tr>
 							<th>現在のパスワード：</th>
-							<h3>パスワードが違います</h3>
-							<td style="border-style: none">
-								<input type="password" name="oldpass" maxlength="16" />
+							<td style="border-style: none; text-align: center;">
+								<input type="text" name="oldpass" maxlength="16" />
 							</td>
 						</tr>
 						<tr>
@@ -36,23 +31,19 @@
 								<input type="password" name="newpass1" maxlength="16" />
 							</td>
 						</tr>
+						<h3>パスワードが違います</h3>
 
 						<th>新しいパスワード：</th>
 							<td style="border-style: none">
-								<input type="password" name=newpass2" maxlength="16" />
+								<input type="password" name="newpass2" maxlength="16" />
 							</td>
 							<!--  <td><html:errors property="empPass" /></td> -->
 						</tr>
 				</table>
-				<imput type="hidden" name="empId" />
-
-
 					<input type="submit" value="変更" />
-						</form>
-<form action="<%=request.getContextPath()%>/InfoReturn" method="post">
-					<input type="submit" value="社員一覧に戻る" /></form>
+					<input type="submit" value="社員一覧に戻る" />
+				</form>
 			</div>
-
 		</div>
 		<div id="footer">
 			<%@include file="/jsp/common/footer.jsp"%>

@@ -11,7 +11,7 @@
 
 <body>
 	<div id="header">
-		<%@include file="/jsp/common/header.jsp"%>
+		<%@include file="/jsp/common/header_login.jsp"%>
 	</div>
 	<div id="main">
 

@@ -77,7 +77,7 @@
 		<form action="<%=request.getContextPath()%>/Delete" method="post">
 	            		<input type="submit" value="実行" />
 	     </form>
-	     <form action="<%=request.getContextPath()%>/ManageTopServlet" >
+	     <form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp" >
 		            	<input type="submit" value="戻る" />
 		 </form>
  </div>

@@ -11,7 +11,7 @@
 
 		<div id="contents">
 		<div id="header">
-		<%@include file="/jsp/common/header.jsp"%>
+		<%@include file="/jsp/common/header_login.jsp"%>
 		</div>
 
 		<div id="main">
@@ -23,8 +23,8 @@
    <h3>社員情報更新処理が完了しました。</h3>
    <h3 style="color: red"></h3>
     <form
-      action="<%=request.getContextPath()%>/ManageTopServlet"
-      method="get">
+      action="<%=request.getContextPath()%>/jsp/update/update.jsp"
+      method="post">
       <input type="submit" value="社員一覧に戻る" />
     </form>
   </article>

@@ -89,7 +89,7 @@ public class UpdateCheckServlet extends HttpServlet {
 		}
 
 		//入力チェック
-		if (errorMessages.size() == 0) {
+		if (errorMessages.isEmpty()) {
 			request.setAttribute("updateForm", updateForm);
 			RequestDispatcher dispatcher = request
 					.getRequestDispatcher("jsp/update/check.jsp");

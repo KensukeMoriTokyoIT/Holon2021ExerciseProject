@@ -46,7 +46,7 @@
 							<table>
 								<c:forEach var="errorMessage" items="${errorMessages}">
 									<tr>
-										<td><font color=red>${errorMessage}</font></td>
+										<td><p style="color: red">${errorMessage}</p></td>
 									</tr>
 								</c:forEach>
 							</table>

@@ -21,8 +21,8 @@
 			<h2>変更が完了しました。</h2>
 			<h3	style= color:red ></h3>
 
-			<form method="get"
-				action="<%=request.getContextPath()%>/ManageTopServlet">
+			<form method="post"
+				action="<%=request.getContextPath()%>/jsp/info/info.jsp">
 				<input type="submit" value="社員一覧に戻る" />
 			</form>
 		</div>

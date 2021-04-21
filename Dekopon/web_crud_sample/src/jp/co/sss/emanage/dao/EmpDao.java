@@ -563,7 +563,7 @@ public class EmpDao {
 			ps.setString(2, empBean.getEmpName()); // 名前を設定
 			ps.setString(3, empBean.getGender()); // 性別を設定
 			ps.setString(4, empBean.getAddress()); // 住所を設定
-			ps.setString(5, DateFormat.formatDate(empBean.getBirthday())); // 生年月日を設定
+			ps.setString(5, DateFormat.selectFormatDate(empBean.getBirthday())); // 生年月日を設定
 			ps.setString(6, empBean.getAuthority()); // 権限を設定
 			ps.setString(7, empBean.getDeptId()); // 部署IDを設定
 			ps.setString(8, empBean.getEmpId()); // 変更する社員のIDを設定
@@ -620,7 +620,7 @@ public class EmpDao {
 			ps.setString(2, empBean.getEmpName()); // 名前を設定
 			ps.setString(3, empBean.getGender()); // 性別を設定
 			ps.setString(4, empBean.getAddress()); // 住所を設定
-			ps.setString(5, empBean.getBirthday()); // 生年月日を設定 DateFormat.formatDate()必要??
+			ps.setString(5, empBean.getBirthday()); // 生年月日を設定
 			ps.setString(6, empBean.getAuthority()); // 権限を設定
 			ps.setString(7, empBean.getDeptId()); // 部署IDを設定
 

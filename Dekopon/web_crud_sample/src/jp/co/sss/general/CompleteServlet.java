@@ -1,4 +1,4 @@
-package jp.co.sss.emanage.manage;
+package jp.co.sss.general;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,8 +15,8 @@ import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.EmpDao;
 import jp.co.sss.emanage.util.InputValidator; //入力チェック
 
-@WebServlet("/ManagePassComplete")
-public class ManagePassComplete extends HttpServlet {
+@WebServlet("/CompleteServlet")
+public class  extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public ManagePassComplete() {
@@ -76,6 +76,3 @@ public class ManagePassComplete extends HttpServlet {
 		}
 
 	}
-
-
-
