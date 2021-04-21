@@ -17,6 +17,7 @@ div#contents {
 	flex-wrap: wrap;
 }
 
+
 div#header {
 	width: 100%;
 	background-color: DimGray;
@@ -27,11 +28,23 @@ div#header {
 	flex-wrap: wrap;
 }
 
+
 div#headerinfo {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
 	align-items: center;
+}
+
+div#headerother {
+	width: 100%;
+	background-color: DimGray;
+	color: White;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: left;
 }
 
 div#main {
@@ -143,6 +156,11 @@ table.tac {
 	text-align: left;
 	margin: 0 auto;
 }
+table.pass {
+	text-align: 0;
+	margin: 0;
+}
+
 
 table.w300 {
 	width: 300px;
@@ -157,6 +175,10 @@ td {
 	vertical-align: top;
 	padding: 0.5em;
 }
+
+ts{text-align: center;
+	vertical-align: top;
+	margin-top: 0em;}S
 
 tdl {
 	text-align: left;
@@ -179,6 +201,11 @@ h3 {
 	margin-top: 0;
 	color: Red;
 }
+
+tal{text-align: left;
+
+}
+
 
 input[type="submit"] {
 	margin: 0px 5px;
