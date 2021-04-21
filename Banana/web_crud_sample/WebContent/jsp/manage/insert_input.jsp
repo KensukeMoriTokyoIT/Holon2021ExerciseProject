@@ -23,10 +23,14 @@
     <tr>
 		<td>パスワード：</td>
 		<td><input type="password" name="password"></td>
+		<td> </td>
+		<td>${password_error}</td>
     </tr>
     <tr>
 		<td>社員名：</td>
 		<td><input type="text" name="empName"></td>
+		<td> </td>
+		<td>${empName_error}</td>
     </tr>
     <tr>
 		<td>性別：</td>
@@ -34,15 +38,20 @@
 		<label><input type="radio" name="gender" value="1"/>男性</label>
 		<label><input type="radio" name="gender" value="2"/>女性</label>
 		</td>
+		<td> </td>
+		<td>${gender_error}</td>
     </tr>
     <tr>
 		<td>住所：</td>
 		<td><input type="text" name="address"></td>
+		<td> </td>
+		<td>${address_error}</td>
     </tr>
     <tr>
 		<td>生年月日：</td>
 		<td><input type="text" name="birthday"></td>
 		<td>YYYY/MM/DD</td>
+		<td>${birthday_error}</td>
     </tr>
     <tr>
 		<td>権限：</td>
@@ -50,6 +59,8 @@
 		<label><input type="radio" name="authority" value="1"/>一般</label>
 		<label><input type="radio" name="authority" value="2"/>管理</label>
 		</td>
+		<td> </td>
+		<td>${authority_error}"</td>
     </tr>
     <tr>
 		<td>部署名：</td>
@@ -58,7 +69,8 @@
 		<option value="1">営業部</option>
 		<option value="2">経理部</option>
 		<option value="3">総務部</option>
-
+		<td> </td>
+		<td>${deptId_error}</td>
     </table>
 
     </div>
