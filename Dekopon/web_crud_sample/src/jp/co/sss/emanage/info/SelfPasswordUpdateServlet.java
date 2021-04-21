@@ -1,6 +1,8 @@
 package jp.co.sss.emanage.info;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -36,6 +38,8 @@ public class SelfPasswordUpdateServlet extends HttpServlet {
 			throws ServletException, IOException {
 		//入力チェック用クラス
 		InputValidator iv = new InputValidator();
+		String error = new String();
+		List<String> errorMessages = new ArrayList<>();
 
 		//前ページの情報取得
 		String empId = request.getParameter("empId");
@@ -45,19 +49,27 @@ public class SelfPasswordUpdateServlet extends HttpServlet {
 
 		// IDで検索する
 		EmpBean empBean = EmpDao.findById(empId);
-		String errorMessage = iv.passwordValidate(newPass);
 
 		request.setAttribute("empBean", empBean);
 
-		//入力した現在のパスワードがデータベースの値と一致しているとき
-		if (empBean != null && empBean.getEmpPass().equals(nowPass)) {
-			if (newPass.equals(newPassTwo)) {
+		//社員IDに対応すること社員が存在するか確認
+		if (empBean != null) {
+			//現在のパスワード正誤確認
+				if(!empBean.getEmpPass().equals(nowPass)) {
+					errorMessages.add(Property.NOW_PASSWORD_MISMATCH);
+				}
 				//新しいパスワードの入力チェック
-				//OK
-				if (errorMessage == null) {
+				if((error=iv.passwordValidate(newPass))!=null){
+					errorMessages.add(error);
+				}
+				//新しいパスワードの再入力があっているか
+				if(!newPass.equals(newPassTwo)) {
+					errorMessages.add("再入力されたパスワードが一致していません");
+				}
+
+				if(errorMessages.isEmpty()) {
 					//新しいパスワードに変更
 					empBean.setEmpPass(newPass);
-
 					//データベースに反映
 					EmpDao.update(empBean);
 
@@ -66,30 +78,17 @@ public class SelfPasswordUpdateServlet extends HttpServlet {
 							.getRequestDispatcher("jsp/selfPass/selfPassComplete.jsp");
 					dispatcher.forward(request, response);
 
-				} else { //未入力または桁数オーバー
-					request.setAttribute("errorMessageNewPass", errorMessage);
-
+				}else {
+					request.setAttribute("errorMessages", errorMessages);
 					// 入力画面へ遷移を行う
 					RequestDispatcher dispatcher = request
 							.getRequestDispatcher("/jsp/selfPass/selfPassInput.jsp");
 					dispatcher.forward(request, response);
 				}
-
-			}else { //新しいパスワードが再入力と一致しない
-				request.setAttribute("errorMessageNewPass2", "再入力されたパスワードが新しいパスワードと一致しません");
-
-				// 入力画面へ遷移を行う
-				RequestDispatcher dispatcher = request
-						.getRequestDispatcher("/jsp/selfPass/selfPassInput.jsp");
-				dispatcher.forward(request, response);
-			}
-
 		} else {
-			request.setAttribute("errorMessageNowPass", Property.NOW_PASSWORD_MISMATCH);
-
-			// 入力画面へ遷移を行う
+			// エラー画面へ遷移を行う
 			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("/jsp/selfPass/selfPassInput.jsp");
+					.getRequestDispatcher("/jsp/error/error.jsp");
 			dispatcher.forward(request, response);
 		}
 

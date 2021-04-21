@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jp.co.sss.emanage.bean.EmpBean;
+import jp.co.sss.emanage.util.DateFormat;
 
 /**
  * 社員テーブル用DAO
@@ -537,4 +538,92 @@ public class EmpDao {
         }
         return empList;
     }
+    /**
+     * 登録した更新情報の反映
+     * @param empBean
+     */
+    public static void update(EmpBean empBean) {
+    	Connection con = null;
+    	PreparedStatement ps = null;
+
+    	try {
+    	con = DBManager.getConnection();
+    	ps = con.prepareStatement("UPDATE employee SET emp_pass= ?, emp_name = ?,gender = ?,address =?, birthday=?,authority = ?, dept_id = ? where emp_id = ? ");
+
+
+    	ps.setString(1, empBean.getEmpPass());
+    	ps.setString(2, empBean.getEmpName());
+    	ps.setString(3, empBean.getGender());
+    	ps.setString(4, empBean.getAddress());
+    	ps.setString(5, DateFormat.formatDate(empBean.getBirthday()));
+    	ps.setString(6, empBean.getAuthority());
+    	ps.setString(7, empBean.getDeptId());
+    	ps.setString(8, empBean.getEmpId());
+
+    	ps.executeUpdate();
+    	}catch(SQLException e){
+    		  e.printStackTrace();
+        } finally {
+            // DB切断処理
+            DBManager.close(ps, con);
+        }
+
+    	}
+    /**
+     * 登録の反映
+     * @param empBean
+     */
+    public static void insert(EmpBean empBean) {
+    	Connection con = null;
+    	PreparedStatement ps = null;
+
+    	try {
+    	con = DBManager.getConnection();
+    	ps = con.prepareStatement("insert into employee (emp_id emp_pass emp_name gender address  birthday authority  dept_id  emp_id) values(?,?,?,?,?,?,?,?) ");
+
+
+    	ps.setString(1, empBean.getEmpPass());
+    	ps.setString(2, empBean.getEmpName());
+    	ps.setString(3, empBean.getGender());
+    	ps.setString(4, empBean.getAddress());
+    	ps.setString(5, DateFormat.formatDate(empBean.getBirthday()));
+    	ps.setString(6, empBean.getAuthority());
+    	ps.setString(7, empBean.getDeptId());
+    	ps.setString(8, empBean.getEmpId());
+
+    	ps.executeUpdate();
+    	}catch(SQLException e){
+    		  e.printStackTrace();
+        } finally {
+            // DB切断処理
+            DBManager.close(ps, con);
+        }
+
+
+    	}
+    /**
+     * データベースから情報削除
+     * @param empBean
+     */
+    public static void delete(String empId) {
+    	Connection con = null;
+    	PreparedStatement ps = null;
+
+    	try {
+    	con = DBManager.getConnection();
+    	ps = con.prepareStatement("DELETE FROM employee where emp_id = ? ");
+
+
+    	ps.setString(1, empId);
+
+    	ps.executeUpdate();
+    	}catch(SQLException e){
+    		  e.printStackTrace();
+        } finally {
+            // DB切断処理
+            DBManager.close(ps, con);
+        }
+
+    	}
+
 }

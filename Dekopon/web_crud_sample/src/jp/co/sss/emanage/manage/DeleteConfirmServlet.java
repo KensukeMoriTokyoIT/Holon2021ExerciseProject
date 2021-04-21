@@ -16,18 +16,25 @@ import jp.co.sss.emanage.form.DeleteForm;
 /**
  * Servlet implementation class DeleteConfirmServlet
  */
-@WebServlet("/manage.jsp")
+@WebServlet("/DeleteConfirmServlet")
 public class DeleteConfirmServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#HttpServlet()
+	*/
+	public DeleteConfirmServlet() {
+		super();
+	}
 
-
-
-
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		DeleteForm deleteForm = new DeleteForm();
 		//DBからID検索
-
 
 		EmpBean empBean = EmpDao.findById(request.getParameter("empId"));
 
@@ -40,8 +47,8 @@ public class DeleteConfirmServlet extends HttpServlet {
 		deleteForm.setDeptId(empBean.getDeptId());
 		deleteForm.setDeptName(empBean.getDeptName());
 
-		request.setAttribute("updateForm", deleteForm);
-		RequestDispatcher dispatcher = request  .getRequestDispatcher("jsp/delete/deletecheck.jsp");
-		  dispatcher.forward(request, response);
-			}
+		request.setAttribute("deleteForm", deleteForm);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/delete/deletecheck.jsp");
+		dispatcher.forward(request, response);
+	}
 }
