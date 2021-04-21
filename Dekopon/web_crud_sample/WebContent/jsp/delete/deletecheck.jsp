@@ -50,13 +50,15 @@
 					<td>${deleteForm.DeptId}</td>
 				</tr>
 			</table>
-		</div>
 
-		<form action="<%=request.getContextPath()%>/DeleteForm" method="post">
-	            		<input type="submit" value="実行" /><br>
+
+		<form action="<%=request.getContextPath()%>/jsp/delete/deletecomplete.jsp" method="post">
+	            		<input type="submit" value="実行" />
+	     </form>
+	      	<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp" >
 		            	<input type="submit" value="戻る" />
 		</form>
-
+</div>
 		<div id="footer">
 			<%@include file="/jsp/common/footer.jsp"%>
 		</div>
