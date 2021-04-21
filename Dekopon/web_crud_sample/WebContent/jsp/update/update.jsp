@@ -105,7 +105,7 @@
 
 				</table>
 
-       <form action="<%=request.getContextPath()%>/UpdateCheckServlet">
+       <form method="Post" action="<%=request.getContextPath()%>/UpdateCheckServlet">
 		<input type="submit" value="更新確認" />
 		</form>
 		<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">
