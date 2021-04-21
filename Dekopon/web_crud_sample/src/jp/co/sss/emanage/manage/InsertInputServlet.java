@@ -16,7 +16,12 @@ import jp.co.sss.emanage.bean.EmpBean;
  */
 @WebServlet("/InsertInputServlet")
 public class InsertInputServlet extends HttpServlet {
-			protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+
+				//DBからID検索
+
 
 				//それぞれの入力項目をそれぞれの変数に代入
 			//パスワード
