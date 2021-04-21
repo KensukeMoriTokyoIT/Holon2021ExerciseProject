@@ -16,6 +16,8 @@
     <h2>社員登録入力画面</h2>
     <h3>登録する社員の情報を入力してください</h3>
 
+    <form method="post" action="<%=request.getContextPath()%>/InsertConfirmServlet">
+
 	<div class=table_manage>
     <table>
     <tr>
@@ -40,6 +42,7 @@
     <tr>
 		<td>生年月日：</td>
 		<td><input type="text" name="birthday"></td>
+		<td>YYYY/MM/DD</td>
     </tr>
     <tr>
 		<td>権限：</td>
@@ -59,11 +62,9 @@
     </table>
 
     </div>
-
-    	<form method="post" action="<%=request.getContextPath()%>/InsertConfirmServlet">
-			<input type="hidden" name="empId" value="${emp.empId}" />
-			<input type="submit" value="登録確認" />
-		</form>
+		<input type="hidden" name="empId" value="${emp.empId}" />
+		<input type="submit" value="登録確認" />
+	</form>
 
 		<form method="post" action="<%=request.getContextPath()%>/ManageReturn">
 		<input type="submit" value="社員一覧表示に戻る" />
