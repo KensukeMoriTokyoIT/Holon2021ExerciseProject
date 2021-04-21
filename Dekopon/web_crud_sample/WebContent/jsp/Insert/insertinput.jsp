@@ -25,34 +25,34 @@
 					<tr>
 						<th>パスワード：</th>
 						<td style="border-style: none"><input type="password"
-							name="empPass" maxlength="16" /></td>
+							name="empPass" maxlength="16" /><label style="color": red">${ePassword}</label></td>
 					</tr>
 
 					<tr>
 						<th>社員名：</th>
 						<td style="border-style: none; text-align: center;"><input
-							type="text" name="empName" maxlength="30" /></td>
+							type="text" name="empName" maxlength="30" /><label style="color": red">${eName}</label></td>
 					</tr>
 					<tr>
 						<th>性別:</th>
 						<td><label><input type="radio" name="gender"
-								value="1">男性</label> <label><input type="radio"
-								name="gender" value="2">女性</label></td>
+								value="1">男性<label style="color": red">${eGendr}</label></label>
+								<label><input type="radio"	name="gender" value="2">女性</label></td>
 					</tr>
 
 					<tr>
 						<th>住所：</th>
 						<td style="border-style: none; text-align: center;">
-						<input	type="text" name="address" maxlength="60"></td>
+						<input	type="text" name="address" maxlength="60"><label style="color":red">${eAddress}</label></td>
 					</tr>
 					<tr>
 						<th>生年月日：</th>
-						<td><input type="date" name="birthday"></td>
+						<td><input type="date" name="birthday"><label style="color":red">${eBirthday}</label></td>
 					</tr>
 					<tr>
 						<th>権限：</th>
 						<td><label><input type="radio" name="authority"
-								value="1">一般</label> <label><input type="radio"
+								value="1">一般<label style="color":red">${eAuthority}</label></label> <label><input type="radio"
 								name="authority" value="2">管理</label></td>
 					</tr>
 
@@ -62,7 +62,7 @@
 								<option value="1" selected>営業部</option>
 								<option value="2">経理部</option>
 								<option value="3">総務部</option>
-						</select></td>
+						</select><label style="color":red">${eDeptName}</label></td>
 
 					</tr>
 
