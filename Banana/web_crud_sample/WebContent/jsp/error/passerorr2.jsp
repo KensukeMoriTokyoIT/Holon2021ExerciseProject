@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <html>
 <head>
 <link href="<%=request.getContextPath()%>/css/stylesheet.css" rel="stylesheet" type="text/css" />
@@ -17,7 +18,6 @@
 								<p style="color: red">${errorMessage}</p>
 					<table class="tac">
 			<h2>パスワード変更入力画面</h2>
-
 							<tr>
 							<th>現在のパスワード：</th>
 							<td style="border-style: none; text-align: center;">
@@ -25,11 +25,13 @@
 							</td>
 						</tr>
 						<tr>
+
 							<th>新しいパスワード：</th>
 							<td style="border-style: none">
 								<input type="password" name="newpass1" maxlength="16" />
 							</td>
 						</tr>
+						<h3>パスワードが違います</h3>
 
 						<th>新しいパスワード：</th>
 							<td style="border-style: none">
@@ -38,10 +40,7 @@
 							<!--  <td><html:errors property="empPass" /></td> -->
 						</tr>
 				</table>
-				<input type="hidden" name="empId" />
-				<from action="<%=request.getContextPath()%>/SelfPasswordInputServlet" method="post">
 					<input type="submit" value="変更" />
-				<from action="<%=request.getContextPath()%>/InfoRetum" method="post">
 					<input type="submit" value="社員一覧に戻る" />
 				</form>
 			</div>

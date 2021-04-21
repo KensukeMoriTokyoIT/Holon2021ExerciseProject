@@ -41,45 +41,52 @@ public class SelfPasswordInputServlet extends HttpServlet {
             String newpassword1 = request.getParameter("newpass1");
             String newpassword2 = request.getParameter("newpass2");
 
-           
-      
+            String empId = request.getParameter("empId");
+
             // 入力されたID、パスワードで検索する
-            EmpBean empBean = EmpDao.findByIdPass (empid,oldpassword);
+            EmpBean empBean = EmpDao.findByIdPass (empId,oldpassword);
 
             // 該当する社員が見つかり、かつ一般権限だった場合
             if (empBean != null
                     && empBean.getAuthority().equals(Property.EMPLOYEE)) {
 
 
-            //新パスワードを設定
+            	 //新パスワードを設定
 
             	if( newpassword1.equals(newpassword2)){
-            	  String newpassword1 = request.getParameter("newpass1");
-            	  newpassword1.setnewpassword1("newpass1");
-            	EmpBean empbean = EmpDao. 
-              
+            	 
+
+            	  //設定され次第入力
+              	EmpBean empbean = EmpDao. SetPass("newpass1");
+
+
+            	//完了画面へ遷移
+           	 RequestDispatcher dispatcher = request
+                        .getRequestDispatcher("/jsp/passok.jsp");
+                dispatcher.forward(request, response);
 
 
 
             }//if
-         
-            { //エラー表示
+
+            	else{ //エラー表示
             	 RequestDispatcher dispatcher = request
                          .getRequestDispatcher("/jsp/error/passerror1.jsp");
                  dispatcher.forward(request, response);
              }
-         }{ //エラー表示
+         }
+            else { //エラー表示
         	 RequestDispatcher dispatcher = request
                      .getRequestDispatcher("/jsp/error/passerror2.jsp");
              dispatcher.forward(request, response);
          }
      }
 
-   
+
         }//dontfind
 
 
-       
+
 
 
 
