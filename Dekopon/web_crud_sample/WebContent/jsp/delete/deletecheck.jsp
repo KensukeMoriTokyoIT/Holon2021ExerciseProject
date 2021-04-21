@@ -11,11 +11,11 @@
 <body>
 
 
-		<div id="header">
+ <div id="header">
 			<%@include file="/jsp/common/header_login.jsp"%>
-		</div>
+ </div>
 
-		<div id="main">
+ <div id="main">
 			<h2>社員情削除確認画面</h2>
 			<h3>以下の社員情報を削除しますか？</h3>
 
@@ -55,13 +55,13 @@
 		<form action="<%=request.getContextPath()%>/jsp/delete/deletecomplete.jsp" method="post">
 	            		<input type="submit" value="実行" />
 	     </form>
-	      	<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp" >
+	     <form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp" >
 		            	<input type="submit" value="戻る" />
-		</form>
-</div>
-		<div id="footer">
+		 </form>
+ </div>
+ <div id="footer">
 			<%@include file="/jsp/common/footer.jsp"%>
-		</div>
+ </div>
 
 </body>
 </html>

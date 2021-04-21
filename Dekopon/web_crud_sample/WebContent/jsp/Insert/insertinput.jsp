@@ -42,8 +42,8 @@
 
 					<tr>
 						<th>住所：</th>
-						<td style="border-style: none; text-align: center;"><input
-							type="text" name="address" maxlength="60"></td>
+						<td style="border-style: none; text-align: center;">
+						<input	type="text" name="address" maxlength="60"></td>
 					</tr>
 					<tr>
 						<th>生年月日：</th>
