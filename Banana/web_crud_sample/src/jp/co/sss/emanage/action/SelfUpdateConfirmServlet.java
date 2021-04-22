@@ -1,4 +1,4 @@
-package jp.co.sss.emanage.manage;
+package jp.co.sss.emanage.action;
 
 import java.io.IOException;
 
@@ -8,19 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.sss.emanage.dao.EmpDao;
+import jp.co.sss.emanage.bean.EmpBean;
 
 /**
- * Servlet implementation class UpdateCompleteServlet
+ * Servlet implementation class SelfUpdateConfirmServlet
  */
-@WebServlet("/UpdateCompleteServlet")
-public class UpdateCompleteServlet extends HttpServlet {
+@WebServlet("/SelfUpdateConfirmServlet")
+public class SelfUpdateConfirmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateCompleteServlet() {
+    public SelfUpdateConfirmServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,10 +47,19 @@ public class UpdateCompleteServlet extends HttpServlet {
 		String authority = request.getParameter("authority");
 		String deptId = request.getParameter("deptId");
 
-		EmpDao.update(empId, password, empName, gender, address, birthday, authority, deptId);
+		EmpBean emp = new EmpBean();
 
-		request.getRequestDispatcher("jsp/manage/update_complete.jsp").forward(request,response);
+		emp.setEmpId(empId);
+		emp.setEmpPass(password);
+		emp.setEmpName(empName);
+		emp.setGender(gender);
+		emp.setAddress(address);
+		emp.setBirthday(birthday);
+		emp.setAuthority(authority);
+		emp.setDeptId(deptId);
 
+		request.setAttribute("emp", emp);
+		request.getRequestDispatcher("jsp/info/self_update_confirm.jsp").forward(request,response);
 	}
 
 }
