@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 import jp.co.sss.emanage.action.UserCheck;
 import jp.co.sss.emanage.bean.EmpBean;
-import jp.co.sss.emanage.util.DateFormat;
 import jp.co.sss.emanage.util.InputValidator;
 
 /**
@@ -76,10 +75,7 @@ public class InsertCheckServlet extends HttpServlet {
 				errorMessages.add(error);
 			}
 			//生年月日を受け取る
-			String birthday =request.getParameter("birthday");
-			birthday = DateFormat.formatDate(birthday);
-			birthday = birthday.replace("-", "/");
-			System.out.println(birthday);
+			String birthday = request.getParameter("birthday");
 			//生年月日が無記入の場合、エラーメッセージを表示
 			if ((error = iv.birthdayValidate(birthday)) != null) {
 				errorMessages.add(error);

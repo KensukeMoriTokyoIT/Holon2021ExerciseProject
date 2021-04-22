@@ -37,7 +37,7 @@
 									<th>新しいパスワード(再入力)</th>
 									<td><input type="password" name="newPassTwo"
 										maxlength='15' /></td>
-								</tr>
+									</tr>
 							</table>
 						</td>
 
