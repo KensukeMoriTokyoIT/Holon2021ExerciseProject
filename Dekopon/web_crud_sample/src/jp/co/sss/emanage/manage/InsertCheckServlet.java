@@ -38,8 +38,10 @@ public class InsertCheckServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		EmpBean user = (EmpBean) session.getAttribute("user");
 
+		System.out.println("test:" + user.getEmpId());
+
 		//ログイン管理 & 権限チェック
-		if (UserCheck.loginCheck(user)==true && UserCheck.authorityCheck(user)==true) {
+		if (UserCheck.loginCheck(user)) {
 			//ログインOK、権限OK -->処理実行
 			//オブジェクトを生成
 			EmpBean emp = new EmpBean();
