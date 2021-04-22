@@ -33,6 +33,7 @@
 						</tr>
 
 					</table>
+					<input type="hidden" name="empId" value="<%=request.getAttribute("empId")%>" />
 					<input type="submit" value="変更" />
 			</form>
 

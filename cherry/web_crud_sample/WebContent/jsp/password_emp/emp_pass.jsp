@@ -15,35 +15,36 @@
 
 		<div id="main">
 			<div class="contents">
-				<form id="passform" method="post" action="<%=request.getContextPath()%>/EmployeePasswordChangeServlet">
+			<form action="<%=request.getContextPath()%>/SelfPasswordUpdateServlet"
+				 id="passform" method="post" >
 								<p style="color: red">${errorMessage}</p>
 					<table class="tac">
 						<tr>
-							<th>パスワード：</th>
-							<td style="border-style: none; text-align: center;">
-								<input type="password" name="empPass" maxlength="16" />
+							<th>現在のパスワード：</th>
+							<td style="border-style: none">
+								<input type="password" name="emp_Pass" maxlength="16" />
 							</td>
 						</tr>
 						<tr>
 							<th>新しいパスワード：</th>
 							<td style="border-style: none">
-								<input type="password" name="empNewPass" maxlength="16" />
+								<input type="password" name="empPass" maxlength="16" />
 							</td>
 						</tr>
 						<tr>
 							<th>新しいパスワード(確認用)：</th>
 							<td style="border-style: none">
-								<input type="password" name="empNewPass" maxlength="16" />
+								<input type="password" name="empRePass" maxlength="16" />
 							</td>
-						</tr>
-						<tr>
-							<!--  <td><html:errors property="empPass" /></td> -->
 						</tr>
 
 					</table>
-					<input type="submit" value="変更" action="<%=request.getContextPath()%>/EmployeePasswordChangeServlet" />
-					<input type="submit" value="社員一覧に戻る" action />
-				</form>
+					<input type="submit" value="変更" />
+			</form>
+
+					<form method="get" action="<%=request.getContextPath()%>/InfoTopServlet">
+						<input type="submit" value="社員一覧に戻る" />
+						</form>
 			</div>
 		</div>
 		<div id="footer">
