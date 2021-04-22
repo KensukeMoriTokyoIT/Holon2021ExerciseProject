@@ -41,10 +41,7 @@ public class ManagePasswordCompleteServlet extends HttpServlet {
 
 
 
-		   String newpassword = request.getParameter("newpass1");
-		   String newpassword2 = request.getParameter("newpass2");
-
-
+		   String newpassword = request.getParameter("newpassword");
 
 
 
@@ -53,7 +50,7 @@ public class ManagePasswordCompleteServlet extends HttpServlet {
 
 
 
-			EmpDao.updatePassword(newPassword,empId);
+			EmpDao.updatePassword(newpassword,empId);
 
 
 
