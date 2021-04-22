@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,29 +12,22 @@
 </head>
 <body>
 
-<div id="contents">
+
 <div id="header">
 			<%@include file="/jsp/common/header_login.jsp"%>
 </div>
-
+<div id="contents">
    <div id="main">
 			<h2>社員情報変更入力画面</h2>
 			<h3>変更する社員の情報を入力してください</h3>
-   <form action="<%=request.getContextPath() %>/InsertServlet">
-      <table class="insertinput">
-           <tr>
-		   <th>パスワード：</th>
-		   <td style="border-style: none">
-		   <input type="password" name="empPass" maxlength="16" />
 
-		   </td>
-		   </tr>
+      <table class="insertinput">
+
            <tr>
-		   <th>社員名：
+		   <th>社員名： </th>
 		   <td style="border-style: none; text-align: center;">
 		   <input type="text" name="empName"maxlength="30" />
 		   <p style="color: red">${error}</p>
-		   </th>
 		   </td>
 		   </tr>
 		　 <tr>
@@ -57,14 +51,7 @@
 		   <p style="color: red">${error}</p>
 		   </td>
 		   </tr>
-		   <tr>
-		   <th>権限：</th>
-		   <td >
-		   <label><input type="radio" name="authority"value="1">一般</label>
-		   <label><input type="radio" name="authority" value="2">管理</label>
-		   <p style="color: red">${error}</p>
-		   </td>
-		   </tr>
+		  <tr>
 		   <th>部署名：</th>
 		   <td>
 		   <select name="department">
@@ -74,19 +61,22 @@
 		   <p style="color: red">${error}</p>
 		   </select>
            </td>
+           </tr>
            <c:forEach var="errorMessage" items="${errorMessages}">
 									<tr>
 										<td><font color=red>${errorMessage}</font></td>
 									</tr>
 								</c:forEach>
-  </form>
+
   </table>
    <form action="<%=request.getContextPath() %>/InsertServlet">
-  <input type="submit" value="更新確認" /></br>
+  <input type="submit" value="更新確認" />
   </form>
    <form action="<%=request.getContextPath() %>/InfoTopServlet">
   <input type="submit" value="社員一覧に戻る" />
   </form>
+</div>
+</div>
   	<div id="footer">
 			<%@include file="/jsp/common/footer.jsp"%>
 	</div>
