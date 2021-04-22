@@ -23,7 +23,7 @@ public class InsertCheck extends HttpServlet {
 
 
 	SelfUpdateForm userInfo = new SelfUpdateForm();
-	userInfo.setEmpId(request.getParameter("empId"));
+
 	userInfo.setEmpName(request.getParameter("empName"));
 	userInfo.setGender(request.getParameter("gender"));
 	userInfo.setAddress(request.getParameter("address"));
