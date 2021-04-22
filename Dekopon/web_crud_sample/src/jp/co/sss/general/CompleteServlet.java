@@ -16,10 +16,10 @@ import jp.co.sss.emanage.dao.EmpDao;
 import jp.co.sss.emanage.util.InputValidator; //入力チェック
 
 @WebServlet("/CompleteServlet")
-public class  extends HttpServlet {
+public class CompleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public ManagePassComplete() {
+	public CompleteServlet() {
 		super();
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
