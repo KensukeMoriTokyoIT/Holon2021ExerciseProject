@@ -30,7 +30,7 @@
 					<th>パスワード:</th>
 					<td style="border-style: none; text-align: center;"><input
 						type="password" name="empPass"  maxlength="16"><label
-						style="color: red">${ePass}</label></td></tr>
+						style="color: red">${ePassword}</label></td></tr>
 
 				<tr>
 					<th>性別:</th>

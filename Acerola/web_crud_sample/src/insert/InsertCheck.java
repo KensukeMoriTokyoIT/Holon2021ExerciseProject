@@ -54,7 +54,7 @@ public class InsertCheck extends HttpServlet {
 			}
 		 else if (userInfo.getEmpPass().length() > 16) {
 				request.setAttribute("user", userInfo);
-				request.setAttribute("eName", Property.PASSWORD_LENGTH_OVER);
+				request.setAttribute("ePassword", Property.PASSWORD_LENGTH_OVER);
 				request.getRequestDispatcher("/jsp/insert/InsertInput.jsp").forward(request,response);
 			}
 
