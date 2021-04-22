@@ -44,6 +44,8 @@ public class ManagePasswordInputServlet extends HttpServlet {
 
 
 
+
+
 		String empId = request.getParameter("empId");
 		EmpBean emp = EmpDao.findById(empId);
 		request.setAttribute("emp", emp);
