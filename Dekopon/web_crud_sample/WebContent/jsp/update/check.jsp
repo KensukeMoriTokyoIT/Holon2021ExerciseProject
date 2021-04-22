@@ -81,7 +81,7 @@
 					type="hidden" name="birthday" value="${updateForm.birthday}" /> <input
 					type="hidden" name="authority" value="${updateForm.authority}" />
 				<input type="hidden" name="department"
-					value="${updateForm.depertment}" />
+					value="${updateForm.department}" />
 
 			</form>
 			<input type="submit" value="実行" /> <input type="submit" value="戻る" />
