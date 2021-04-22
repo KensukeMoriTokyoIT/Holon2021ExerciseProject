@@ -15,7 +15,7 @@ import jp.co.sss.emanage.util.DateFormat;
 /**
  * Servlet implementation class SelfUpdateInput
  */
-@WebServlet("/UpdateInputServlet")
+@WebServlet("/online/authority/UpdateInputServlet")
 public class UpdateInput extends HttpServlet {
 
 

@@ -17,7 +17,7 @@ import jp.co.sss.emanage.util.Property;
 /**
  * Servlet implementation class UpdateCheck
  */
-@WebServlet("/MgrUpdateCheckServlet")
+@WebServlet("/online/authority/MgrUpdateCheckServlet")
 public class MgrUpdateCheck extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

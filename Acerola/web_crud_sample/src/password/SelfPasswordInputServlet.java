@@ -14,7 +14,7 @@ import jp.co.sss.emanage.dao.EmpDao;
 /**
  * Servlet implementation class SelfPasswordInputServlet
  */
-@WebServlet("/SelfPasswordInputServlet")
+@WebServlet("/online/SelfPasswordInputServlet")
 public class SelfPasswordInputServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

@@ -14,7 +14,7 @@ import jp.co.sss.emanage.dao.EmpDao;
 /**
  * Servlet implementation class UpdateConfirm
  */
-@WebServlet("/MgrUpdateConfirmServlet")
+@WebServlet("/online/authority/MgrUpdateConfirmServlet")
 public class MgrUpdateConfirm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

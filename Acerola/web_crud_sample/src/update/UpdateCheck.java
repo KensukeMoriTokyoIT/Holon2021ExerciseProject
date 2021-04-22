@@ -17,7 +17,7 @@ import jp.co.sss.emanage.util.Property;
 /**
  * Servlet implementation class UpdateCheck
  */
-@WebServlet("/UpdateCheckServlet")
+@WebServlet("/online/UpdateCheckServlet")
 public class UpdateCheck extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
