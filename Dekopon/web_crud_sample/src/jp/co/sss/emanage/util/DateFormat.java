@@ -8,10 +8,10 @@ package jp.co.sss.emanage.util;
  */
 public class DateFormat {
     /**
-     * 日本形式の日付(yyyy年MM月dd日)または (yyyy-MM-dd-)を yyyy/mm/ddの形式へと変換するメソッド
+     * 日本形式の日付(yyyy年MM月dd日)を yyyy-mm-ddの形式へと変換するメソッド
      *
      * @param 日付
-     *            (yyyy年MM月dd日形式)または (yyyy-MM-dd-形式)
+     *            (yyyy年MM月dd日形式)
      *
      * @return 日付(yyyy/MM/dd形式)
      */
@@ -26,7 +26,7 @@ public class DateFormat {
         String dayStr = dateJP.substring(8, 10);
 
         // 取り出した変数をyyyy-MM-ddへと並び替える。
-        date = yearStr + "/" + monthStr + "/" + dayStr;
+        date = yearStr + "-" + monthStr + "-" + dayStr;
 
         return date;
 
@@ -40,9 +40,9 @@ public class DateFormat {
      */
     public static String selectFormatDate(String selectDate){
 
-        selectDate = selectDate.replace('年', '/');
-        selectDate = selectDate.replace('月', '/');
-        selectDate = selectDate.substring(0,selectDate.length()-1);
+        selectDate = selectDate.replace('-', '/');
+        //selectDate = selectDate.replace('月', '/');
+        //selectDate = selectDate.substring(0,selectDate.length()-1);
 
         return selectDate;
 
