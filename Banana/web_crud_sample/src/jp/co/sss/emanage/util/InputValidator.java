@@ -18,8 +18,10 @@ public class InputValidator {
 
         if (password == null || password.isEmpty()) {
             error = Property.PASSWORD_EMPTY;
-        } else if (password.length() > 15) {
+        } else if (password.length() > 16) {
             error = Property.PASSWORD_LENGTH_OVER;
+        } else if(!Pattern.matches("^[0-9a-zA-Z]+$",password)) {
+        	error = "パスワードに使用できるのは半角英数文字のみです。";
         }
         return error;
     }
@@ -33,7 +35,7 @@ public class InputValidator {
 
         if (name == null || name.isEmpty()) {
             error = Property.NAME_EMPTY;
-        } else if (name.length() > 15) {
+        } else if (name.length() > 30) {
             error = Property.NAME_LENGTH_OVER;
         }
         return error;
@@ -63,7 +65,7 @@ public class InputValidator {
 
         if (address == null || address.isEmpty()) {
             error = Property.ADDRESS_EMPTY;
-        } else if (address.length() > 30) {
+        } else if (address.length() > 60) {
             error = Property.ADDRESS_LENGTH_OVER;
         }
         return error;

@@ -45,23 +45,11 @@ public class ManagePasswordInputServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-
-
-
-
-
-
 		String empId = request.getParameter("empId");
 		EmpBean emp = EmpDao.findById(empId);
 		request.setAttribute("emp", emp);
 		request.getRequestDispatcher("jsp/manage/managepass_insert.jsp").forward(request,response);
 
-
-
-
-
 	}
-
-
 
 }
