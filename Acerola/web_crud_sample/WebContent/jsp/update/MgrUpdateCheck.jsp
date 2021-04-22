@@ -14,10 +14,10 @@
 		<%@include file="/jsp/common/header_login.jsp"%>
 	</div>
 
-	<p style="display: inline">社員登録確認画面</p>
+	<p style="display: inline">社員情報更新確認画面</p>
 	<div id="main">
 		<p>
-			<font color="red">以下の内容で社員情報を登録しますか？</font>
+			<font color="red">以下の内容で社員情報を更新しますか？</font>
 		</p>
 		<p>社員名： ${user.empName}</p>
 		<p>性別: <c:choose>
