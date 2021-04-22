@@ -10,7 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import jp.co.sss.emanage.action.UserCheck;
 import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.EmpDao;
 import jp.co.sss.emanage.util.InputValidator; //入力チェック
@@ -22,60 +24,67 @@ public class ManagePassComplete extends HttpServlet {
 	public ManagePassComplete() {
 		super();
 	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		InputValidator iv = new InputValidator();
-		String error = new String();
-		List<String> errorMessages = new ArrayList<>();
+		//セッション取得
+		HttpSession session = request.getSession();
+		EmpBean user = (EmpBean) session.getAttribute("user");
 
-		String empId = request.getParameter("empId");
-		String newPass = request.getParameter("newPass");
-		String newPassTwo = request.getParameter("newPassTwo");
+		//ログイン管理 & 権限チェック
+		if (UserCheck.loginCheck(user) && UserCheck.authorityCheck(user)) {
+			//ログインOK、権限OK -->処理実行
+			InputValidator iv = new InputValidator();
+			String error = new String();
+			List<String> errorMessages = new ArrayList<>();
 
-		EmpBean empBean = EmpDao.findById(empId);
+			String empId = request.getParameter("empId");
+			String newPass = request.getParameter("newPass");
+			String newPassTwo = request.getParameter("newPassTwo");
 
-		request.setAttribute("empBean", empBean);
+			EmpBean empBean = EmpDao.findById(empId);
 
-		if (empBean != null) {
+			request.setAttribute("empBean", empBean);
 
+			if (empBean != null) {
+				if ((error = iv.passwordValidate(newPass)) != null) {
+					errorMessages.add(error);
+				}
+				//新しいパスワードの再入力があっているか
+				if (!newPass.equals(newPassTwo)) {
+					errorMessages.add("再入力されたパスワードが一致していません");
+				}
 
-		if((error=iv.passwordValidate(newPass))!=null){
-			errorMessages.add(error);
-		}
-		//新しいパスワードの再入力があっているか
-		if(!newPass.equals(newPassTwo)) {
-			errorMessages.add("再入力されたパスワードが一致していません");
-		}
+				if (errorMessages.isEmpty()) {
+					//新しいパスワードに変更
+					empBean.setEmpPass(newPass);
+					//データベースに反映
+					EmpDao.update(empBean);
 
-		if(errorMessages.isEmpty()) {
-			//新しいパスワードに変更
-			empBean.setEmpPass(newPass);
-			//データベースに反映
-			EmpDao.update(empBean);
+					//完了画面に遷移
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("jsp/managePass/managePassComplete.jsp");
+					dispatcher.forward(request, response);
 
-			//完了画面に遷移
-			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("jsp/managePass/managePassComplete.jsp");
-			dispatcher.forward(request, response);
-
-		}else {
-			request.setAttribute("errorMessages", errorMessages);
-			// 入力画面へ遷移を行う
-			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("/jsp/managePass/managePassInput.jsp");
-			dispatcher.forward(request, response);
+				} else {
+					request.setAttribute("errorMessages", errorMessages);
+					// 入力画面へ遷移を行う
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("/jsp/managePass/managePassInput.jsp");
+					dispatcher.forward(request, response);
+				}
+			} else {
+				// エラー画面へ遷移を行う
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("/jsp/error/error.jsp");
+				dispatcher.forward(request, response);
 			}
-	}else {
-	// エラー画面へ遷移を行う
-	RequestDispatcher dispatcher = request
-			.getRequestDispatcher("/jsp/error/error.jsp");
-	dispatcher.forward(request, response );
-			}
 
+		} else {
+			//ログインNG、または権限NG
+			//ログイン画面へ遷移
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
-
 	}
-
-
-
+}
