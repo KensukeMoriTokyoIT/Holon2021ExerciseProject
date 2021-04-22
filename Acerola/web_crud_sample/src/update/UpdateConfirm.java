@@ -32,6 +32,7 @@ public class UpdateConfirm extends HttpServlet {
 
 		EmpDao.update(userInfo);
 
+		request.setAttribute("user", userInfo);
 		request.getRequestDispatcher("/jsp/update/UpdateConfirm.jsp").forward(request, response);
 	}
 
