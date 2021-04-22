@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.sss.emanage.bean.EmpBean;
+import jp.co.sss.emanage.util.InputValidator;
 
 /**
  * Servlet implementation class UpdateConfirm
@@ -47,8 +48,24 @@ public class UpdateConfirmServlet extends HttpServlet {
 		String authority = request.getParameter("authority");
 		String deptId = request.getParameter("deptId");
 
-		EmpBean emp = new EmpBean();
+		InputValidator validator = new InputValidator();
+		String password_error = validator.passwordValidate(password);
+		String empName_error = validator.nameValidate(empName);
+		String gender_error = validator.genderValidate(gender);
+		String address_error = validator.addressValidate(address);
+		String birthday_error = validator.birthdayValidate(birthday);
+		String authority_error = validator.authorityValidate(authority);
+		String deptId_error = validator.deptIdValidate(deptId);
 
+		request.setAttribute("password_error",password_error);
+		request.setAttribute("empName_error", empName_error);
+		request.setAttribute("gender_error", gender_error);
+		request.setAttribute("address_error", address_error);
+		request.setAttribute("birthday_error", birthday_error);
+		request.setAttribute("authority_error", authority_error);
+		request.setAttribute("deptId_error", deptId_error);
+
+		EmpBean emp = new EmpBean();
 		emp.setEmpId(empId);
 		emp.setEmpPass(password);
 		emp.setEmpName(empName);
@@ -57,9 +74,28 @@ public class UpdateConfirmServlet extends HttpServlet {
 		emp.setBirthday(birthday);
 		emp.setAuthority(authority);
 		emp.setDeptId(deptId);
-
 		request.setAttribute("emp", emp);
-		request.getRequestDispatcher("jsp/manage/update_confirm.jsp").forward(request,response);
+
+
+		if (password_error != null ||
+			empName_error  != null  ||
+			gender_error   != null  ||
+			address_error  != null  ||
+			birthday_error != null  ||
+			authority_error!= null  ||
+			deptId_error   != null) {
+			System.out.println(password_error);
+			System.out.println(empName_error);
+			System.out.println(gender_error);
+			System.out.println(address_error);
+			System.out.println(birthday_error);
+			System.out.println(authority_error);
+			System.out.println(deptId_error);
+			request.getRequestDispatcher("jsp/manage/update.jsp").forward(request,response);
+		}
+		else {
+			request.getRequestDispatcher("jsp/manage/update_confirm.jsp").forward(request,response);
+		}
 	}
 
 }
