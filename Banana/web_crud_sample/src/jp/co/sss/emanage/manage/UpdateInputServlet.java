@@ -34,6 +34,9 @@ public class UpdateInputServlet extends HttpServlet {
 		String empId = request.getParameter("empId");
 
 		EmpBean emp = EmpDao.findById(empId);
+		String Original = emp.getBirthday();
+		String Birthday = Original.substring(0,4)+"/"+Original.substring(5,7)+"/"+Original.substring(8,10);
+		emp.setBirthday(Birthday);
 		request.setAttribute("emp", emp);
 		request.getRequestDispatcher("jsp/manage/update.jsp").forward(request,response);
 	}

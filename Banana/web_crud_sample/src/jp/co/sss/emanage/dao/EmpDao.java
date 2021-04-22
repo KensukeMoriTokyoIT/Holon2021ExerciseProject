@@ -4,10 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import jp.co.sss.emanage.bean.EmpBean;
@@ -632,17 +629,7 @@ public class EmpDao {
             ps.setString(2, empName);
             ps.setString(3, gender);
             ps.setString(4, address);
-
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
-            try{
-                Date birthday_date = sdf.parse(birthday);
-                String str = new SimpleDateFormat("yyyy-MM-dd").format(birthday_date);
-                java.sql.Date birthday_sqldate = java.sql.Date.valueOf(str);
-                ps.setDate(5, birthday_sqldate);
-            }catch(ParseException e){
-                e.printStackTrace();
-            }
-
+            ps.setString(5, birthday);
             ps.setString(6, authority);
             ps.setString(7, deptId);
             ps.setString(8, empId);
