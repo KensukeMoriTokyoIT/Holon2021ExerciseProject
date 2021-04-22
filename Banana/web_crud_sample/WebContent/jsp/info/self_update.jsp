@@ -25,6 +25,7 @@
 					<tr>
 						<td>社員名：</td>
 						<td><input type="text" name="empName" value="${emp.empName}">
+						<td>${empName_error}</td>
 					</tr>
 					<tr>
 						<td>性別：</td>
@@ -41,15 +42,22 @@
 										checked>女性</label>
 								</c:otherwise>
 							</c:choose></td>
+
+						<td>${gender_error}</td>
+
 					</tr>
 					<tr>
 						<td>住所：</td>
 						<td><input type="text" name="address" value="${emp.address}"></td>
+						<td>${address_error}</td>
+
 					</tr>
 					<tr>
 						<td>生年月日：</td>
 						<td><input type="text" name="birthday"
 							value="${emp.birthday}"></td>
+						<td>${birthday_error}</td>
+
 					</tr>
 					<tr>
 						<td>権限：</td>
@@ -66,6 +74,8 @@
 										checked>管理</label>
 								</c:otherwise>
 							</c:choose></td>
+							<td>${authority_error}</td>
+
 					</tr>
 					<tr>
 						<td>部署名：</td>
@@ -74,9 +84,9 @@
 								<option value="2">経理部</option>
 								<option value="3">総務部</option>
 						</select>
+						<td>${deptId_error}</td>
+
 				</table>
-
-
 
 				<input type="hidden" name="password" value="${emp.empPass}" />
 				<input type="hidden" name="empId" value="${emp.empId}" /> <input
