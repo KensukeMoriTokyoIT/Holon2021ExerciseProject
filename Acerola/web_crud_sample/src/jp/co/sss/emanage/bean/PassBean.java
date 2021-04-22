@@ -8,7 +8,14 @@ private String empId;
 private String oldPass;
 private String newPass;
 private String passCheck;
+private String empPass;
 
+public String getEmpPass() {
+	return empPass;
+}
+public void setEmpPass(String oldPassCheck) {
+	this.empPass = oldPassCheck;
+}
 public String getOldPass() {
 	return oldPass;
 }
