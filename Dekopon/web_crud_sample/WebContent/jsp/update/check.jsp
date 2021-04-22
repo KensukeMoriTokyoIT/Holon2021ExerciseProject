@@ -77,7 +77,7 @@
 					type="hidden" name="empPass" value="${updateForm.empPass}" /> <input
 					type="hidden" name="empName" value="${updateForm.empName}" /> <input
 					type="hidden" name="gender" value="${updateForm.gender}" /> <input
-					type="hidden" name="adress" value="${updateForm.adress}" /> <input
+					type="hidden" name="address" value="${updateForm.adress}" /> <input
 					type="hidden" name="birthday" value="${updateForm.birthday}" /> <input
 					type="hidden" name="authority" value="${updateForm.authority}" />
 				<input type="hidden" name="department"
