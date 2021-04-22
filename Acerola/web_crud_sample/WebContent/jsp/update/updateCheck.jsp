@@ -44,7 +44,7 @@
 		<input type="hidden" name="deptId" value="${user.deptId}"/>
 		<input type="submit" value="更新" />
 	</form>
-	<form action="<%=request.getContextPath()%>/SelfUpdateInputServlet"  id="inputform"  method="post">
+	<form action="<%=request.getContextPath()%>/SelfUpdateInputServlet"  id="inputform"  method="get">
 	<input type="hidden" name="empId" value="${user.empId}"/>
 		<input type="hidden" name="empName" value="${user.empName}"/>
 		<input type="hidden" name="gender" value="${user.gender}"/>

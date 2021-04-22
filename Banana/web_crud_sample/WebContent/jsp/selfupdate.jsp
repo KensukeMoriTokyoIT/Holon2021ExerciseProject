@@ -16,7 +16,7 @@
 	<h2>社員更新入力画面</h2>
 	<h3>更新する社員の情報を入力してください</h3>
 
-	<form method="post" action="<%=request.getContextPath()%>/SelfUpdateImputServlet">
+	<form method="post" action="<%=request.getContextPath()%>/SelfUpdateInputServlet">
 
 	<div class=table_emp>
 	<table>

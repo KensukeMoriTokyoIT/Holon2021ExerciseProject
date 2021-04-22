@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +15,7 @@
 
 	<div id="contents">
 		<div id="header">
-			<%@include file="/jsp/common/header_login.jsp"%>
+			<%@include file="/jsp/common/header.jsp"%>
 		</div>
 		<div id="main">
 			<div class="contents">
@@ -28,12 +28,6 @@
 					<h2>社員情報更新入力画面</h2>
 					<table class="updateinput">
 						<tr>
-							<th>パスワード：</th>
-							<td style="border-style: none"><input type="password"
-								name="empPass" maxlength="16" /></td>
-						</tr>
-
-						<tr>
 							<th>社員名：</th>
 							<td style="border-style: none; text-align: center;"><input
 								type="text" name="empName" maxlength="30"
@@ -41,8 +35,7 @@
 						</tr>
 						<tr>
 							<th>性別:</th>
-							<td>
-							<c:choose>
+							<td><c:choose>
 									<c:when test="${updateForm.gender==1}">
 										<label><input type="radio" name="gender" value="1"
 											checked="checked">男性</label>
@@ -69,8 +62,7 @@
 						<tr>
 							<th>生年月日：</th>
 							<td style="border-style: none; text-align: center;"><input
-							type="date" name="birthday"
-								value="${updateForm.birthday}"></td>
+								type="date" name="birthday" value="${updateForm.birthday}"></td>
 						</tr>
 						<tr>
 							<th>権限：</th>
@@ -103,17 +95,18 @@
 
 
 
-				</table>
+					</table>
 
-       <form method="Post" action="<%=request.getContextPath()%>/UpdateCheckServlet">
-		<input type="submit" value="更新確認" />
-		</form>
-		<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">
-			<input type="submit" value="社員一覧に戻る" />
-		</form>
-	</div>
-	</div>
-	</div>
+					<form method="Post"
+						action="<%=request.getContextPath()%>/UpdateCheckServlet">
+						<input type="submit" value="更新確認" />
+					</form>
+					<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">
+						<input type="submit" value="社員一覧に戻る" />
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div id="footer">
 		<%@include file="/jsp/common/footer.jsp"%>
