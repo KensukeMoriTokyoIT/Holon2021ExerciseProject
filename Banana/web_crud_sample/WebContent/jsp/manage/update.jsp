@@ -58,7 +58,7 @@
 					<tr>
 						<td>権限：</td>
 						<td><c:choose>
-								<c:when test="${emp.gender == 1}">
+								<c:when test="${emp.authority == 1}">
 									<label><input type="radio" name="authority" value="1"
 										checked>一般</label>
 									<label><input type="radio" name="authority" value="2" />管理</label>
