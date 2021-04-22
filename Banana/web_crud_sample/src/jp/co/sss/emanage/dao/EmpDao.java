@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import jp.co.sss.emanage.bean.EmpBean;
@@ -49,7 +52,9 @@ public class EmpDao {
     /** 社員新規登録のSQL*/
     private static final String EMP_INSERT_NEWBIE = "insert into employee values(seq_emp.nextval,?,?,?,?,?,?,?)";
     /** 社員のパスワード変更のSQL*/
-    private static final String EMP_UPDATE_PASSWORD = "update employee set empPass = ? where empId = ?";
+    private static final String EMP_UPDATE_PASSWORD = "update employee set emp_Pass = ? where emp_Id = ?";
+    /** 社員のプロフィール変更のSQL*/
+    private static final String EMP_UPDATE_PROFILE = "update employee set emp_Pass = ?, emp_Name = ?, gender = ?, address = ?, birthday = ?, authority = ?, dept_id = ?  where emp_Id = ?";
 
 
     /**
@@ -604,6 +609,44 @@ public class EmpDao {
             ps = con.prepareStatement(EMP_UPDATE_PASSWORD);
             ps.setString(1, newPass);
             ps.setString(2, empId);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // DB切断処理
+            DBManager.close(ps, con);
+        }
+		return;
+	}
+	public static void update(String empId, String passWord, String empName, String gender, String address,
+			String birthday, String authority, String deptId) {
+
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        try {
+            con = DBManager.getConnection();
+            ps = con.prepareStatement(EMP_UPDATE_PROFILE);
+            ps.setString(1, passWord);
+            ps.setString(2, empName);
+            ps.setString(3, gender);
+            ps.setString(4, address);
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+            try{
+                Date birthday_date = sdf.parse(birthday);
+                String str = new SimpleDateFormat("yyyy-MM-dd").format(birthday_date);
+                java.sql.Date birthday_sqldate = java.sql.Date.valueOf(str);
+                ps.setDate(5, birthday_sqldate);
+            }catch(ParseException e){
+                e.printStackTrace();
+            }
+
+            ps.setString(6, authority);
+            ps.setString(7, deptId);
+            ps.setString(8, empId);
+
             ps.executeUpdate();
 
         } catch (SQLException e) {
