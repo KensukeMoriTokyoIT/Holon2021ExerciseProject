@@ -21,6 +21,9 @@ public class InputValidator {
         } else if (password.length() > 15) {
             error = Property.PASSWORD_LENGTH_OVER;
         }
+        if(!Pattern.matches("^[0-9a-zA-Z]+$",password)) {
+        	error = "パスワードに使用できるのは半角英数文字のみです。";
+        }
         return error;
     }
 
