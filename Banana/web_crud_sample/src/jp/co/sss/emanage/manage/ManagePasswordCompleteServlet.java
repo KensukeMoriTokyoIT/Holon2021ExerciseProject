@@ -29,7 +29,6 @@ public class ManagePasswordCompleteServlet extends HttpServlet {
     }
 
 
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
