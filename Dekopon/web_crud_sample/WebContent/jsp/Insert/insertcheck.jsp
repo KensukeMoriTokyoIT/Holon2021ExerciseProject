@@ -67,16 +67,16 @@
 			</table>
 
 			<form
-				action="<%=request.getContextPath()%>/jsp/Insert/insertcomplete.jsp"
+				action="<%=request.getContextPath()%>/InsertCompleteServlet"
 				method="post">
 
 				<input type="hidden" name="empPass" value="${emp.empPass }" /> <input
 					type="hidden" name="empName" value="${emp.empName}" /> <input
 					type="hidden" name="gender" value="${emp.gender}" /> <input
-					type="hidden" name="adress" value="${emp.address}" /> <input
+					type="hidden" name="address" value="${emp.address}" /> <input
 					type="hidden" name="birthday" value="${emp.birthday}" /> <input
 					type="hidden" name="authority" value="${emp.authority}" /> <input
-					type="hidden" name="department" value="${emp.deptId}" /> <input
+					type="hidden" name="deptId" value="${emp.deptId}" /> <input
 					type="submit" value="実行" />
 			</form>
 			<form action="<%=request.getContextPath()%>/InsertInputServlet"
