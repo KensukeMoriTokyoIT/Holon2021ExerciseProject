@@ -81,6 +81,13 @@
 			</form>
 			<form action="<%=request.getContextPath()%>/InsertInputServlet"
 				method="get">
+
+				<input type="hidden" name="empPass" value="${emp.empPass }" /> <input
+					type="hidden" name="empName" value="${emp.empName}" /> <input
+					type="hidden" name="gender" value="${emp.gender}" /> <input
+					type="hidden" name="address" value="${emp.address}" /> <input
+					type="hidden" name="birthday" value="${emp.birthday}" /> <input
+					type="hidden" name="authority" value="${emp.authority}" />
 				<input type="submit" value="戻る" />
 			</form>
 		</div>
