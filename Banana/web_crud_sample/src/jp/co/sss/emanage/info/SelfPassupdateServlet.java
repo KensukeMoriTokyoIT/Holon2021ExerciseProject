@@ -46,11 +46,12 @@ public class SelfPassupdateServlet extends HttpServlet {
     String newpassword2 = request.getParameter("newpass2");
 
     String empId = request.getParameter("empId");
+    request.setAttribute("empId", empId);
 
     // 入力されたID、パスワードで検索する
     EmpBean empBean = EmpDao.findByIdPass (empId,oldpassword);
 
-    // 該当する社員が見つかり、かつ一般権限だった場合
+    // 該当する社員が見つかった場合
     if (empBean != null)
 
     		{
@@ -62,6 +63,7 @@ public class SelfPassupdateServlet extends HttpServlet {
 
 
       EmpDao.updatePassword(empId,newpassword1);
+
 
 
     	//完了画面へ遷移

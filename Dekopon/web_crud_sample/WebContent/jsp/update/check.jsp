@@ -77,11 +77,11 @@
 					type="hidden" name="empPass" value="${updateForm.empPass}" /> <input
 					type="hidden" name="empName" value="${updateForm.empName}" /> <input
 					type="hidden" name="gender" value="${updateForm.gender}" /> <input
-					type="hidden" name="adress" value="${updateForm.adress}" /> <input
+					type="hidden" name="address" value="${updateForm.address}" /> <input
 					type="hidden" name="birthday" value="${updateForm.birthday}" /> <input
 					type="hidden" name="authority" value="${updateForm.authority}" />
-				<input type="hidden" name="department"
-					value="${updateForm.depertment}" />
+				<input type="hidden" name="deptName"
+					value="${updateForm.deptName}" />
 
 			</form>
 			<input type="submit" value="実行" /> <input type="submit" value="戻る" />

@@ -35,6 +35,8 @@
 							<th>新しいパスワード：</th>
 							<td style="border-style: none"><input type="password"
 								name="newpass1" maxlength="16" /></td>
+							<td></td>
+							<td>${password_error}</td>
 						</tr>
 						<tr>
 							<th>新しいパスワード再入力：</th>
