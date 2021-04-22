@@ -10,7 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import jp.co.sss.emanage.action.UserCheck;
 import jp.co.sss.emanage.bean.DeptBean;
 import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.DeptDao;
@@ -25,130 +27,145 @@ import jp.co.sss.emanage.util.Property;
  */
 @WebServlet("/ManageSelectServlet")
 public class ManageSelectServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ManageSelectServlet() {
-        super();
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ManageSelectServlet() {
+		super();
+	}
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-     *      response)
-     */
-    protected void doPost(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 
-        // 入力された検索情報を受け取るフォームの準備
-        ManageSelectForm manageSelectForm = new ManageSelectForm();
+		//セッション取得
+		HttpSession session = request.getSession();
+		EmpBean user = (EmpBean) session.getAttribute("user");
 
-        // 条件検索キーを取得(ラジオボタンの値)
-        manageSelectForm.setFindKey(request.getParameter("radio"));
+		//ログイン管理 & 権限チェック
+		if (UserCheck.loginCheck(user)) {
+			//ログインOK、権限OK -->処理実行
 
-        // 全件を格納するリストを準備しておく
-        List<EmpBean> empList = null;
+			// 入力された検索情報を受け取るフォームの準備
+			ManageSelectForm manageSelectForm = new ManageSelectForm();
 
-        // 部署テーブルの全件を取得
-        List<DeptBean> deptList = DeptDao.findAll();
+			// 条件検索キーを取得(ラジオボタンの値)
+			manageSelectForm.setFindKey(request.getParameter("radio"));
 
-        // 部署テーブルの全件が入ったリストをリクエスト属性に登録しておく
-        request.setAttribute("deptList", deptList);
+			// 全件を格納するリストを準備しておく
+			List<EmpBean> empList = null;
 
-        // 条件検索キーが選択されていなかった場合
-        if (manageSelectForm.getFindKey() == null) {
-            // 社員テーブルを検索し、全項目を取得する
-            empList = EmpDao.findAll();
+			// 部署テーブルの全件を取得
+			List<DeptBean> deptList = DeptDao.findAll();
 
-            // 検索結果の入ったリストをリクエスト属性に登録しておく
-            request.setAttribute("empList", empList);
+			// 部署テーブルの全件が入ったリストをリクエスト属性に登録しておく
+			request.setAttribute("deptList", deptList);
 
-            // 検索キーが入力されていない場合,社員全件表示画面に遷移
-            RequestDispatcher dispatcher = request
-                    .getRequestDispatcher("jsp/manage/manage.jsp");
-            dispatcher.forward(request, response);
-        }
+			// 条件検索キーが選択されていなかった場合
+			if (manageSelectForm.getFindKey() == null) {
+				// 社員テーブルを検索し、全項目を取得する
+				empList = EmpDao.findAll();
 
-        // 管理者権限の社員ID検索表示を行う
-        else if (Property.KEY_SELECT_BY_EMP_ID.equals(manageSelectForm
-                .getFindKey())) {
-            // フォームから社員IDを取得し、社員ID検索による取得
-            manageSelectForm.setEmpId(request.getParameter("empId"));
-            EmpBean empBean = EmpDao.findById(manageSelectForm.getEmpId());
+				// 検索結果の入ったリストをリクエスト属性に登録しておく
+				request.setAttribute("empList", empList);
 
-            // 検索結果がある場合
-            if (empBean != null) {
-                // 一覧表示のためにリストに入れる
-                empList = new ArrayList<EmpBean>();
-                empList.add(empBean);
+				// 検索キーが入力されていない場合,社員全件表示画面に遷移
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("jsp/manage/manage.jsp");
+				dispatcher.forward(request, response);
+			}
 
-                // それぞれの条件検索による取得されたリストをリクエスト属性に登録しておく
-                request.setAttribute("empList", empList);
-                // 社員情報一覧表示画面へ遷移する
-                RequestDispatcher dispatcher = request
-                        .getRequestDispatcher("jsp/manage/manage.jsp");
-                dispatcher.forward(request, response);
-            }
+			// 管理者権限の社員ID検索表示を行う
+			else if (Property.KEY_SELECT_BY_EMP_ID.equals(manageSelectForm
+					.getFindKey())) {
+				// フォームから社員IDを取得し、社員ID検索による取得
+				manageSelectForm.setEmpId(request.getParameter("empId"));
+				EmpBean empBean = EmpDao.findById(manageSelectForm.getEmpId());
 
-            // 検索結果が0件の場合
-            else if (empList == null || empList.isEmpty()) {
-                // エラーページへと遷移する
-                RequestDispatcher dispatcher = request
-                        .getRequestDispatcher("jsp/select/not_found.jsp");
-                dispatcher.forward(request, response);
-            }
-        }
-        // 管理者権限の社員名検索表示を行う
-        else if (Property.KEY_SELECT_BY_EMP_NAME.equals(manageSelectForm
-                .getFindKey())) {
+				// 検索結果がある場合
+				if (empBean != null) {
+					// 一覧表示のためにリストに入れる
+					empList = new ArrayList<EmpBean>();
+					empList.add(empBean);
 
-            // フォームから社員名を取得し、社員名検索によるリスト取得
-            manageSelectForm.setEmpName(request.getParameter("empName"));
-            empList = EmpDao.findByNameContains(manageSelectForm.getEmpName());
+					// それぞれの条件検索による取得されたリストをリクエスト属性に登録しておく
+					request.setAttribute("empList", empList);
+					// 社員情報一覧表示画面へ遷移する
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("jsp/manage/manage.jsp");
+					dispatcher.forward(request, response);
+				}
 
-            // 検索結果がある場合
-            if (empList != null && !empList.isEmpty()) {
-                // それぞれの条件検索による取得されたリストをリクエスト属性に登録しておく
-                request.setAttribute("empList", empList);
-                // 社員情報一覧表示画面へ遷移する
-                RequestDispatcher dispatcher = request
-                        .getRequestDispatcher("jsp/manage/manage.jsp");
-                dispatcher.forward(request, response);
-            }
+				// 検索結果が0件の場合
+				else if (empList == null || empList.isEmpty()) {
+					// エラーページへと遷移する
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("jsp/select/not_found.jsp");
+					dispatcher.forward(request, response);
+				}
+			}
+			// 管理者権限の社員名検索表示を行う
+			else if (Property.KEY_SELECT_BY_EMP_NAME.equals(manageSelectForm
+					.getFindKey())) {
 
-            // 検索結果が0件の場合
-            else if (empList == null || empList.isEmpty()) {
-                // エラーページへと遷移する
-                RequestDispatcher dispatcher = request
-                        .getRequestDispatcher("jsp/select/not_found.jsp");
-                dispatcher.forward(request, response);
-            }
-        }
+				// フォームから社員名を取得し、社員名検索によるリスト取得
+				manageSelectForm.setEmpName(request.getParameter("empName"));
+				empList = EmpDao.findByNameContains(manageSelectForm.getEmpName());
 
-        // 管理者権限の部署ID検索表示を行う
-        else if (Property.KEY_SELECT_BY_DEPT_ID.equals(manageSelectForm
-                .getFindKey())) {
-            // フォームから部署IDを取得し、部署ID検索によるリスト取得
-            manageSelectForm.setDeptId(request.getParameter("deptId"));
-            empList = EmpDao.findByDeptId(manageSelectForm.getDeptId());
+				// 検索結果がある場合
+				if (empList != null && !empList.isEmpty()) {
+					// それぞれの条件検索による取得されたリストをリクエスト属性に登録しておく
+					request.setAttribute("empList", empList);
+					// 社員情報一覧表示画面へ遷移する
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("jsp/manage/manage.jsp");
+					dispatcher.forward(request, response);
+				}
 
-            // 検索結果がある場合
-            if (empList != null && !empList.isEmpty()) {
-                // それぞれの条件検索による取得されたリストをリクエスト属性に登録しておく
-                request.setAttribute("empList", empList);
-                // 社員情報一覧表示画面へ遷移する
-                RequestDispatcher dispatcher = request
-                        .getRequestDispatcher("jsp/manage/manage.jsp");
-                dispatcher.forward(request, response);
-            }
-            // 検索結果が0件の場合
-            else if (empList == null || empList.isEmpty()) {
-                // エラーページへと遷移する
-                RequestDispatcher dispatcher = request
-                        .getRequestDispatcher("jsp/select/not_found.jsp");
-                dispatcher.forward(request, response);
-            }
-        }
-    }
+				// 検索結果が0件の場合
+				else if (empList == null || empList.isEmpty()) {
+					// エラーページへと遷移する
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("jsp/select/not_found.jsp");
+					dispatcher.forward(request, response);
+				}
+			}
+
+			// 管理者権限の部署ID検索表示を行う
+			else if (Property.KEY_SELECT_BY_DEPT_ID.equals(manageSelectForm
+					.getFindKey())) {
+				// フォームから部署IDを取得し、部署ID検索によるリスト取得
+				manageSelectForm.setDeptId(request.getParameter("deptId"));
+				empList = EmpDao.findByDeptId(manageSelectForm.getDeptId());
+
+				// 検索結果がある場合
+				if (empList != null && !empList.isEmpty()) {
+					// それぞれの条件検索による取得されたリストをリクエスト属性に登録しておく
+					request.setAttribute("empList", empList);
+					// 社員情報一覧表示画面へ遷移する
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("jsp/manage/manage.jsp");
+					dispatcher.forward(request, response);
+				}
+				// 検索結果が0件の場合
+				else if (empList == null || empList.isEmpty()) {
+					// エラーページへと遷移する
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("jsp/select/not_found.jsp");
+					dispatcher.forward(request, response);
+				}
+			}
+
+		} else {
+			//ログインNG、または権限NG
+			//ログイン画面へ遷移
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		}
+
+	}
 }

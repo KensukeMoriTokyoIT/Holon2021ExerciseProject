@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,9 +15,9 @@
 
 	<div id="contents">
 		<div id="header">
-			<%@include file="/jsp/common/header_login.jsp"%>
+			<%@include file="/jsp/common/header.jsp"%>
 		</div>
-	<h2>社員情報登録入力画面</h2>
+	社員情報登録入力画面
 		<div id="main">
 
 			<h3>登録する社員の情報を入力してください</h3>
@@ -66,10 +67,14 @@
 
 					</tr>
 
+           <tr>  <c:forEach var="error" items="${errorMessages}"><label style="color=red">
+           </label>
+             <td> ${error}</td>
+              </c:forEach></tr>
 
 				</table>
         </form>
-       <form action="<%=request.getContextPath()%>/jsp/Insert/insertcheck.jsp">
+       <form action="<%=request.getContextPath()%>/InsertCheckServlet">
 		<input type="submit" value="登録確認" />
 		</form>
 		<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">

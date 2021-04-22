@@ -29,11 +29,18 @@
 							 </td>
 						</tr>
 						<tr>
-							<th>性別:</th>
-							<td><p>${message}</p>
-							</td>
-						</tr>
-						<tr>
+						      <th>性別:</th>
+						      <td>
+						      <c:choose>
+						      <c:when test="${emp.gender == '1'}">
+						      男性
+						      </c:when>
+						      <c:when test="${emp.gender == '2'}">
+						      女性
+						      </c:when>
+						      </c:choose>
+						      </td>>
+						 </tr>
 						    <th>住所:</th>
 						    <td>${emp.address}
 						    </td>
@@ -56,15 +63,18 @@
 
 
 	</table>
-	  <form action ="<%=request.getContextPath() %>/CheckServlet" method="post">
-	   <input type="hidden" name="empName" value="${insertform.empName}"/>
-	   <input type="hidden" name="gender" value="${insertform.gender}"/>
-	   <input type="hidden" name="adress" value="${insertform.adress}"/>
-	   <input type="hidden" name="birthday" value="${insertform.birthday}"/>
-	   <input type="hidden" name="department" value="${insertform.depertment}"/>
-      </form>
-	  <input type="submit" value="実行" />
-	  <input type="submit" value="戻る" />
+	   <input type="hidden" name="empName" value="${emp.empName}"/>
+	   <input type="hidden" name="gender" value="${emp.gender}"/>
+	   <input type="hidden" name="adress" value="${emp.address}"/>
+	   <input type="hidden" name="birthday" value="${emp.birthday}"/>
+	   <input type="hidden" name="department" value="${emp.deptName}"/>
+
+       <form action ="<%=request.getContextPath() %>/CheckServlet" method="get">
+	   <input type="submit" value="実行" />
+	   </form>
+	   <form action ="<%=request.getContextPath() %>/InsertServlet" method="get">
+	   <input type="submit" value="戻る" />
+	   </form>
 	<div id="footer">
 			<%@include file="/jsp/common/footer.jsp"%>
 		</div>

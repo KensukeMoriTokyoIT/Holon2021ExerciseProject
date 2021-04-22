@@ -9,7 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import jp.co.sss.emanage.action.UserCheck;
 import jp.co.sss.emanage.bean.DeptBean;
 import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.DeptDao;
@@ -24,40 +26,54 @@ import jp.co.sss.emanage.util.Property;
  */
 @WebServlet("/ManageTopServlet")
 public class ManageTopServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ManageTopServlet() {
-        super();
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ManageTopServlet() {
+		super();
+	}
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-         // 社員テーブルを検索し、全項目を取得する
-        List<EmpBean> empList = EmpDao.findAll();
+		//セッション取得
+		HttpSession session = request.getSession();
+		EmpBean user = (EmpBean) session.getAttribute("user");
 
-        // 検索結果の入ったリストをリクエスト属性に登録しておく
-        request.setAttribute("empList", empList);
+		//ログイン管理 & 権限チェック
+		if (UserCheck.loginCheck(user)) {
+			//ログインOK、権限OK -->処理実行
+			// 社員テーブルを検索し、全項目を取得する
+			List<EmpBean> empList = EmpDao.findAll();
 
-        // 条件検索キーの初期値をリクエストに格納
-        ManageSelectForm manageForm = new ManageSelectForm();
-        manageForm.setFindKey(Property.FINDKEY_EMP_ID);
-        request.setAttribute("manageForm", manageForm);
+			// 検索結果の入ったリストをリクエスト属性に登録しておく
+			request.setAttribute("empList", empList);
 
-        // 部署テーブルの全件を取得
-        List<DeptBean> deptList = DeptDao.findAll();
+			// 条件検索キーの初期値をリクエストに格納
+			ManageSelectForm manageForm = new ManageSelectForm();
+			manageForm.setFindKey(Property.FINDKEY_EMP_ID);
+			request.setAttribute("manageForm", manageForm);
 
-        // 部署テーブルの全件が入ったリストをセッション属性に登録しておく
-        request.setAttribute("deptList", deptList);
+			// 部署テーブルの全件を取得
+			List<DeptBean> deptList = DeptDao.findAll();
 
-        // 管理者用一覧表示画面へ画面遷移を行う
-        RequestDispatcher dispatcher = request
-                .getRequestDispatcher("jsp/manage/manage.jsp");
-        dispatcher.forward(request, response);
-    }
+			// 部署テーブルの全件が入ったリストをセッション属性に登録しておく
+			request.setAttribute("deptList", deptList);
+
+			// 管理者用一覧表示画面へ画面遷移を行う
+			RequestDispatcher dispatcher = request
+					.getRequestDispatcher("jsp/manage/manage.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			//ログインNG、または権限NG
+			//ログイン画面へ遷移
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		}
+
+	}
 }
