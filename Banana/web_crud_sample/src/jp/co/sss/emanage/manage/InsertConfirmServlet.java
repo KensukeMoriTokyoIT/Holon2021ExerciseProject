@@ -1,5 +1,6 @@
 package jp.co.sss.emanage.manage;
 
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import jp.co.sss.emanage.bean.DeptBean;
 import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.DeptDao;
+import jp.co.sss.emanage.util.InputValidator;
 
 /**
  * Servlet implementation class InsertConfirmServlet
@@ -48,80 +50,50 @@ public class InsertConfirmServlet extends HttpServlet {
 		String birthday  = request.getParameter("birthday");
 		String authority = request.getParameter("authority");
 		String deptId    = request.getParameter("deptId");
-		DeptBean dept = DeptDao.findById(deptId);
 
-		boolean get_error=false;
-		if(!check_password(password)) {
-			get_error = true;
-			request.setAttribute("password_error", "不正な入力です。");
-		}
-		if(!check_empName(empName)) {
-			get_error = true;
-			request.setAttribute("empName_error", "不正な入力です。");
-		}
-		if(!check_gender(gender)) {
-			get_error = true;
-			request.setAttribute("gender_error", "不正な入力です。");
-		}
-		if(!check_address(address)) {
-			get_error = true;
-			request.setAttribute("address_error", "不正な入力です。");
-		}
-		if(!check_birthday(birthday)) {
-			get_error = true;
-			request.setAttribute("birthday_error", "不正な入力です。");
-		}
-		if(!check_authority(authority)) {
-			get_error = true;
-			request.setAttribute("authority_error", "不正な入力です。");
-		}
-		if(!check_deptId(deptId)) {
-			get_error = true;
-			request.setAttribute("deptId_error", "不正な入力です。");
-		}
-		if(get_error) {
+		InputValidator validator = new InputValidator();
+		String password_error = validator.passwordValidate(password);
+		String empName_error = validator.nameValidate(empName);
+		String gender_error = validator.genderValidate(gender);
+		String address_error = validator.addressValidate(address);
+		String birthday_error = validator.birthdayValidate(birthday);
+		String authority_error = validator.authorityValidate(authority);
+		String deptId_error = validator.deptIdValidate(deptId);
+
+		request.setAttribute("password_error",password_error);
+		request.setAttribute("empName_error", empName_error);
+		request.setAttribute("gender_error", gender_error);
+		request.setAttribute("address_error", address_error);
+		request.setAttribute("birthday_error", birthday_error);
+		request.setAttribute("authority_error", authority_error);
+		request.setAttribute("deptId_error", deptId_error);
+
+		if (password_error != null ||
+			empName_error  != null  ||
+			gender_error   != null  ||
+			address_error  != null  ||
+			birthday_error != null  ||
+			authority_error!= null  ||
+			deptId_error   != null) {
 			request.getRequestDispatcher("jsp/manage/insert_input.jsp").forward(request,response);
 		}
-		String deptName = dept.getDeptName();
 
-		EmpBean emp = new EmpBean();
-		emp.setEmpPass(password);
-		emp.setEmpName(empName);
-		emp.setGender(gender);
-		emp.setAddress(address);
-		emp.setBirthday(birthday);
-		emp.setAuthority(authority);
-		emp.setDeptId(deptId);
-		emp.setDeptName(deptName);
+		else {
+			DeptBean dept = DeptDao.findById(deptId);
+			String deptName = dept.getDeptName();
 
-		request.setAttribute("emp", emp);
-		request.getRequestDispatcher("jsp/manage/insert_confirm.jsp").forward(request,response);
+			EmpBean emp = new EmpBean();
+			emp.setEmpPass(password);
+			emp.setEmpName(empName);
+			emp.setGender(gender);
+			emp.setAddress(address);
+			emp.setBirthday(birthday);
+			emp.setAuthority(authority);
+			emp.setDeptId(deptId);
+			emp.setDeptName(deptName);
 
-	}
-
-	public boolean check_password(String password) {
-		if(0<password.length() && password.length()<=30)return true;
-		return false;
-
-	}
-	public boolean check_empName(String empName) {
-		return false;
-
-	}
-	public boolean check_gender(String gender) {
-		return false;
-
-	}
-	public boolean check_address(String address) {
-		return false;
-	}
-	public boolean check_birthday(String birthday) {
-		return false;
-	}
-	public boolean check_authority(String authority) {
-		return false;
-	}
-	public boolean check_deptId(String deptId) {
-		return false;
+			request.setAttribute("emp", emp);
+			request.getRequestDispatcher("jsp/manage/insert_confirm.jsp").forward(request,response);
+		}
 	}
 }

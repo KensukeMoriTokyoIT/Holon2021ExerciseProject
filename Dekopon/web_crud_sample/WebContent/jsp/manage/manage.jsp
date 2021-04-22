@@ -31,7 +31,7 @@
 					</select>
 					<input type="submit" value="検索実行" />
 				</form>
-				<form method="get" action="<%=request.getContextPath()%>/InsertInputServlet">
+				<form method="Get" action="<%=request.getContextPath()%>/InsertInputServlet">
 					<input type="submit" value="社員新規登録" />
 				</form>
 			</div>
@@ -70,7 +70,7 @@
 								<c:out value="${emp.deptName}" />
 							</td>
 							<td>
-								<form method="get" action="<%=request.getContextPath()%>/UpdateInputServlet">
+								<form method="Get" action="<%=request.getContextPath()%>/UpdateInputServlet">
 									<input type="hidden" name="empId" value="${emp.empId}" />
 									<input type="submit" value="更新" />
 								</form>

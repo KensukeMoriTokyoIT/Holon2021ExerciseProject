@@ -16,7 +16,7 @@
 		<div id="header">
 			<%@include file="/jsp/common/header_login.jsp"%>
 		</div>
-	<h2>社員情報登録入力画面</h2>
+	社員情報登録入力画面
 		<div id="main">
 
 			<h3>登録する社員の情報を入力してください</h3>
@@ -69,7 +69,7 @@
 
 				</table>
         </form>
-       <form action="<%=request.getContextPath()%>/jsp/Insert/insertcheck.jsp">
+       <form action="<%=request.getContextPath()%>/jsp/Insert/InsertInputServlet.java">
 		<input type="submit" value="登録確認" />
 		</form>
 		<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">

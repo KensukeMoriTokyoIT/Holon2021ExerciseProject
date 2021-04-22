@@ -14,7 +14,7 @@
   <div id="header">
 		<%@include file="/jsp/common/header_login.jsp"%>
   </div>
-<h2>社員登録完了画面</h2>
+社員登録完了画面
   <div id="main">
 
 			<h3>社員登録処理が完了しました。</h3>
