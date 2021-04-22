@@ -67,13 +67,14 @@
 
 					</tr>
 
-              <c:forEach var="error" items="{errorMessages}">
-              ${error}
-              </c:forEach>
+           <tr>  <c:forEach var="error" items="${errorMessages}"><label style="color=red">
+           </label>
+             <td> ${error}</td>
+              </c:forEach></tr>
 
 				</table>
         </form>
-       <form action="<%=request.getContextPath()%>/InsertCompleteServlet">
+       <form action="<%=request.getContextPath()%>/InsertCheckServlet">
 		<input type="submit" value="登録確認" />
 		</form>
 		<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">
