@@ -35,13 +35,26 @@
 						</tr>
 						<tr>
 							<th>性別:</th>
-							<td><label><input type="radio" name="authority"
-									value="1" ${updateForm.gender == 1?"checked=\"checked\"":""}
-									checked="checked">男性</label>
+								<td>
+									<c:choose>
+							<c:when test="${updateForm.gender == 1}">
+							<label><input type="radio" name="gender"
+									value="1" checked="checked"
+									>男性</label>
 									<label><input type="radio"
 									name="authority" value="1"
-									${updateForm.gender == 2?"checked=\"checked\"":""}
-									checked="checked">女性</label></td>
+									>女性</label>
+									</c:when>
+									<c:when test="${updateForm.gender == 2}">
+									<label><input type="radio" name="gender"
+									value="1"
+									>男性</label>
+									<label><input type="radio"
+									name="authority" value="1"
+									checked="checked">女性</label>
+									</c:when>
+									</c:choose>
+								</td>
 						</tr>
 
 						<tr>
@@ -57,12 +70,26 @@
 						</tr>
 						<tr>
 							<th>権限：</th>
-							<td><label><input type="radio" name="authority"
-									value="1" ${updateForm.authority == 1?"checked=\"checked\"":""}
-									checked="checked">一般</label> <label><input type="radio"
+							<td>
+							<c:choose>
+							<c:when test="${updateForm.authority == 1}">
+							<label><input type="radio" name="authority"
+									value="1" checked="checked"
+									>一般</label>
+									<label><input type="radio"
 									name="authority" value="1"
-									${updateForm.authority == 2?"checked=\"checked\"":""}
-									checked="checked">管理</label></td>
+									>管理</label>
+									</c:when>
+									<c:when test="${updateForm.authority == 2}">
+									<label><input type="radio" name="authority"
+									value="1"
+									>一般</label>
+									<label><input type="radio"
+									name="authority" value="1"
+									checked="checked">管理</label>
+									</c:when>
+									</c:choose>
+									</td>
 						</tr>
 						<tr>
 							<th>部署名：</th>
