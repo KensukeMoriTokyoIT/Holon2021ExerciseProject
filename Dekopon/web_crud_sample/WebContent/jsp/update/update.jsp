@@ -66,22 +66,13 @@
 						</tr>
 						<tr>
 							<th>権限：</th>
-							<td><c:choose>
-									<c:when test="${updateForm.authority==1}">
-										<label><input type="radio" name="authority" value="1"
+							<td>
+							<label><input type="radio" name="authority" value="1" ${updateForm.authority == 1?"checked=\"checked\"":""}
 											checked="checked">一般</label>
-										<label><input type="radio" name="authority" value="2">管理</label>
-									</c:when>
-									<c:when test="${updateForm.authority==2}">
-										<label><input type="radio" name="authority" value="1">一般</label>
-										<label><input type="radio" name="authority" value="2"
+							<label><input type="radio" name="authority" value="1" ${updateForm.authority == 2?"checked=\"checked\"":""}
 											checked="checked">管理</label>
-									</c:when>
-									<c:otherwise>
-										<label><input type="radio" name="authority" value="1">一般</label>
-										<label><input type="radio" name="authority" value="2">管理</label>
-									</c:otherwise>
-								</c:choose></td>
+
+								</td>
 						</tr>
 						<tr>
 							<th>部署名：</th>
@@ -99,6 +90,8 @@
 
 					<form method="Post"
 						action="<%=request.getContextPath()%>/UpdateCheckServlet">
+						<input
+					type="hidden" name="empPass" value="${updateForm.empPass}" />
 						<input type="submit" value="更新確認" />
 					</form>
 					<form action="<%=request.getContextPath()%>/ManageTopServlet">
