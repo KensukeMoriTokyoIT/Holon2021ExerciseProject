@@ -82,9 +82,11 @@
 					type="hidden" name="authority" value="${updateForm.authority}" />
 				<input type="hidden" name="deptName"
 					value="${updateForm.deptName}" />
-
+                  <input type="submit" value="実行" />
 			</form>
-			<input type="submit" value="実行" /> <input type="submit" value="戻る" />
+
+			   	<form action="<%=request.getContextPath()%>/ManageTopServlet" >
+			 <input type="submit" value="戻る" /></form>
 		</div>
 	</div>
 	<div id="footer">
