@@ -17,23 +17,20 @@ import jp.co.sss.emanage.dao.EmpDao;
 public class ManagePasswordCompleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ManagePasswordCompleteServlet() {
-        super();
-        // TODO Auto-generated constructor stub
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ManagePasswordCompleteServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 
-
-
-    }
-
-
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
@@ -41,29 +38,175 @@ public class ManagePasswordCompleteServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
 
 
 
 
-		   String newpassword = request.getParameter("newpassword");
-
-
-
-		String empId   = request.getParameter("empId");
 
 
 
 
-			EmpDao.updatePassword(newpassword,empId);
 
 
 
-		request.getRequestDispatcher("jsp/manage/managepass_complete.jsp").forward(request,response);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		String newpassword = request.getParameter("newpass1");
+		System.out.println(newpassword);
+
+		String empId = request.getParameter("empId");
+
+		EmpDao.updatePassword(empId, newpassword);
+		System.out.println(empId);
+
+		request.getRequestDispatcher("jsp/manage/managepass_complete.jsp").forward(request, response);
 
 	}
 

@@ -21,7 +21,7 @@
 		<div id="main">
 
 			<h3>登録する社員の情報を入力してください</h3>
-			<form action="<%=request.getContextPath()%>/InsertInputServlet.java"method="post">
+			<form action="<%=request.getContextPath()%>/InsertCheckServlet"method="post">
 				<table class="insertinput">
 					<tr>
 						<th>パスワード：</th>
@@ -59,7 +59,7 @@
 
 					<tr>
 						<th>部署名：</th>
-						<td><select name="deptName" >
+						<td><select name="deptId" >
 								<option value="1" selected>営業部</option>
 								<option value="2">経理部</option>
 								<option value="3">総務部</option>
@@ -73,11 +73,9 @@
               </c:forEach></tr>
 
 				</table>
-        </form>
-       <form action="<%=request.getContextPath()%>/InsertCheckServlet">
 		<input type="submit" value="登録確認" />
 		</form>
-		<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">
+		<form action="<%=request.getContextPath()%>/ManageTopServlet" method="get">
 			<input type="submit" value="社員一覧に戻る" />
 		</form>
 	</div>

@@ -1,4 +1,4 @@
-package jp.co.sss.emanage.pass;
+package jp.co.sss.emanage.pass_emp;
 
 import java.io.IOException;
 
@@ -8,18 +8,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 /**
- * Servlet implementation class ManagePasswordChangeServlet
+ * Servlet implementation class SelfPasswordInputServlet
  */
-@WebServlet("/ManagePasswordInputServlet")
-public class ManagePasswordInputServlet extends HttpServlet {
+@WebServlet("/SelfPasswordInputServlet")
+public class SelfPasswordInputServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManagePasswordInputServlet() {
+    public SelfPasswordInputServlet() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -27,13 +29,9 @@ public class ManagePasswordInputServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//隠し属性のIDの値をスコープに入れる
-		String id = request.getParameter("empId");
-		request.setAttribute("empId", id);
+		RequestDispatcher dispatcher = request
+                 .getRequestDispatcher("/jsp/password_emp/emp_pass.jsp");
+         dispatcher.forward(request, response);
+	}
 
-    	// 管理者用パスワード変更画面へ遷移を行う
-         RequestDispatcher dispatcher = request
-                        .getRequestDispatcher("/jsp/password/manage_pass.jsp");
-                dispatcher.forward(request, response);
-            }
 }
