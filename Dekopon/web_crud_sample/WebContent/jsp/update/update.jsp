@@ -68,7 +68,8 @@
 						</tr>
 						<tr>
 							<th>生年月日：</th>
-							<td><input type="date" name="birthday"
+							<td style="border-style: none; text-align: center;"><input
+							type="date" name="birthday"
 								value="${updateForm.birthday}"></td>
 						</tr>
 						<tr>
@@ -102,15 +103,20 @@
 
 
 
-					</table>
-					<input type="submit" value="更新確認" /> <input type="submit"
-						value="社員一覧に戻る" />
-						</div>
-					<div id="footer">
-						<%@include file="/jsp/common/footer.jsp"%>
-					</div>
-				</div>
-			</div>
+				</table>
+
+       <form method="Post" action="<%=request.getContextPath()%>/UpdateCheckServlet">
+		<input type="submit" value="更新確認" />
+		</form>
+		<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">
+			<input type="submit" value="社員一覧に戻る" />
+		</form>
+	</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<%@include file="/jsp/common/footer.jsp"%>
 	</div>
 </body>
 </html>

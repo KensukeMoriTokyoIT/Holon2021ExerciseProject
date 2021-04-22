@@ -41,7 +41,6 @@ public class DeleteCompleteServlet extends HttpServlet {
 		String empId = request.getParameter("empId");
 		EmpDao.delete(empId);
 		request.getRequestDispatcher("jsp/manage/delete_complete.jsp").forward(request,response);
-		System.out.println("Hello kuwabara-san");
 
 	}
 

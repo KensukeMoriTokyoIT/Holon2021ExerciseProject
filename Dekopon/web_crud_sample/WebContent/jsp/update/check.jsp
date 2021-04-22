@@ -76,9 +76,10 @@
 					<input type="submit" value="実行" />
 						<input type="submit" value="戻る" />
 			</div>
+			</div>
 	<div id="footer">
 			<%@include file="/jsp/common/footer.jsp"%>
 		</div>
-		</div>
+
 </body>
 </html>

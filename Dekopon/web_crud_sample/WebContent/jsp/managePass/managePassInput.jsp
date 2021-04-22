@@ -39,7 +39,7 @@
 			</form>
 
 			<form method="post"
-				action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">
+				action="<%=request.getContextPath()%>/ManageTopServlet">
 				<input type="submit" value="社員一覧に戻る" />
 			</form>
 		</div>

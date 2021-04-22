@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jp.co.sss.emanage.bean.EmpBean;
+
 /**
  * Servlet implementation class UpdateConfirm
  */
@@ -36,7 +38,28 @@ public class UpdateConfirmServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String empId = request.getParameter("empId");
+		String passWord = request.getParameter("password");
+		String empName = request.getParameter("empName");
+		String gender = request.getParameter("gender");
+		String address = request.getParameter("address");
+		String birthday = request.getParameter("birthday");
+		String authority = request.getParameter("authority");
+		String deptId = request.getParameter("deptId");
+
+		EmpBean emp = new EmpBean();
+
+		emp.setEmpId(empId);
+		emp.setEmpPass(passWord);
+		emp.setEmpName(empName);
+		emp.setGender(gender);
+		emp.setAddress(address);
+		emp.setBirthday(birthday);
+		emp.setAuthority(authority);
+		emp.setDeptId(deptId);
+
+		request.setAttribute("emp", emp);
+		request.getRequestDispatcher("jsp/manage/update_confirm.jsp").forward(request,response);
 	}
 
 }

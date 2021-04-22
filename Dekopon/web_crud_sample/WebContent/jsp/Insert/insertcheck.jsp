@@ -11,9 +11,9 @@
 		<div id="header">
 			<%@include file="/jsp/common/header_login.jsp"%>
 		</div>
-
+	社員登録確認画面
 	<div id="main">
-		<h2>社員登録確認画面</h2>
+
 		<h3>以下の内容で社員情報を登録しますか？</h3>
 
 	        <table class="insertcheck">
@@ -24,32 +24,32 @@
 						</tr>
 						<tr>
 							 <th>社員名：</th>
-							 <td>${insertform.empName}
+							 <td>${emp.empName}
 							 </td>
 						</tr>
 						<tr>
 							<th>性別:</th>
-							<td>${insertform.gender}
+							<td>${emp.gender}
 							</td>
 						</tr>
 						<tr>
 						    <th>住所:</th>
-						    <td>${insertform.address}
+						    <td>${emp.address}
 						    </td>
 						</tr>
 						<tr>
 						    <th>生年月日:</th>
-						    <td>${insertform.birthday}
+						    <td>${emp.birthday}
 						    </td>
 						 </tr>
 						 <tr>
 						     <th>権限:</th>
-						     <td>${insertform.authority}
+						     <td>${emp.authority}
 						     </td>
 						 </tr>
 						 <tr>
 						     <th>部署名:</th>
-						     <td>${insertform.deptName}
+						     <td>${emp.deptName}
 						     </td>
 						  </tr>
 
@@ -58,13 +58,13 @@
 
     <form action ="<%=request.getContextPath() %>/jsp/Insert/insertcomplete.jsp" method="post">
 
-	   <input type="hidden" name="empPass" value="${insertform.empPass }"/>
-	   <input type="hidden" name="empName" value="${insertform.empName}"/>
-	   <input type="hidden" name="gender" value="${insertform.gender}"/>
-	   <input type="hidden" name="adress" value="${insertform.address}"/>
-       <input type="hidden" name="birthday" value="${insertform.birthday}"/>
-       <input type="hidden" name="authority" value="${insertform.authority}"/>
-       <input type="hidden" name="department" value="${insertform.deptName}"/>
+	   <input type="hidden" name="empPass" value="${emp.empPass }"/>
+	   <input type="hidden" name="empName" value="${emp.empName}"/>
+	   <input type="hidden" name="gender" value="${emp.gender}"/>
+	   <input type="hidden" name="adress" value="${emp.address}"/>
+       <input type="hidden" name="birthday" value="${emp.birthday}"/>
+       <input type="hidden" name="authority" value="${emp.authority}"/>
+       <input type="hidden" name="department" value="${emp.deptName}"/>
 
         <input type="submit" value="実行" />
    	</form>

@@ -16,60 +16,60 @@
 		<div id="header">
 			<%@include file="/jsp/common/header_login.jsp"%>
 		</div>
-
+	社員情報登録入力画面
 		<div id="main">
-			<h2>社員情報登録入力画面</h2>
+
 			<h3>登録する社員の情報を入力してください</h3>
 			<form action="<%=request.getContextPath()%>/InsertInputServlet.java"method="post">
 				<table class="insertinput">
 					<tr>
 						<th>パスワード：</th>
 						<td style="border-style: none"><input type="password"
-							name="empPass" maxlength="16" /></td>
+							name="empPass" maxlength="16" /><label style="color:red">${ePassword} </label></td>
 					</tr>
 
 					<tr>
 						<th>社員名：</th>
 						<td style="border-style: none; text-align: center;"><input
-							type="text" name="empName" maxlength="30" /></td>
+							type="text" name="empName" maxlength="30" /><label style="color:red">${eEmpName} </label></td>
 					</tr>
 					<tr>
 						<th>性別:</th>
 						<td><label><input type="radio" name="gender"
 								value="1">男性</label> <label><input type="radio"
-								name="gender" value="2">女性</label></td>
+								name="gender" value="2">女性</label><label style="color:red">${eGender} </label></td>
 					</tr>
 
 					<tr>
 						<th>住所：</th>
 						<td style="border-style: none; text-align: center;">
-						<input	type="text" name="address" maxlength="60"></td>
+						<input	type="text" name="address" maxlength="60"><label style="color:red">${eAddress} </label></td>
 					</tr>
 					<tr>
 						<th>生年月日：</th>
-						<td><input type="date" name="birthday"></td>
+						<td><input type="date" name="birthday"><label style="color:red">${eBirthday} </label></td>
 					</tr>
 					<tr>
 						<th>権限：</th>
 						<td><label><input type="radio" name="authority"
 								value="1">一般</label> <label><input type="radio"
-								name="authority" value="2">管理</label></td>
+								name="authority" value="2">管理</label><label style="color:red">${eAuthority} </label></td>
 					</tr>
 
 					<tr>
 						<th>部署名：</th>
 						<td><select name="deptName" >
-								<option value="1">営業部</option>
+								<option value="1" selected>営業部</option>
 								<option value="2">経理部</option>
-								<option value="3" selected>総務部</option>
-						</select></td>
+								<option value="3">総務部</option>
+						</select><label style="color:red">${eDeptName} </label></td>
 
 					</tr>
 
 
 				</table>
         </form>
-       <form action="<%=request.getContextPath()%>/jsp/Insert/insertcheck.jsp">
+       <form action="<%=request.getContextPath()%>/jsp/Insert/InsertInputServlet.java">
 		<input type="submit" value="登録確認" />
 		</form>
 		<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">

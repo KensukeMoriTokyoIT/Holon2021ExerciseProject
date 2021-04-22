@@ -13,33 +13,26 @@ import jp.co.sss.emanage.dao.EmpDao;
 /**
  * Servlet implementation class Delete
  */
-@WebServlet("/deletecheck.jsp")
+@WebServlet("/Delete")
 public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-
-        // TODO Auto-generated constructor stub
-    }
-
+	/**
+	 * @see HttpServlet#HttpServlet()
+	*/
+	public Delete() {
+		super();
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		String empId=request.getParameter("empId");
-		 EmpDao.delete( empId);
-		 request.getRequestDispatcher("/jsp/delete/deletecomplete.jsp").forward(request, response);
+		String empId = request.getParameter("empId");
+		EmpDao.delete(empId);
+		request.getRequestDispatcher("/jsp/delete/deletecomplete.jsp").forward(request, response);
 
 	}
 }
-
-
-
-
-
-
-
-
