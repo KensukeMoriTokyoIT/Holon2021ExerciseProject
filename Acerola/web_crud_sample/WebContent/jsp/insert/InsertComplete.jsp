@@ -16,7 +16,7 @@
 		<font color="red">社員登録完了画面</font>
 	</p>
 
-	<form action="<%=request.getContextPath()%>/ManageTopServlet" method="get">
+	<form action="<%=request.getContextPath()%>/online/authority/ManageTopServlet" method="get">
 		<p style="text-align:center"><input type="submit" value="社員一覧に戻る" 	/>
 	</form>
 

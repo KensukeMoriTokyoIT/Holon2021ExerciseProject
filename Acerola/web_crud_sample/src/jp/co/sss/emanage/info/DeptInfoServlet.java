@@ -16,7 +16,7 @@ import jp.co.sss.emanage.dao.EmpDao;
 /**
  * Servlet implementation class DeptInfoServlet
  */
-@WebServlet("/DeptInfoServlet")
+@WebServlet("/online/DeptInfoServlet")
 public class DeptInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

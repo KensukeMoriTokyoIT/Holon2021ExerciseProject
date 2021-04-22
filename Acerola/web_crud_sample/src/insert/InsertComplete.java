@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.EmpDao;
 import jp.co.sss.emanage.util.DateFormat;
-@WebServlet("/InsertComplete")
+@WebServlet("/online/authority/InsertComplete")
 public class InsertComplete extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
