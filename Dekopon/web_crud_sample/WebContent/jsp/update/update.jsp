@@ -35,22 +35,13 @@
 						</tr>
 						<tr>
 							<th>性別:</th>
-							<td><c:choose>
-									<c:when test="${updateForm.gender==1}">
-										<label><input type="radio" name="gender" value="1"
-											checked="checked">男性</label>
-										<label><input type="radio" name="gender" value="2">女性</label>
-									</c:when>
-									<c:when test="${updateForm.gender==2}">
-										<label><input type="radio" name="gender" value="1">男性</label>
-										<label><input type="radio" name="gender" value="2"
-											checked="checked">女性</label>
-									</c:when>
-									<c:otherwise>
-										<label><input type="radio" name="gender" value="1">男性</label>
-										<label><input type="radio" name="gender" value="2">女性</label>
-									</c:otherwise>
-								</c:choose></td>
+							<td><label><input type="radio" name="authority"
+									value="1" ${updateForm.gender == 1?"checked=\"checked\"":""}
+									checked="checked">男性</label>
+									<label><input type="radio"
+									name="authority" value="1"
+									${updateForm.gender == 2?"checked=\"checked\"":""}
+									checked="checked">女性</label></td>
 						</tr>
 
 						<tr>
@@ -66,13 +57,12 @@
 						</tr>
 						<tr>
 							<th>権限：</th>
-							<td>
-							<label><input type="radio" name="authority" value="1" ${updateForm.authority == 1?"checked=\"checked\"":""}
-											checked="checked">一般</label>
-							<label><input type="radio" name="authority" value="1" ${updateForm.authority == 2?"checked=\"checked\"":""}
-											checked="checked">管理</label>
-
-								</td>
+							<td><label><input type="radio" name="authority"
+									value="1" ${updateForm.authority == 1?"checked=\"checked\"":""}
+									checked="checked">一般</label> <label><input type="radio"
+									name="authority" value="1"
+									${updateForm.authority == 2?"checked=\"checked\"":""}
+									checked="checked">管理</label></td>
 						</tr>
 						<tr>
 							<th>部署名：</th>
@@ -90,8 +80,7 @@
 
 					<form method="Post"
 						action="<%=request.getContextPath()%>/UpdateCheckServlet">
-						<input
-					type="hidden" name="empPass" value="${updateForm.empPass}" />
+						<input type="hidden" name="empPass" value="${updateForm.empPass}" />
 						<input type="submit" value="更新確認" />
 					</form>
 					<form action="<%=request.getContextPath()%>/ManageTopServlet">
