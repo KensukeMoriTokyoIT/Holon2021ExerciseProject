@@ -39,7 +39,7 @@ public class SelfUpdateInputServlet extends HttpServlet {
 
 		request.setAttribute("empBean", empBean);
 		RequestDispatcher dispatcher = request
-                .getRequestDispatcher("jsp/selfPass/selfPassInput.jsp");
+                .getRequestDispatcher("jsp/error/error.jsp");
         dispatcher.forward(request, response);
 	}
 

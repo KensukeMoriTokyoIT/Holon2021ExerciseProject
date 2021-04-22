@@ -49,7 +49,7 @@ public class EmpDao {
 	/** employeeの削除SQL*/
 	private static final String EMP_DELETE = "DELETE FROM employee WHERE emp_id = ?";
 	/** employeeの登録SQL*/
-	private static final String EMP_INSERT = "INSERT INTO employee(seq_emp.nextval,emp_pass,emp_name,gender,address,birthday,authority,dept_id)VALUES(?,?,?,?,?,?,?,?,?)";
+	private static final String EMP_INSERT = "INSERT INTO employee(emp_id,emp_pass,emp_name,gender,address,birthday,authority,dept_id)VALUES(seq_emp.nextval,?,?,?,?,?,?,?)";
 
 	/**
 	 * 社員IDによる1件検索メソッド
