@@ -41,6 +41,8 @@ public class ManagePasswordCompleteServlet extends HttpServlet {
 
 
 
+
+
 		   String newpassword = request.getParameter("newpassword");
 
 
