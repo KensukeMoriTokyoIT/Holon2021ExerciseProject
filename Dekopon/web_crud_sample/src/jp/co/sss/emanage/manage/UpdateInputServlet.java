@@ -60,7 +60,7 @@ public class UpdateInputServlet extends HttpServlet {
 
 			request.setAttribute("updateForm", updateForm);
 			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("jsp/update/check.jsp");
+					.getRequestDispatcher("jsp/update/update.jsp");
 			dispatcher.forward(request, response);
 
 		} else {
