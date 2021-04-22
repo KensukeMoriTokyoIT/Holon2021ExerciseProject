@@ -22,7 +22,7 @@ import jp.co.sss.emanage.util.Property;
  *
  * @author System Shared
  */
-@WebServlet("/ManageTopServlet")
+@WebServlet("/online/authority/ManageTopServlet")
 public class ManageTopServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

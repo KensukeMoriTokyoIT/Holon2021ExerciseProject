@@ -82,6 +82,7 @@ public class UpdateCheckServlet extends HttpServlet {
 			}
 			//生年月日
 			String birthday = request.getParameter("birthday");
+			birthday=birthday.replace("-", "/");
 			updateForm.setBirthday(birthday);
 			if ((error = iv.birthdayValidate(birthday)) != null) {
 				errorMessages.add(error);
