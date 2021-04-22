@@ -59,7 +59,7 @@ public class InfoTopServlet extends HttpServlet {
 
         // 一般社員用一覧表示画面へ画面遷移を行う
         RequestDispatcher dispatcher = request
-                .getRequestDispatcher("jsp/info/info.jsp");
+                .getRequestDispatcher("/jsp/info/info.jsp");
         dispatcher.forward(request, response);
     }
 }
