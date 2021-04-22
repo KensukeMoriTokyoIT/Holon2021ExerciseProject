@@ -548,17 +548,17 @@ public class EmpDao {
 
     	try {
     	con = DBManager.getConnection();
-    	ps = con.prepareStatement("UPDATE employee SET emp_pass= ?, emp_name = ?,gender = ?,address =?, birthday=?,authority = ?, dept_id = ? where emp_id = ? ");
+    	ps = con.prepareStatement("UPDATE employee SET  emp_name = ?,gender = ?,address =?, birthday=?,authority = ?, dept_id = ? where emp_id = ? ");
 
 
-    	ps.setString(1, empBean.getEmpPass());
-    	ps.setString(2, empBean.getEmpName());
-    	ps.setString(3, empBean.getGender());
-    	ps.setString(4, empBean.getAddress());
-    	ps.setString(5, DateFormat.formatDate(empBean.getBirthday()));
-    	ps.setString(6, empBean.getAuthority());
-    	ps.setString(7, empBean.getDeptId());
-    	ps.setString(8, empBean.getEmpId());
+
+    	ps.setString(1, empBean.getEmpName());
+    	ps.setString(2, empBean.getGender());
+    	ps.setString(3, empBean.getAddress());
+    	ps.setString(4, DateFormat.formatDate(empBean.getBirthday()));
+    	ps.setString(5, empBean.getAuthority());
+    	ps.setString(6, empBean.getDeptId());
+    	ps.setString(7, empBean.getEmpId());
 
     	ps.executeUpdate();
     	}catch(SQLException e){

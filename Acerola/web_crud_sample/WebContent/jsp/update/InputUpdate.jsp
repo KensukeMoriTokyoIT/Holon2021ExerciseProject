@@ -20,13 +20,6 @@
 			id="inputform" method="post">
 			<input type="hidden" name="empId" value="${user.empId }">
 			<table class="tac">
-				<tr>
-					<th>パスワード:</th>
-					<td style="border-style: none; text-align: center;">
-					<input type="password" name="empPass" maxlength="16" />
-					<label style="color: red">${ePassword}</label></td>
-
-				</tr>
 
 				<tr>
 					<th>社員名:</th>

@@ -8,7 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import jp.co.sss.emanage.action.UserCheck;
 import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.EmpDao;
 import jp.co.sss.emanage.form.UpdateForm;
@@ -34,23 +36,38 @@ public class UpdateInputServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		UpdateForm updateForm = new UpdateForm();
-		//DBからID検索
-		EmpBean empBean = EmpDao.findById(request.getParameter("empId"));
-		String birthday = DateFormat.formatDate((String)empBean.getBirthday());
 
-		updateForm.setEmpId(empBean.getEmpId()); //社員ID
-		updateForm.setEmpName(empBean.getEmpName()); //社員名
-		updateForm.setGender(empBean.getGender());//性別
-		updateForm.setAddress(empBean.getAddress());//住所
-		updateForm.setBirthday(birthday);//生年月日
-		updateForm.setAuthority(empBean.getAuthority());//権限
-		updateForm.setDeptId(empBean.getDeptId());//部署ID
-		updateForm.setDeptName(empBean.getDeptName());//部署名
+		//セッション取得
+		HttpSession session = request.getSession();
+		EmpBean user = (EmpBean) session.getAttribute("user");
 
-		request.setAttribute("updateForm", updateForm);
-		RequestDispatcher dispatcher = request
-                .getRequestDispatcher("jsp/update/check.jsp");
-        dispatcher.forward(request, response);
+		//ログイン管理 & 権限チェック
+		if (UserCheck.loginCheck(user)) {
+			//ログインOK、権限OK -->処理実行
+			UpdateForm updateForm = new UpdateForm();
+			//DBからID検索
+			EmpBean empBean = EmpDao.findById(request.getParameter("empId"));
+			String birthday = DateFormat.formatDate((String) empBean.getBirthday());
+
+			updateForm.setEmpId(empBean.getEmpId()); //社員ID
+			updateForm.setEmpName(empBean.getEmpName()); //社員名
+			updateForm.setGender(empBean.getGender());//性別
+			updateForm.setAddress(empBean.getAddress());//住所
+			updateForm.setBirthday(birthday);//生年月日
+			updateForm.setAuthority(empBean.getAuthority());//権限
+			updateForm.setDeptId(empBean.getDeptId());//部署ID
+			updateForm.setDeptName(empBean.getDeptName());//部署名
+
+			request.setAttribute("updateForm", updateForm);
+			RequestDispatcher dispatcher = request
+					.getRequestDispatcher("jsp/update/check.jsp");
+			dispatcher.forward(request, response);
+
+		} else {
+			//ログインNG、または権限NG
+			//ログイン画面へ遷移
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		}
+
 	}
 }
