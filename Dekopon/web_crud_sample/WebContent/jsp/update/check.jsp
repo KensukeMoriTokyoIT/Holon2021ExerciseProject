@@ -80,8 +80,8 @@
 					type="hidden" name="address" value="${updateForm.address}" /> <input
 					type="hidden" name="birthday" value="${updateForm.birthday}" /> <input
 					type="hidden" name="authority" value="${updateForm.authority}" />
-				<input type="hidden" name="department"
-					value="${updateForm.department}" />
+				<input type="hidden" name="deptName"
+					value="${updateForm.deptName}" />
 
 			</form>
 			<input type="submit" value="実行" /> <input type="submit" value="戻る" />
