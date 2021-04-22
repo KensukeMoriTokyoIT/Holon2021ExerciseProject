@@ -625,5 +625,24 @@ public class EmpDao {
         }
 
     	}
+    public static void updateNewPass(String newPass, String empId) {
+    	Connection con = null;
+    	PreparedStatement ps = null;
+
+    	try {
+    	con = DBManager.getConnection();
+    	ps = con.prepareStatement("UPDATE employee SET emp_pass= ? where emp_id = ? ");
+
+    	ps.setString(1, newPass);
+    	ps.setString(2, empId);
+
+    	ps.executeUpdate();
+    	}catch(SQLException e){
+    		  e.printStackTrace();
+        } finally {
+            // DB切断処理
+            DBManager.close(ps, con);
+        }
+    }
 
 }

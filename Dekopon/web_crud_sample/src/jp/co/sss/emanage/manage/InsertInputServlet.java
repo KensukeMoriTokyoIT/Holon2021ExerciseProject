@@ -1,6 +1,8 @@
 package jp.co.sss.emanage.manage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.EmpDao;
+import jp.co.sss.emanage.util.InputValidator;
 
 
 /**
@@ -35,53 +38,51 @@ public class InsertInputServlet extends HttpServlet {
 
 				 //オブジェクトを生成
 			    EmpBean emp = new EmpBean();
+			  //入力チェック用クラス
+				InputValidator iv = new InputValidator();
+				String error = new String();
+				List<String> errorMessages = new ArrayList<>();
 			    //パスワードを受け取る
 			    String password = request.getParameter("empPass");
 			    //社員名が無記入の場合、エラーメッセージを表示
-			    if(password==null) {
-			    	request.setAttribute("errormessage","パスワードを入力して下さい！");
-			    }
+			    if ((error = iv.deptIdValidate(password)) != null) {
+					errorMessages.add(error);
+				}
 				//社員名を受け取る
 			    String name = request.getParameter("empName");
 			    //社員名が無記入の場合、エラーメッセージを表示
-			    if(name==null) {
-			    	request.setAttribute("errormessage1","社員名を入力して下さい！");
-			    }
+			    if ((error = iv.deptIdValidate(name)) != null) {
+					errorMessages.add(error);
+				}
 			    //性別の選択を受け取る
 		     	String gender = request.getParameter("gender");
 		     	//性別が無選択の場合、エラーメッセージを表示
-		     	if(gender=="1"||gender!="2") {
-			    	request.setAttribute("errormessage2","性別を選択して下さい！");
-		     	}
+		     	if ((error = iv.deptIdValidate(gender)) != null) {
+					errorMessages.add(error);
+				}
 		     	//住所を受け取る
 			    String address = request.getParameter("address");
 			    //住所が無記入の場合、エラーメッセージを表示
-			    if(address==null) {
-			    	request.setAttribute("errormessage3","住所を入力して下さい！");
-			    }
+			    if ((error = iv.deptIdValidate(address)) != null) {
+					errorMessages.add(error);
+				}
 			    //生年月日を受け取る
 			    String birthday = request.getParameter("birthday");
 			    //生年月日が無記入の場合、エラーメッセージを表示
-			    if(birthday==null) {
-			    	request.setAttribute("errormessage4","生年月日を入力して下さい！");
-			    }
+			    if ((error = iv.deptIdValidate(birthday)) != null) {
+					errorMessages.add(error);
+				}
 			    String authority = request.getParameter("authority");
 			    //権限を受け取る
-		     	if(authority=="1"||authority!="2") {
-			    	request.setAttribute("errormessage5","権限を選択して下さい！");
-			    }
+			    if ((error = iv.deptIdValidate(authority)) != null) {
+					errorMessages.add(error);
+				}
 			    //部署名を受け取る
 			    String department = request.getParameter("deptName");
 			    //部署名が無無記入の場合、エラーメッセージを表示//
-			    if(department==null) {
-			    	request.setAttribute("errormessage6","部署名を選択して下さい！");
-			    }
-			    //エラーメッセージを表示する条件式
-			    if(password==null||name==null||gender==null||address==null||birthday==null||authority==null||department==null) {
-			    	RequestDispatcher dispatcher = request
-	                        .getRequestDispatcher("jsp/Insert/insertinput.jsp");
-	                dispatcher.forward(request, response);
-			    }
+			    if ((error = iv.deptIdValidate(department)) != null) {
+					errorMessages.add(error);
+				}
 			    //変数を格納する
 			    //社員名
 			    //パスワード
@@ -97,12 +98,20 @@ public class InsertInputServlet extends HttpServlet {
 			    //部署名
 			    emp.setDeptName(department);
 			    EmpDao.insert(emp);
-			    //リクエストスコープの設置
-			   request.setAttribute("emp",emp);
-			   RequestDispatcher dispatcher = request
-		                .getRequestDispatcher("jsp/Insert/insertcheck.jsp");
-		        dispatcher.forward(request, response);
-			    }
-	}
+			  //入力チェック
+				if (errorMessages.isEmpty()) {
+					request.setAttribute("emp", emp);
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("jsp/Insert/insertcheck.jsp");
+					dispatcher.forward(request, response);
+				} else {
+					//エラーあり
+					request.setAttribute("errorMessages", errorMessages);
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("jsp/Insert/insertinput.jsp");
+					dispatcher.forward(request, response);
+				}
 
+			}
+}
 
