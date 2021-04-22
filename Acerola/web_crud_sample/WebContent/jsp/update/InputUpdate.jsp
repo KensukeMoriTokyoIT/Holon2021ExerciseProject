@@ -13,12 +13,13 @@
 	<div id="header">
 		<%@ include file="/jsp/common/header_login.jsp"%>
 	</div>
-	<p>社員情報更新入力画面</p>
+	<p>社員情報変更入力画面</p>
 	<div id="main" id="contents">
 
 		<form action="<%=request.getContextPath()%>/UpdateCheck"
 			id="inputform" method="post">
 			<input type="hidden" name="empId" value="${user.empId }">
+			<input type="hidden" name="authority" value ="${user.authority}">
 			<table class="tac">
 
 				<tr>
@@ -57,22 +58,6 @@
 
 				</tr>
 				<tr>
-					<th>権限:</th>
-					<td><c:choose>
-							<c:when test="${user.authority == 1}">
-								<input type="radio" name="authority" value="1" checked="checked">一般
-					<input type="radio" name="authority" value="2" id="inputform">管理<label
-									style="color: red">${eAuthority}</label>
-							</c:when>
-							<c:when test="${user.authority == 2}">
-								<input type="radio" name="authority" value="1">一般
-					<input type="radio" name="authority" value="2" checked="checked">管理<label
-									style="color: red">${eAuthority}</label>
-							</c:when>
-						</c:choose></td>
-
-				</tr>
-				<tr>
 					<th>部署名:</th>
 					<td><c:choose>
 							<c:when test="${user.deptId == 1}">
@@ -104,7 +89,7 @@
 
 				</tr>
 			</table>
-			<input type="submit" value="登録画面">
+			<input type="submit" value="更新確認">
 
 		</form>
 		<p></p>
