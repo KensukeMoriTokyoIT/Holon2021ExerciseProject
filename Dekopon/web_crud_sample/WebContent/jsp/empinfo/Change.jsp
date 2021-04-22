@@ -69,7 +69,7 @@
 								</c:forEach>
 
   </table>
-   <form action="<%=request.getContextPath() %>/InsertServlet">
+   <form action="<%=request.getContextPath() %>/CheckServlet">
   <input type="submit" value="更新確認" />
   </form>
    <form action="<%=request.getContextPath() %>/InfoTopServlet">
