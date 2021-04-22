@@ -26,6 +26,8 @@ public class EmpBean implements Serializable {
     private String birthday;
     /** 権限 */
     private String authority;
+    /** 部署 */
+    private DeptBean dept;
     /** 部署ID */
     private String deptId;
     /** 部署名 */
@@ -136,6 +138,16 @@ public class EmpBean implements Serializable {
      */
     public void setAuthority(String authority) {
         this.authority = authority;
+    }
+
+    /**
+     * @return 部署
+     */
+    public DeptBean getDeptBean() {
+        return dept;
+    }
+    public void setDeptBean(DeptBean dept) {
+        this.dept = dept;
     }
 
     /**

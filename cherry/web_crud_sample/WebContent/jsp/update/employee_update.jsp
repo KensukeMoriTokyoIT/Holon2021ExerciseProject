@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -10,38 +9,38 @@
 	<%@include file="/jsp/common/header.jsp"%>
 	<article class="main">
 		<p>社員情報更新入力画面</p>
-		//コンテキストパス以降のサーブレット未実装
 		<form action="<%=request.getContextPath()%>/Check2" method="post">
-		//エラーメッセージ未実装　エラーメッセージのサーブレット有　牧野君と問題点共通
+		//エラーメッセージ未実
 		//valueに入力する値はどうする？
 			<p>
-				<input type="hidden" name="empId" value="">
+				<input type="text" name="empId" value=>
 			</p>
 			<p>
-				パスワード:<input type="password" name="password" value=""/>
+				パスワード:<input type="password" name="empPass" value= />
 			</p>
 			<p>
-				社員名:<input type="text" name="name" value=""/>
+				社員名:<input type="text" name="empName" value=""/>
 			</p>
 			<p>
-				性別:<input type="radio" name="gender" value=""/>
+				性別:<label><input type="radio" name="gender" value="1" />男</label>
+					 <label><input type="radio" name="gender" value="2"/>女</label>
 			</p>
 			<p>
-				住所:<input type="text" name="adress" value=""/>
+				住所:<input type="text" name="address" value=/>
 			</p>
 			<p>
-				生年月日:<input type="text" name="birthday" value=""/>
+				生年月日:<input type="text" name="birthday" value= />
 			</p>
 			<p>
-				権限:<input type="radio" name="authority" value=""/>
+				権限:<label><input type="radio" name="authority" value="1" />一般</label>
+					 <label><input type="radio" name="authority" value="2"/>管理</label>
 			</p>
 			<p>
-				部署名:<select name="department">
-					<option value="001">営業部</option>
-					<option value="002">経理部</option>
-					<option value="003">総務部</option>
+				部署名:<select name="deptName">
+					<option value="1">営業部</option>
+					<option value="2">経理部</option>
+					<option value="3">総務部</option>
 				</select>
-				//ログアウトボタンと登録ボタンをどこにつけ、遷移先をどう設定するか
 			</p>
 			<input type="submit" value="更新" />
 			<input type="button" value="社員一覧表示に戻る">

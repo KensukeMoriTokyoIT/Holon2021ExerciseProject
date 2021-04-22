@@ -39,7 +39,7 @@ public class UpdateCompleteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String empId = request.getParameter("empId");
-		String passWord = request.getParameter("passWord");
+		String password = request.getParameter("password");
 		String empName = request.getParameter("empName");
 		String gender = request.getParameter("gender");
 		String address = request.getParameter("address");
@@ -47,7 +47,7 @@ public class UpdateCompleteServlet extends HttpServlet {
 		String authority = request.getParameter("authority");
 		String deptId = request.getParameter("deptId");
 
-		EmpDao.update(empId, passWord, empName, gender, address, birthday, authority, deptId);
+		EmpDao.update(empId, password, empName, gender, address, birthday, authority, deptId);
 
 		request.getRequestDispatcher("jsp/manage/update_complete.jsp").forward(request,response);
 

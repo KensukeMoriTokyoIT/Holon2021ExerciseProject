@@ -14,7 +14,7 @@ public class UserCheck {
 	 */
 	public static boolean loginCheck(EmpBean user) {
 		boolean isLogin = false;
-		if (user != null) {
+		if (user.getEmpId() != null) {
 			isLogin = true;
 		}
 		return isLogin;

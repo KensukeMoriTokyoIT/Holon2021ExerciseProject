@@ -39,7 +39,7 @@ public class UpdateConfirmServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String empId = request.getParameter("empId");
-		String passWord = request.getParameter("password");
+		String password = request.getParameter("password");
 		String empName = request.getParameter("empName");
 		String gender = request.getParameter("gender");
 		String address = request.getParameter("address");
@@ -50,7 +50,7 @@ public class UpdateConfirmServlet extends HttpServlet {
 		EmpBean emp = new EmpBean();
 
 		emp.setEmpId(empId);
-		emp.setEmpPass(passWord);
+		emp.setEmpPass(password);
 		emp.setEmpName(empName);
 		emp.setGender(gender);
 		emp.setAddress(address);

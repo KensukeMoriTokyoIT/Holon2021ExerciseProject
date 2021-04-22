@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.sss.emanage.bean.EmpBean;
+import jp.co.sss.emanage.dao.EmpDao;
 
 /**
  * Servlet implementation class Check1
@@ -35,6 +36,7 @@ public class Update1 extends HttpServlet {
 	        emp.setBirthday(birthday);
 	        emp.setAuthority(authority);
 	        emp.setDeptName(deptName);
+	        EmpDao.update(emp);
 	        request.getRequestDispatcher("/jsp/update/employee_insertcon.jsp").forward(request, response);
 
 	}

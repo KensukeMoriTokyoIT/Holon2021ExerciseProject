@@ -78,7 +78,7 @@
 		<form method="post"
 			action="<%=request.getContextPath()%>/UpdateCompleteServlet">
 			<input type="hidden" name="empId" value="${emp.empId}" /> <input
-				type="hidden" name="passWord" value="${emp.empPass}" /> <input
+				type="hidden" name="password" value="${emp.empPass}" /> <input
 				type="hidden" name="empName" value="${emp.empName}" /> <input
 				type="hidden" name="gender" value="${emp.gender}" /> <input
 				type="hidden" name="address" value="${emp.address}" /> <input
@@ -88,7 +88,7 @@
 				type="submit" value="実行" />
 		</form>
 
-		<form method="post" action="<%=request.getContextPath()%>/UpdateForm">
+		<form method="post" action="<%=request.getContextPath()%>/ManageReturn">
 			<input type="submit" value="戻る" />
 		</form>
 	</article>

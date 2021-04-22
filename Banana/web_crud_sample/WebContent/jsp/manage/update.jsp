@@ -58,7 +58,7 @@
 					<tr>
 						<td>権限：</td>
 						<td><c:choose>
-								<c:when test="${emp.gender == 1}">
+								<c:when test="${emp.authority == 1}">
 									<label><input type="radio" name="authority" value="1"
 										checked>一般</label>
 									<label><input type="radio" name="authority" value="2" />管理</label>
@@ -74,9 +74,22 @@
 					<tr>
 						<td>部署名：</td>
 						<td><select name="deptId">
-								<option value="1">営業部</option>
-								<option value="2">経理部</option>
-								<option value="3">総務部</option>
+							<c:if test="${emp.deptId == 1}">
+								<option  selected value="1">営業部</option>
+								<option  value="2">経理部</option>
+								<option  value="3">総務部</option>
+							</c:if>
+
+							<c:if test="${emp.deptId == 2}">
+								<option  value="1">営業部</option>
+								<option  selected value="2">経理部</option>
+								<option  value="3">総務部</option>
+							</c:if>
+							<c:if test="${emp.deptId == 3}">
+								<option  value="1">営業部</option>
+								<option  value="2">経理部</option>
+								<option  selected value="３">総務部</option>
+							</c:if>
 						</select>
 				</table>
 
