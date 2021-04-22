@@ -84,13 +84,6 @@ public class UpdateConfirmServlet extends HttpServlet {
 			birthday_error != null  ||
 			authority_error!= null  ||
 			deptId_error   != null) {
-			System.out.println(password_error);
-			System.out.println(empName_error);
-			System.out.println(gender_error);
-			System.out.println(address_error);
-			System.out.println(birthday_error);
-			System.out.println(authority_error);
-			System.out.println(deptId_error);
 			request.getRequestDispatcher("jsp/manage/update.jsp").forward(request,response);
 		}
 		else {
