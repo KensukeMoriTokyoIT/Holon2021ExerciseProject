@@ -46,7 +46,7 @@ public class ManageTopServlet extends HttpServlet {
 		EmpBean user = (EmpBean) session.getAttribute("user");
 
 		//ログイン管理 & 権限チェック
-		if (UserCheck.loginCheck(user)) {
+		if (UserCheck.loginCheck(user) && UserCheck.authorityCheck(user)) {
 			//ログインOK、権限OK -->処理実行
 			// 社員テーブルを検索し、全項目を取得する
 			List<EmpBean> empList = EmpDao.findAll();

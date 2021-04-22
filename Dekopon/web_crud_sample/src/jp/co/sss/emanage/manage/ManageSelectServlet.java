@@ -48,7 +48,7 @@ public class ManageSelectServlet extends HttpServlet {
 		EmpBean user = (EmpBean) session.getAttribute("user");
 
 		//ログイン管理 & 権限チェック
-		if (UserCheck.loginCheck(user)) {
+		if (UserCheck.loginCheck(user) && UserCheck.authorityCheck(user)) {
 			//ログインOK、権限OK -->処理実行
 
 			// 入力された検索情報を受け取るフォームの準備
