@@ -21,7 +21,7 @@ import jp.co.sss.emanage.util.Property;
 /**
  * Servlet implementation class InfoSelectServret
  */
-@WebServlet("/InfoSelectServlet")
+@WebServlet("/online/InfoSelectServlet")
 public class InfoSelectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

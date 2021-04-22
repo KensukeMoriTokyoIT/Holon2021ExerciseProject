@@ -16,29 +16,25 @@ import javax.servlet.http.HttpServletResponse;
 public class SelfPasswordInputServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SelfPasswordInputServlet() {
-        super();}
-        // TODO Auto-generated constructor stub
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public SelfPasswordInputServlet() {
+		super();
+	}
+	// TODO Auto-generated constructor stub
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String empId = request.getParameter("empId");
-		request.setAttribute("empId",empId);
+		request.setAttribute("empId", empId);
 
+		RequestDispatcher dispatcher = request
+				.getRequestDispatcher("/jsp/info/selfpass.jsp");
+		dispatcher.forward(request, response);
 
-        	 RequestDispatcher dispatcher = request
-                     .getRequestDispatcher("/selfpass.jsp");
-             dispatcher.forward(request, response);
-
-
-         }
 	}
-
-
-
-
+}

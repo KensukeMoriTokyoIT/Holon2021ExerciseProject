@@ -14,10 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 import jp.co.sss.emanage.form.SelfUpdateForm;
 import jp.co.sss.emanage.util.Property;
 
-@WebServlet("/InsertCheck")
+@WebServlet("/online/authority/InsertCheck")
 public class InsertCheck extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
+
+
+
 
 	SelfUpdateForm userInfo = new SelfUpdateForm();
 	userInfo.setEmpId(request.getParameter("empId"));

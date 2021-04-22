@@ -19,7 +19,7 @@
 			<font color="red">登録する社員の情報を入力してください</font>
 		</p>
 
-		<form action="<%=request.getContextPath()%>/InsertCheck" id="inputform" method="post">
+		<form action="<%=request.getContextPath()%>/online/authority/InsertCheck" id="inputform" method="post">
 			<table class="tac">
 				<tr>
 					<th>社員名:</th>
@@ -28,18 +28,15 @@
 						style="color: red">${eName}</label></td>
 				<tr>
 					<th>性別:</th>
-					<td><c:choose>
-							<c:when test="${user.gender == 1}">
+					<td>
 								<input type="radio" name="gender" value="1" checked="checked">男性<label
 									style="color: red">${eGender}</label>
 								<input type="radio" name="gender" value="2">女性
-					</c:when>
-							<c:when test="${user.gender == 2}">
+
 								<input type="radio" name="gender" value="1">男性<label
 									style="color: red">${eGender}</label>
 								<input type="radio" name="gender" value="2" checked="checked">女性
-				</c:when>
-						</c:choose></td>
+					</td>
 
 				</tr>
 				<tr>
@@ -58,40 +55,35 @@
 				</tr>
 				<tr>
 					<th>権限:</th>
-					<td><c:choose>
-							<c:when test="${user.authority == 1}">
+					<td>
 								<input type="radio" name="authority" value="1" checked="checked">一般
 					<input type="radio" name="authority" value="2" id="inputform">管理<label
 									style="color: red">${eAuthority}</label>
-							</c:when>
-							<c:when test="${user.authority == 2}">
+
 								<input type="radio" name="authority" value="1">一般
 					<input type="radio" name="authority" value="2" checked="checked">管理<label
 									style="color: red">${eAuthority}</label>
-							</c:when>
-						</c:choose></td>
+					</td>
 
 				</tr>
 				<tr>
 					<th>部署名:</th>
-					<td><c:choose>
-							<c:when test="${user.deptId == 1}">
+					<td>
 								<select name="deptId">
 									<option value="1" selected>営業部</option>
 									<option value="2">経理部</option>
 									<option value="3">総務部</option>
 								</select>
 								<label style="color: red">${eDeptName}</label>
-							</c:when>
-							<c:when test="${user.deptId == 2}">
+
 								<select name="deptId" id=>
 									<option value="1">営業部</option>
 									<option value="2" selected>経理部</option>
 									<option value="3">総務部</option>
 								</select>
 								<label style="color: red">${eDeptName}</label>
-							</c:when>
-							<c:when test="${user.deptId == 3}">
+
+
 								<select name="deptId">
 									<option value="1">営業部</option>
 									<option value="2">経理部</option>
@@ -99,8 +91,7 @@
 								</select>
 								<label style="color: red">${eDeptName}</label>
 
-							</c:when>
-						</c:choose></td>
+						</td>
 
 				</tr>
 			</table>

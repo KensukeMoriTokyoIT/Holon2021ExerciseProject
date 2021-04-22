@@ -45,15 +45,15 @@
 		</p>
 	</div>
 
-	<form action="<%=request.getContextPath()%>/InsertComplete" id="main"
+	<form action="<%=request.getContextPath()%>/online/authority/InsertComplete" id="main"
 		method="post">
-		<input type="hidden" name="empPass" value="${emp.empPass}" /> <input
-			type="hidden" name="empName" value="${emp.empName}" /> <input
-			type="hidden" name="gender" value="${emp.gender}" /> <input
-			type="hidden" name="address" value="${emp.address}" /> <input
-			type="hidden" name="birthday" value="${emp.birthday}" /> <input
-			type="hidden" name="authority" value="${emp.authority}" /> <input
-			type="hidden" name="deptId" value="${emp.deptId}" />
+		<input type="hidden" name="empPass" value="${user.empPass}" /> <input
+			type="hidden" name="empName" value="${user.empName}" /> <input
+			type="hidden" name="gender" value="${user.gender}" /> <input
+			type="hidden" name="address" value="${user.address}" /> <input
+			type="hidden" name="birthday" value="${user.birthday}" /> <input
+			type="hidden" name="authority" value="${user.authority}" /> <input
+			type="hidden" name="deptId" value="${user.deptId}" />
 		<p style="text-align: center">
 			<input type="submit" value="実行" />
 	</form>
