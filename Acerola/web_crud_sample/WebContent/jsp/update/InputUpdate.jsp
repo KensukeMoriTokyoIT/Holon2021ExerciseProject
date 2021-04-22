@@ -93,7 +93,7 @@
 
 		</form>
 		<p></p>
-		<form action="<%=request.getContextPath()%>/InfoTopServlet"
+		<form action="<%=request.getContextPath()%>/online/InfoTopServlet"
 			id="inputform">
 			<input type="submit" value="社員一覧表示に戻る">
 		</form>
