@@ -23,7 +23,7 @@ public class InsertCheck extends HttpServlet {
 
 
 	SelfUpdateForm userInfo = new SelfUpdateForm();
-
+	userInfo.setEmpPass(request.getParameter("empPass"));
 	userInfo.setEmpName(request.getParameter("empName"));
 	userInfo.setGender(request.getParameter("gender"));
 	userInfo.setAddress(request.getParameter("address"));
@@ -47,6 +47,17 @@ public class InsertCheck extends HttpServlet {
 				request.setAttribute("eName", Property.NAME_LENGTH_OVER);
 				request.getRequestDispatcher("/jsp/insert/InsertInput.jsp").forward(request,response);
 			}
+		 if(userInfo.getEmpPass().equals("")) {
+				request.setAttribute("user", userInfo);
+				request.setAttribute("ePassword", Property.PASSWORD_EMPTY);
+				request.getRequestDispatcher("/jsp/insert/InsertInput.jsp").forward(request,response);
+			}
+		 else if (userInfo.getEmpPass().length() > 16) {
+				request.setAttribute("user", userInfo);
+				request.setAttribute("eName", Property.PASSWORD_LENGTH_OVER);
+				request.getRequestDispatcher("/jsp/insert/InsertInput.jsp").forward(request,response);
+			}
+
 		 if(userInfo.getGender().equals(null)) {
 			request.setAttribute("user", userInfo);
 			request.setAttribute("eGender", Property.GENDER_EMPTY);

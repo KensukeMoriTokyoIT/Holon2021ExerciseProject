@@ -25,7 +25,13 @@
 					<th>社員名:</th>
 					<td style="border-style: none; text-align: center;"><input
 						type="text" name="empName"  maxlength="30"><label
-						style="color: red">${eName}</label></td>
+						style="color: red">${eName}</label></td></tr>
+						<tr>
+					<th>パスワード:</th>
+					<td style="border-style: none; text-align: center;"><input
+						type="password" name="empPass"  maxlength="16"><label
+						style="color: red">${ePass}</label></td></tr>
+
 				<tr>
 					<th>性別:</th>
 					<td>
@@ -66,21 +72,6 @@
 									<option value="1" selected>営業部</option>
 									<option value="2">経理部</option>
 									<option value="3">総務部</option>
-								</select>
-								<label style="color: red">${eDept}</label>
-
-								<select name="deptId" id=>
-									<option value="1">営業部</option>
-									<option value="2" selected>経理部</option>
-									<option value="3">総務部</option>
-								</select>
-								<label style="color: red">${eDept}</label>
-
-
-								<select name="deptId">
-									<option value="1">営業部</option>
-									<option value="2">経理部</option>
-									<option value="3" selected>総務部</option>
 								</select>
 								<label style="color: red">${eDept}</label>
 
