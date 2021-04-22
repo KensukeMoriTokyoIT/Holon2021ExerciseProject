@@ -16,7 +16,7 @@
 	<h2>社員更新入力画面</h2>
 	<h3>更新する社員の情報を入力してください</h3>
 
-	<form method="post" action="<%=request.getContextPath()%>/"> <%--飛ばす先未定(4/21)--%>
+	<form method="post" action="<%=request.getContextPath()%>/SelfUpdateImputServlet">
 
 	<div class=table_emp>
 	<table>
@@ -60,7 +60,8 @@
 	</table>
 
 	</div>
-		<input type="hidden" name="empId" value="${emp.empId}" /> <input type="submit" value="更新確認" />
+		<input type="hidden" name="empId" value="${emp.empId}" />
+		<input type="submit" value="更新確認" />
 	</form>
 
 	<form method="post" action="<%=request.getContextPath()%>/InfoReturn">
