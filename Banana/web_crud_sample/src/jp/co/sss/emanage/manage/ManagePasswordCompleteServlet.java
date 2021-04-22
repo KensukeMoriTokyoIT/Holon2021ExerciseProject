@@ -43,168 +43,23 @@ public class ManagePasswordCompleteServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		String newpassword = request.getParameter("newpass1");
-		System.out.println(newpassword);
+		String newpassword1 = request.getParameter("newpass1");
+		String newpassword2 = request.getParameter("newpass2");
+
+		if (newpassword1.equals("") && newpassword2.equals("")) {
+			request.setAttribute("password_error","パスワードが入力されていません");
+			request.getRequestDispatcher("jsp/manage/managepass_insert.jsp").forward(request, response);
+		}
+
+
+		if (!newpassword1.equals(newpassword2)) {
+			request.setAttribute("password_error","パスワードが一致していません。");
+			request.getRequestDispatcher("jsp/manage/managepass_insert.jsp").forward(request, response);
+		}
 
 		String empId = request.getParameter("empId");
 
-		EmpDao.updatePassword(empId, newpassword);
-		System.out.println(empId);
+		EmpDao.updatePassword(empId, newpassword1);
 
 		request.getRequestDispatcher("jsp/manage/managepass_complete.jsp").forward(request, response);
 
