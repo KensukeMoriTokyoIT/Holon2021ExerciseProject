@@ -50,6 +50,7 @@ public class UpdateInputServlet extends HttpServlet {
 			String birthday = DateFormat.formatDate((String) empBean.getBirthday());
 
 			updateForm.setEmpId(empBean.getEmpId()); //社員ID
+			updateForm.setEmpPass(empBean.getEmpPass()); //社員ID
 			updateForm.setEmpName(empBean.getEmpName()); //社員名
 			updateForm.setGender(empBean.getGender());//性別
 			updateForm.setAddress(empBean.getAddress());//住所

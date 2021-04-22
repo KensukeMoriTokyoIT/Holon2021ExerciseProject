@@ -23,12 +23,9 @@
 				action="<%=request.getContextPath()%>/UpdateConfirmServlet">
 				<table>
 					<tr>
-						<td>パスワード：</td>
-						<td><input type="password" name="password"></td>
-					</tr>
-					<tr>
 						<td>社員名：</td>
 						<td><input type="text" name="empName" value="${emp.empName}">
+						<td>${empName_error}</td>
 					</tr>
 					<tr>
 						<td>性別：</td>
@@ -44,16 +41,21 @@
 									<label><input type="radio" name="gender" value="2"
 										checked>女性</label>
 								</c:otherwise>
-							</c:choose></td>
+							</c:choose>
+						</td>
+						<td>${gender_error}</td>
 					</tr>
 					<tr>
 						<td>住所：</td>
 						<td><input type="text" name="address" value="${emp.address}"></td>
+						<td>${address_error}</td>
 					</tr>
 					<tr>
 						<td>生年月日：</td>
 						<td><input type="text" name="birthday"
 							value="${emp.birthday}"></td>
+						<td>(YYYY/MM/DD)</td>
+						<td>${birthday_error}</td>
 					</tr>
 					<tr>
 						<td>権限：</td>
@@ -70,6 +72,7 @@
 										checked>管理</label>
 								</c:otherwise>
 							</c:choose></td>
+							<td>${authority_error}</td>
 					</tr>
 					<tr>
 						<td>部署名：</td>
@@ -91,11 +94,10 @@
 								<option  selected value="３">総務部</option>
 							</c:if>
 						</select>
+						<td>${deptId_error}</td>
 				</table>
 
-
-
-
+				<input type="hidden" name="password"value="${emp.empPass}"></td>
 				<input type="hidden" name="empId" value="${emp.empId}" /> <input
 					type="submit" value="更新確認" />
 			</form>
