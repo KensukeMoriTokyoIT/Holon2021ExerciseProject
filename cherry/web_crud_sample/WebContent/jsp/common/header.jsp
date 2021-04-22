@@ -4,7 +4,7 @@
 <h2 class="header">社員情報管理システム</h2>
 
 <c:if test="${user != null}">
-	<div id="headerinfo">
+	<div id="headerilanfo">
 		<h5 class="login_user">
 			ようこそ<b>${user.empName}</b>さん
 		</h5>
