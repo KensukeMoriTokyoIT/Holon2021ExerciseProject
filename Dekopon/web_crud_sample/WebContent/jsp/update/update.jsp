@@ -66,7 +66,7 @@
 						<tr>
 							<th>生年月日：</th>
 							<td style="border-style: none; text-align: center;"><input
-								type="date" name="birthday" value="${updateForm.birthday}"></td>
+								type="text" name="birthday" value="${updateForm.birthday}"></td>
 						</tr>
 						<tr>
 							<th>権限：</th>
