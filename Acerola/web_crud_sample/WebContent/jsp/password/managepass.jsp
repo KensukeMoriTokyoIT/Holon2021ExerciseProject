@@ -8,7 +8,7 @@
 	rel="stylesheet" type="text/css" />
 	<link href="<%=request.getContextPath()%>/css/stylesheet.css"
 	rel="stylesheet" type="text/css" />
-<title>Insert title here</title>
+<title>パスワード変更完了画面</title>
 </head>
 <body>
 <div id="header">
