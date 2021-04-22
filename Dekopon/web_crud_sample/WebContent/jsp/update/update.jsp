@@ -101,7 +101,7 @@
 						action="<%=request.getContextPath()%>/UpdateCheckServlet">
 						<input type="submit" value="更新確認" />
 					</form>
-					<form action="<%=request.getContextPath()%>/ManageTopServle">
+					<form action="<%=request.getContextPath()%>/ManageTopServlet">
 						<input type="submit" value="社員一覧に戻る" />
 					</form>
 				</div>
