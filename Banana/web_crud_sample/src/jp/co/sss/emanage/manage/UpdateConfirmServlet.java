@@ -55,7 +55,6 @@ public class UpdateConfirmServlet extends HttpServlet {
 		String address_error = validator.addressValidate(address);
 		String birthday_error = validator.birthdayValidate(birthday);
 		String authority_error = validator.authorityValidate(authority);
-		String deptId_error = validator.deptIdValidate(deptId);
 
 		request.setAttribute("password_error",password_error);
 		request.setAttribute("empName_error", empName_error);
@@ -63,7 +62,6 @@ public class UpdateConfirmServlet extends HttpServlet {
 		request.setAttribute("address_error", address_error);
 		request.setAttribute("birthday_error", birthday_error);
 		request.setAttribute("authority_error", authority_error);
-		request.setAttribute("deptId_error", deptId_error);
 
 		EmpBean emp = new EmpBean();
 		emp.setEmpId(empId);
@@ -82,8 +80,7 @@ public class UpdateConfirmServlet extends HttpServlet {
 			gender_error   != null  ||
 			address_error  != null  ||
 			birthday_error != null  ||
-			authority_error!= null  ||
-			deptId_error   != null) {
+			authority_error!= null) {
 			request.getRequestDispatcher("jsp/manage/update.jsp").forward(request,response);
 		}
 		else {

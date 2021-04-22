@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.sss.emanage.dao.EmpDao;
+import jp.co.sss.emanage.util.InputValidator;
 
 /**
  * Servlet implementation class ManagePasswordCompleteServlet
@@ -42,27 +43,25 @@ public class ManagePasswordCompleteServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-
 		String newpassword1 = request.getParameter("newpass1");
 		String newpassword2 = request.getParameter("newpass2");
 
-		if (newpassword1.equals("") && newpassword2.equals("")) {
-			request.setAttribute("password_error","パスワードが入力されていません");
+		InputValidator passValid1 = new InputValidator();
+		InputValidator passValid2 = new InputValidator();
+
+		String error1 = passValid1.passwordValidate(newpassword1);
+		String error2 = passValid2.passwordValidate(newpassword2);
+
+		if (error1 == null && error2 == null ) {
+			String empId = request.getParameter("empId");
+			EmpDao.updatePassword(empId, newpassword1);
+			request.getRequestDispatcher("jsp/manage/managepass_complete.jsp").forward(request, response);
+		} else if (error1 != null) {
+			request.setAttribute("password_error", error1);
+			request.getRequestDispatcher("jsp/manage/managepass_insert.jsp").forward(request, response);
+		} else {
+			request.setAttribute("password_error", error2);
 			request.getRequestDispatcher("jsp/manage/managepass_insert.jsp").forward(request, response);
 		}
-
-
-		if (!newpassword1.equals(newpassword2)) {
-			request.setAttribute("password_error","パスワードが一致していません。");
-			request.getRequestDispatcher("jsp/manage/managepass_insert.jsp").forward(request, response);
-		}
-
-		String empId = request.getParameter("empId");
-
-		EmpDao.updatePassword(empId, newpassword1);
-
-		request.getRequestDispatcher("jsp/manage/managepass_complete.jsp").forward(request, response);
-
 	}
-
 }

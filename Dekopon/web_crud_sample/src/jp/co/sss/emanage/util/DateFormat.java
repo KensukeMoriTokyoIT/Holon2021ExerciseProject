@@ -8,7 +8,7 @@ package jp.co.sss.emanage.util;
  */
 public class DateFormat {
     /**
-     * 日本形式の日付(yyyy年MM月dd日)を yyyy-mm-ddの形式へと変換するメソッド
+     * 日本形式の日付(yyyy年MM月dd日)または (yyyy-MM-dd-)を yyyy/mm/ddの形式へと変換するメソッド
      *
      * @param 日付
      *            (yyyy年MM月dd日形式)または (yyyy-MM-dd-形式)
