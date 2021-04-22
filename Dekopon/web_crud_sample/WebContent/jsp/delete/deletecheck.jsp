@@ -72,9 +72,10 @@
 
 
 		<form action="<%=request.getContextPath()%>/Delete" method="post">
+		<input type="hidden" name="empId" value="${deleteForm.empId }" />
 			<input type="submit" value="実行" />
 		</form>
-		<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">
+		<form action="<%=request.getContextPath()%>/ManageTopServlet">
 			<input type="submit" value="戻る" />
 		</form>
 	</div>
