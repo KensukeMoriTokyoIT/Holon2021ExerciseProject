@@ -43,7 +43,7 @@ public class UpdateCheckServlet extends HttpServlet {
 		EmpBean user = (EmpBean) session.getAttribute("user");
 
 		//ログイン管理 & 権限チェック
-		if (UserCheck.loginCheck(user)) {
+		if (UserCheck.loginCheck(user) && UserCheck.authorityCheck(user)) {
 			//ログインOK、権限OK -->処理実行
 			//入力チェック用クラス
 			InputValidator iv = new InputValidator();
@@ -82,6 +82,7 @@ public class UpdateCheckServlet extends HttpServlet {
 			}
 			//生年月日
 			String birthday = request.getParameter("birthday");
+			birthday=birthday.replace("-", "/");
 			updateForm.setBirthday(birthday);
 			if ((error = iv.birthdayValidate(birthday)) != null) {
 				errorMessages.add(error);

@@ -20,7 +20,7 @@
 			<font color="red">社員情報の更新しました。</font>
 		</p>
 
-		<form action="<%=request.getContextPath()%>/ManageTopServlet"  id="inputform"  method="get">
+		<form action="<%=request.getContextPath()%>/online/authority/ManageTopServlet"  id="inputform"  method="get">
 	<input type = "submit"value = "社員情報一覧に戻る">
 	</form>
 	</div>

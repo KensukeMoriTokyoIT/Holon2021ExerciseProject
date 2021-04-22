@@ -87,9 +87,9 @@
 							<th>部署名：</th>
 
 							<td><select name="deptId">
-									<option value="1">営業部</option>
-									<option value="2">経理部</option>
-									<option value="3">総務部</option>
+									<option value="1" ${updateForm.deptId == 1?"selected":""}>営業部</option>
+									<option value="2" ${updateForm.deptId == 2?"selected":""}>経理部</option>
+									<option value="3" ${updateForm.deptId == 3?"selected":""}>総務部</option>
 							</select></td>
 						</tr>
 
@@ -101,7 +101,7 @@
 						action="<%=request.getContextPath()%>/UpdateCheckServlet">
 						<input type="submit" value="更新確認" />
 					</form>
-					<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp">
+					<form action="<%=request.getContextPath()%>/ManageTopServlet">
 						<input type="submit" value="社員一覧に戻る" />
 					</form>
 				</div>

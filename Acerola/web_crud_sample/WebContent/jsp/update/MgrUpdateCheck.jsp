@@ -34,7 +34,7 @@
 		<c:when test="${user.deptId == 3}">総務部</c:when></c:choose></p>
 
 
-	<form action="<%=request.getContextPath()%>/MgrUpdateConfirmServlet"  id="inputform"  method="post">
+	<form action="<%=request.getContextPath()%>/online/authority/MgrUpdateConfirmServlet"  id="inputform"  method="post">
 		<input type="hidden" name="empId" value="${user.empId}"/>
 		<input type="hidden" name="empName" value="${user.empName}"/>
 		<input type="hidden" name="gender" value="${user.gender}"/>
@@ -44,7 +44,7 @@
 		<input type="hidden" name="deptId" value="${user.deptId}"/>
 		<input type="submit" value="更新" />
 	</form>
-	<form action="<%=request.getContextPath()%>/UpdateInputServlet"  id="inputform"  method="get">
+	<form action="<%=request.getContextPath()%>/online/authority/UpdateInputServlet"  id="inputform"  method="get">
 	<input type="hidden" name="empId" value="${user.empId}"/>
 		<input type="hidden" name="empName" value="${user.empName}"/>
 		<input type="hidden" name="gender" value="${user.gender}"/>

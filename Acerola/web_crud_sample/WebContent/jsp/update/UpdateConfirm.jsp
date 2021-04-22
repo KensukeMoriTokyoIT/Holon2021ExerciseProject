@@ -21,11 +21,11 @@
 		</p>
 		<c:choose>
 		<c:when test="${user.authority == 2}">
-		<form action="<%=request.getContextPath()%>/ManageTopServlet"  id="inputform"  method="get">
+		<form action="<%=request.getContextPath()%>/online/authority/ManageTopServlet"  id="inputform"  method="get">
 	<input type = "submit"value = "社員情報一覧に戻る">
 	</form></c:when>
 	<c:when test="${user.authority == 1}">
-		<form action="<%=request.getContextPath()%>/InfoTopServlet"  id="inputform"  method="get">
+		<form action="<%=request.getContextPath()%>/online/InfoTopServlet"  id="inputform"  method="get">
 	<input type = "submit"value = "社員情報一覧に戻る">
 	</form></c:when>
 	 </c:choose>

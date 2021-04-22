@@ -16,7 +16,7 @@
 	<p>社員情報変更入力画面</p>
 	<div id="main" id="contents">
 
-		<form action="<%=request.getContextPath()%>/UpdateCheck"
+		<form action="<%=request.getContextPath()%>/online/UpdateCheckServlet"
 			id="inputform" method="post">
 			<input type="hidden" name="empId" value="${user.empId }">
 			<input type="hidden" name="authority" value ="${user.authority}">

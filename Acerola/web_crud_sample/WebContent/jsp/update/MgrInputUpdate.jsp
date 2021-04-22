@@ -16,7 +16,7 @@
 	<p>社員情報変更確認画面</p>
 	<div id="main" id="contents">
 
-		<form action="<%=request.getContextPath()%>/MgrUpdateCheckServlet"
+		<form action="<%=request.getContextPath()%>/online/authority/MgrUpdateCheckServlet"
 			id="inputform" method="post">
 			<input type="hidden" name="empId" value="${user.empId }">
 			<table class="tac">
@@ -101,7 +101,7 @@
 
 		</form>
 		<p></p>
-		<form action="<%=request.getContextPath()%>/ManageTopServlet"
+		<form action="<%=request.getContextPath()%>/online/authority/ManageTopServlet"
 			id="inputform">
 			<input type="submit" value="社員一覧表示に戻る">
 		</form>
