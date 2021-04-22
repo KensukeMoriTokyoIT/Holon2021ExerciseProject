@@ -38,7 +38,7 @@
 				<input type="submit" value="変更" />
 			</form>
 
-			<form method="post"
+			<form method="get"
 				action="<%=request.getContextPath()%>/ManageTopServlet">
 				<input type="submit" value="社員一覧に戻る" />
 			</form>

@@ -603,4 +603,28 @@ public class EmpDao {
             DBManager.close(ps, con);
         }
     }
+
+    /**
+     * パスワード変更メソッド
+     */
+    public static void updateEmployeePassword(EmpBean emp) {
+
+    	Connection con = null;
+    	PreparedStatement ps = null;
+
+    	try {
+    		con = DBManager.getConnection();
+    		ps = con.prepareStatement("UPDATE employee SET emp_pass = ? WHERE emp_id = ?");
+
+    		ps.setString(1, emp.getEmpPass());
+    		ps.setString(2, emp.getEmpId());
+
+    		ps.executeUpdate();
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    	} finally {
+    		// DB切断処理
+    		DBManager.close(ps, con);
+    }
+}
 }
