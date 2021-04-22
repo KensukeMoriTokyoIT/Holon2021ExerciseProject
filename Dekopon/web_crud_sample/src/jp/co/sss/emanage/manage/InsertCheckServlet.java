@@ -91,7 +91,7 @@ public class InsertCheckServlet extends HttpServlet {
 			//部署名を受け取る
 			String department = request.getParameter("deptName");
 			//部署名が無無記入の場合、エラーメッセージを表示//
-			if ((error = iv.deptIdValidate(department)) != null) {
+			if ((error = iv.deptNameValidate(department)) != null) {
 				errorMessages.add(error);
 			}
 			//変数を格納する
