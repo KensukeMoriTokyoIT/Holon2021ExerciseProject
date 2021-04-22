@@ -24,7 +24,6 @@ public class UpdateCheck extends HttpServlet {
 			throws ServletException, IOException {
 		SelfUpdateForm userInfo = new SelfUpdateForm();
 		userInfo.setEmpId(request.getParameter("empId"));
-		userInfo.setEmpPass(request.getParameter("empPass"));
 		userInfo.setEmpName(request.getParameter("empName"));
 		userInfo.setGender(request.getParameter("gender"));
 		userInfo.setAddress(request.getParameter("address"));
@@ -37,16 +36,6 @@ public class UpdateCheck extends HttpServlet {
 
 		try {
 			request.setCharacterEncoding("UTF-8");
-			if(userInfo.getEmpPass().equals("")) {
-				request.setAttribute("user", userInfo);
-				request.setAttribute("ePassword", Property.PASSWORD_EMPTY);
-				request.getRequestDispatcher("/jsp/update/InputUpdate.jsp").forward(request,response);
-			}
-			else if(userInfo.getEmpPass().length() > 16){
-				request.setAttribute("user", userInfo);
-				request.setAttribute("ePassword", Property.PASSWORD_LENGTH_OVER);
-				request.getRequestDispatcher("/jsp/update/InputUpdate.jsp").forward(request,response);
-			}
 
 			 if(userInfo.getEmpName().equals("")) {
 				request.setAttribute("user", userInfo);

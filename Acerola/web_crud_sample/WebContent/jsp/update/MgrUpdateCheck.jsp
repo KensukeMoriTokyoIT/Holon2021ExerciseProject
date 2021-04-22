@@ -19,7 +19,6 @@
 		<p>
 			<font color="red">以下の内容で社員情報を登録しますか？</font>
 		</p>
-		<p>パスワード：※非表示</p>
 		<p>社員名： ${user.empName}</p>
 		<p>性別: <c:choose>
 		<c:when test="${user.gender == 1}">
@@ -37,7 +36,6 @@
 
 	<form action="<%=request.getContextPath()%>/MgrUpdateConfirmServlet"  id="inputform"  method="post">
 		<input type="hidden" name="empId" value="${user.empId}"/>
-		<input type="hidden" name="empPass" value="${user.empPass}"/>
 		<input type="hidden" name="empName" value="${user.empName}"/>
 		<input type="hidden" name="gender" value="${user.gender}"/>
 		<input type="hidden" name="address" value="${user.address}"/>
@@ -48,7 +46,6 @@
 	</form>
 	<form action="<%=request.getContextPath()%>/UpdateInputServlet"  id="inputform"  method="get">
 	<input type="hidden" name="empId" value="${user.empId}"/>
-		<input type="hidden" name="empPass" value="${user.empPass}"/>
 		<input type="hidden" name="empName" value="${user.empName}"/>
 		<input type="hidden" name="gender" value="${user.gender}"/>
 		<input type="hidden" name="address" value="${user.address}"/>
