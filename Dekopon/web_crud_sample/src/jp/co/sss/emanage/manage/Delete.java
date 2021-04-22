@@ -38,7 +38,7 @@ public class Delete extends HttpServlet {
 		EmpBean user = (EmpBean) session.getAttribute("user");
 
 		//ログイン管理 & 権限チェック
-		if (UserCheck.loginCheck(user) && UserCheck.authorityCheck(user)) {
+		if (UserCheck.loginCheck(user)) {
 			//ログインOK、権限OK -->処理実行
 			String empId = request.getParameter("empId");
 			EmpDao.delete(empId);

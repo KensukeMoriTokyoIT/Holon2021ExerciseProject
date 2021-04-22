@@ -19,7 +19,7 @@ import jp.co.sss.emanage.util.DateFormat;
 public class SelfUpdateInput extends HttpServlet {
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EmpBean empBeans = new EmpBean();
 		String empId = request.getParameter("empId");
 		empBeans = EmpDao.findById(empId);

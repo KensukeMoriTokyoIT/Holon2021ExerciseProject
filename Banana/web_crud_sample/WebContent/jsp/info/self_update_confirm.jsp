@@ -16,14 +16,10 @@
 	<article class="main">
 
 		<h2>社員更新確認画面</h2>
-		<h3>以下の内容で社員情報を更新しますか？</h3>
+		<h3>以下の内容で社員情報を変更しますか？</h3>
 
 		<div class=table_manage>
 			<table>
-				<tr>
-					<td>パスワード：</td>
-					<td>非表示</td>
-				</tr>
 				<tr>
 					<td>社員名：</td>
 					<td>${emp.empName}</td>
@@ -76,7 +72,7 @@
 		</div>
 
 		<form method="post"
-			action="<%=request.getContextPath()%>/UpdateCompleteServlet">
+			action="<%=request.getContextPath()%>/SelfUpdateCompleteServlet">
 			<input type="hidden" name="empId" value="${emp.empId}" /> <input
 				type="hidden" name="password" value="${emp.empPass}" /> <input
 				type="hidden" name="empName" value="${emp.empName}" /> <input
@@ -88,7 +84,7 @@
 				type="submit" value="実行" />
 		</form>
 
-		<form method="post" action="<%=request.getContextPath()%>/ManageReturn">
+		<form method="post" action="<%=request.getContextPath()%>/InfoReturn">
 			<input type="submit" value="戻る" />
 		</form>
 	</article>

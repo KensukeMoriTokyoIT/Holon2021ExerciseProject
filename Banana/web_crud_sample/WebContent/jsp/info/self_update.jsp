@@ -20,12 +20,8 @@
 
 		<div class=table_manage>
 			<form method="post"
-				action="<%=request.getContextPath()%>/UpdateConfirmServlet">
+				action="<%=request.getContextPath()%>/SelfUpdateConfirmServlet">
 				<table>
-					<tr>
-						<td>パスワード：</td>
-						<td><input type="password" name="password"></td>
-					</tr>
 					<tr>
 						<td>社員名：</td>
 						<td><input type="text" name="empName" value="${emp.empName}">
@@ -58,7 +54,7 @@
 					<tr>
 						<td>権限：</td>
 						<td><c:choose>
-								<c:when test="${emp.authority == 1}">
+								<c:when test="${emp.gender == 1}">
 									<label><input type="radio" name="authority" value="1"
 										checked>一般</label>
 									<label><input type="radio" name="authority" value="2" />管理</label>
@@ -82,14 +78,14 @@
 
 
 
-
+				<input type="hidden" name="password" value="${emp.empPass}" />
 				<input type="hidden" name="empId" value="${emp.empId}" /> <input
 					type="submit" value="更新確認" />
 			</form>
 		</div>
 
 		<form method="post"
-			action="<%=request.getContextPath()%>/ManageReturn">
+			action="<%=request.getContextPath()%>/InfoReturn">
 			<input type="submit" value="社員一覧表示に戻る" />
 		</form>
 	</article>

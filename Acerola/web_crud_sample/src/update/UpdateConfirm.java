@@ -23,7 +23,6 @@ public class UpdateConfirm extends HttpServlet {
 
 		EmpBean userInfo = new EmpBean();
 		userInfo.setEmpId(request.getParameter("empId"));
-		userInfo.setEmpPass(request.getParameter("empPass"));
 		userInfo.setEmpName(request.getParameter("empName"));
 		userInfo.setGender(request.getParameter("gender"));
 		userInfo.setAddress(request.getParameter("address"));
