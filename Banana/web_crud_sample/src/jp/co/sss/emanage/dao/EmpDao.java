@@ -549,7 +549,9 @@ public class EmpDao {
         return empList;
     }
 
-
+    /**
+     * 社員情報削除のメソッド
+     */
 	public static void delete(String empId) {
 
         Connection con = null;
@@ -570,7 +572,9 @@ public class EmpDao {
 		return;
 	}
 
-
+    /**
+     * 社員情報新規登録のメソッド
+     */
 	public static void insert(EmpBean emp) {
 
         Connection con = null;
@@ -596,6 +600,10 @@ public class EmpDao {
         }
 		return;
 	}
+
+    /**
+     * パスワード変更のメソッド
+     */
 	public static void updatePassword(String empId,String newPass) {
 
         Connection con = null;
@@ -616,6 +624,11 @@ public class EmpDao {
         }
 		return;
 	}
+
+
+    /**
+     * 社員情報更新のメソッド
+     */
 	public static void update(String empId, String passWord, String empName, String gender, String address,
 			String birthday, String authority, String deptId) {
 
@@ -644,5 +657,4 @@ public class EmpDao {
         }
 		return;
 	}
-
 }
