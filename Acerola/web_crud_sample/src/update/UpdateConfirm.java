@@ -14,7 +14,7 @@ import jp.co.sss.emanage.dao.EmpDao;
 /**
  * Servlet implementation class UpdateConfirm
  */
-@WebServlet("/UpdateConfirmServlet")
+@WebServlet("/online/UpdateConfirmServlet")
 public class UpdateConfirm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,6 +32,7 @@ public class UpdateConfirm extends HttpServlet {
 
 		EmpDao.update(userInfo);
 
+		request.setAttribute("user", userInfo);
 		request.getRequestDispatcher("/jsp/update/UpdateConfirm.jsp").forward(request, response);
 	}
 

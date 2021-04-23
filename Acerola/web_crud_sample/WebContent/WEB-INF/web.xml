@@ -17,4 +17,22 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+
+  <filter>
+    <filter-name>Login</filter-name>
+    <filter-class>jp.co.sss.emanage.filter.Login</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>Login</filter-name>
+    <url-pattern>/online/*</url-pattern>
+  </filter-mapping>
+
+   <filter>
+    <filter-name>Manage</filter-name>
+    <filter-class>jp.co.sss.emanage.filter.Login</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>Manage</filter-name>
+    <url-pattern>/online/authority/*</url-pattern>
+  </filter-mapping>
 </web-app>

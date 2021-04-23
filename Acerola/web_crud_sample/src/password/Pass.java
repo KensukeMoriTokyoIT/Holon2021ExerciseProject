@@ -16,7 +16,7 @@ import jp.co.sss.emanage.util.Property;
 /**
  * Servlet implementation class pass
  */
-@WebServlet("/pass")
+@WebServlet("/online/pass")
 public class Pass extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

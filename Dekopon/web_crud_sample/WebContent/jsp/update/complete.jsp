@@ -22,10 +22,10 @@
 			<article class="main">
 				<h3>社員情報更新処理が完了しました。</h3>
 				<h3 style="color: red"></h3>
-				<form action="<%=request.getContextPath()%>/jsp/update/update.jsp"
-					method="post">
-					<input type="submit" value="社員一覧に戻る" />
-				</form>
+				<form action="<%=request.getContextPath()%>/ManageTopServlet" >
+	            	<input type="submit" value="社員一覧に戻る" />
+	          	</form>
+
 			</article>
 		</div>
 	</div>

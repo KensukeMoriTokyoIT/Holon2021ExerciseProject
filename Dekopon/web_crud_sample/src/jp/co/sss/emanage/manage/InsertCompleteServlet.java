@@ -19,8 +19,6 @@ import jp.co.sss.emanage.dao.EmpDao;
 @WebServlet("/InsertCompleteServlet")
 public class InsertCompleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private EmpBean EmpBean;
-
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -40,9 +38,19 @@ public class InsertCompleteServlet extends HttpServlet {
 		EmpBean user = (EmpBean) session.getAttribute("user");
 
 		//ログイン管理 & 権限チェック
-		if (UserCheck.loginCheck(user)) {
+		if (UserCheck.loginCheck(user) && UserCheck.authorityCheck(user)) {
 			//ログインOK、権限OK -->処理実行
-			EmpDao.insert(EmpBean);
+
+			EmpBean empBean = new EmpBean();
+
+			empBean.setEmpPass(request.getParameter("empPass"));
+			empBean.setEmpName(request.getParameter("empName"));
+			empBean.setGender(request.getParameter("gender"));
+			empBean.setAddress(request.getParameter("address"));
+			empBean.setBirthday(request.getParameter("birthday"));
+			empBean.setAuthority(request.getParameter("authority"));
+			empBean.setDeptId(request.getParameter("deptId"));
+			EmpDao.insert(empBean);
 			request.getRequestDispatcher("/jsp/Insert/insertcomplete.jsp").forward(request, response);
 
 		} else {

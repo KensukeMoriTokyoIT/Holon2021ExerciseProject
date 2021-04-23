@@ -18,7 +18,7 @@
   <div id="main">
 
 			<h3>社員登録処理が完了しました。</h3>
-			   	<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp" >
+			   	<form action="<%=request.getContextPath()%>/ManageTopServlet" >
 	            	<input type="submit" value="社員一覧に戻る" />
 	          	</form>
 	</div>

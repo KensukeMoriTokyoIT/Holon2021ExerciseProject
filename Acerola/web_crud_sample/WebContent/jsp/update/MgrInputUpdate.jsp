@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>社員更新入力</title>
+<title>社員更新確認</title>
 <link href="<%=request.getContextPath()%>/css/stylesheet.css"
 	rel="stylesheet" type="text/css" />
 </head>
@@ -13,10 +13,10 @@
 	<div id="header">
 		<%@ include file="/jsp/common/header_login.jsp"%>
 	</div>
-	<p>社員情報更新入力画面</p>
+	<p>社員情報変更確認画面</p>
 	<div id="main" id="contents">
 
-		<form action="<%=request.getContextPath()%>/MgrUpdateCheckServlet"
+		<form action="<%=request.getContextPath()%>/online/authority/MgrUpdateCheckServlet"
 			id="inputform" method="post">
 			<input type="hidden" name="empId" value="${user.empId }">
 			<table class="tac">
@@ -97,11 +97,11 @@
 
 				</tr>
 			</table>
-			<input type="submit" value="登録画面">
+			<input type="submit" value="実行">
 
 		</form>
 		<p></p>
-		<form action="<%=request.getContextPath()%>/ManageTopServlet"
+		<form action="<%=request.getContextPath()%>/online/authority/ManageTopServlet"
 			id="inputform">
 			<input type="submit" value="社員一覧表示に戻る">
 		</form>

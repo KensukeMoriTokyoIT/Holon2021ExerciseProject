@@ -14,7 +14,7 @@ import jp.co.sss.emanage.dao.EmpDao;
 /**
  * Servlet implementation class ManagePasswordInputServlet
  */
-@WebServlet("/ManagePasswordInputServlet")
+@WebServlet("/online/authority/ManagePasswordInputServlet")
 public class ManagePasswordInputServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EmpBean empBeans = new EmpBean();

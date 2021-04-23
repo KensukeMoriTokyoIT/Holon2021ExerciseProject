@@ -14,7 +14,7 @@
 	</div>
 	<p>パスワード変更入力画面</p>
 	<div id=main>
-	<form action="<%=request.getContextPath()%>/pass" method="post">
+	<form action="<%=request.getContextPath()%>/online/pass" method="post">
 	<input type ="hidden" name = "empPass" value="${user.empPass}">
 	<input type ="hidden" name = "empId" value="${user.empId}">
 
@@ -46,7 +46,7 @@
 	<input type="submit" value="変更">
 	</form>
 
-<form action="<%=request.getContextPath()%>/InfoTopServlet">
+<form action="<%=request.getContextPath()%>/online/InfoTopServlet">
 		<input type="submit" value="社員一覧に戻る">
 	</form></div>
 	<div id="footer">

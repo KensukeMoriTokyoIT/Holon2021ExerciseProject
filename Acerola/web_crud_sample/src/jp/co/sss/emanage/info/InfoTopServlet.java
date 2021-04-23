@@ -22,7 +22,7 @@ import jp.co.sss.emanage.util.Property;
  *
  * @author System Shared
  */
-@WebServlet("/InfoTopServlet")
+@WebServlet("/online/InfoTopServlet")
 public class InfoTopServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -59,7 +59,7 @@ public class InfoTopServlet extends HttpServlet {
 
         // 一般社員用一覧表示画面へ画面遷移を行う
         RequestDispatcher dispatcher = request
-                .getRequestDispatcher("jsp/info/info.jsp");
+                .getRequestDispatcher("/jsp/info/info.jsp");
         dispatcher.forward(request, response);
     }
 }

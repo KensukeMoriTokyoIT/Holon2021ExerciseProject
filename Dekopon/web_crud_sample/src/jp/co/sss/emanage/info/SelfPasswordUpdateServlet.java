@@ -10,7 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import jp.co.sss.emanage.action.UserCheck;
 import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.EmpDao;
 import jp.co.sss.emanage.util.InputValidator; //入力チェック
@@ -36,38 +38,45 @@ public class SelfPasswordUpdateServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//入力チェック用クラス
-		InputValidator iv = new InputValidator();
-		String error = new String();
-		List<String> errorMessages = new ArrayList<>();
+		//セッション取得
+		HttpSession session = request.getSession();
+		EmpBean user = (EmpBean) session.getAttribute("user");
 
-		//前ページの情報取得
-		String empId = request.getParameter("empId");
-		String nowPass = request.getParameter("nowPass");
-		String newPass = request.getParameter("newPass");
-		String newPassTwo = request.getParameter("newPassTwo");
+		//ログイン管理
+		if (UserCheck.loginCheck(user)) {
+			//ログインOK -->処理実行
+			//入力チェック用クラス
+			InputValidator iv = new InputValidator();
+			String error = new String();
+			List<String> errorMessages = new ArrayList<>();
 
-		// IDで検索する
-		EmpBean empBean = EmpDao.findById(empId);
+			//前ページの情報取得
+			String empId = request.getParameter("empId");
+			String nowPass = request.getParameter("nowPass");
+			String newPass = request.getParameter("newPass");
+			String newPassTwo = request.getParameter("newPassTwo");
 
-		request.setAttribute("empBean", empBean);
+			// IDで検索する
+			EmpBean empBean = EmpDao.findById(empId);
 
-		//社員IDに対応すること社員が存在するか確認
-		if (empBean != null) {
-			//現在のパスワード正誤確認
-				if(!empBean.getEmpPass().equals(nowPass)) {
+			request.setAttribute("empBean", empBean);
+
+			//社員IDに対応すること社員が存在するか確認
+			if (empBean != null) {
+				//現在のパスワード正誤確認
+				if (!empBean.getEmpPass().equals(nowPass)) {
 					errorMessages.add(Property.NOW_PASSWORD_MISMATCH);
 				}
 				//新しいパスワードの入力チェック
-				if((error=iv.passwordValidate(newPass))!=null){
+				if ((error = iv.passwordValidate(newPass)) != null) {
 					errorMessages.add(error);
 				}
 				//新しいパスワードの再入力があっているか
-				if(!newPass.equals(newPassTwo)) {
+				if (!newPass.equals(newPassTwo)) {
 					errorMessages.add("再入力されたパスワードが一致していません");
 				}
 
-				if(errorMessages.isEmpty()) {
+				if (errorMessages.isEmpty()) {
 					//新しいパスワードに変更
 					empBean.setEmpPass(newPass);
 					//データベースに反映
@@ -78,18 +87,24 @@ public class SelfPasswordUpdateServlet extends HttpServlet {
 							.getRequestDispatcher("jsp/selfPass/selfPassComplete.jsp");
 					dispatcher.forward(request, response);
 
-				}else {
+				} else {
 					request.setAttribute("errorMessages", errorMessages);
 					// 入力画面へ遷移を行う
 					RequestDispatcher dispatcher = request
 							.getRequestDispatcher("/jsp/selfPass/selfPassInput.jsp");
 					dispatcher.forward(request, response);
 				}
+			} else {
+				// エラー画面へ遷移を行う
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("/jsp/error/error.jsp");
+				dispatcher.forward(request, response);
+			}
+
 		} else {
-			// エラー画面へ遷移を行う
-			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("/jsp/error/error.jsp");
-			dispatcher.forward(request, response);
+			//ログインNG
+			//ログイン画面へ遷移
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
 
 	}

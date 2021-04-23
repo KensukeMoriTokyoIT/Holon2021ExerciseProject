@@ -42,14 +42,15 @@ public class UpdateInputServlet extends HttpServlet {
 		EmpBean user = (EmpBean) session.getAttribute("user");
 
 		//ログイン管理 & 権限チェック
-		if (UserCheck.loginCheck(user)) {
+		if (UserCheck.loginCheck(user) && UserCheck.authorityCheck(user)) {
 			//ログインOK、権限OK -->処理実行
 			UpdateForm updateForm = new UpdateForm();
 			//DBからID検索
 			EmpBean empBean = EmpDao.findById(request.getParameter("empId"));
-			String birthday = DateFormat.formatDate((String) empBean.getBirthday());
+			String birthday = DateFormat.formatDate(empBean.getBirthday());
 
 			updateForm.setEmpId(empBean.getEmpId()); //社員ID
+			updateForm.setEmpPass(empBean.getEmpPass()); //社員ID
 			updateForm.setEmpName(empBean.getEmpName()); //社員名
 			updateForm.setGender(empBean.getGender());//性別
 			updateForm.setAddress(empBean.getAddress());//住所
@@ -60,7 +61,7 @@ public class UpdateInputServlet extends HttpServlet {
 
 			request.setAttribute("updateForm", updateForm);
 			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("jsp/update/check.jsp");
+					.getRequestDispatcher("jsp/update/update.jsp");
 			dispatcher.forward(request, response);
 
 		} else {

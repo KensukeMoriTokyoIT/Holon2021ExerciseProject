@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import jp.co.sss.emanage.action.UserCheck;
 import jp.co.sss.emanage.bean.EmpBean;
-import jp.co.sss.emanage.dao.EmpDao;
+import jp.co.sss.emanage.util.DateFormat;
 import jp.co.sss.emanage.util.InputValidator;
 
 /**
@@ -35,16 +35,14 @@ public class InsertCheckServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		//セッション取得
 		HttpSession session = request.getSession();
 		EmpBean user = (EmpBean) session.getAttribute("user");
 
-		System.out.println("test:" + user.getEmpId());
-
 		//ログイン管理 & 権限チェック
-		if (UserCheck.loginCheck(user)) {
+		if (UserCheck.loginCheck(user) && UserCheck.authorityCheck(user)) {
 			//ログインOK、権限OK -->処理実行
 
 			//オブジェクトを生成
@@ -56,46 +54,46 @@ public class InsertCheckServlet extends HttpServlet {
 			//パスワードを受け取る
 			String password = request.getParameter("empPass");
 			//社員名が無記入の場合、エラーメッセージを表示
-			if ((error = iv.deptIdValidate(password)) != null) {
+			if ((error = iv.passwordValidate(password)) != null) {
 				errorMessages.add(error);
 			}
 			//社員名を受け取る
 			String name = request.getParameter("empName");
 			//社員名が無記入の場合、エラーメッセージを表示
-			if ((error = iv.deptIdValidate(name)) != null) {
+			if ((error = iv.nameValidate(name)) != null) {
 				errorMessages.add(error);
 			}
 			//性別の選択を受け取る
 			String gender = request.getParameter("gender");
 			//性別が無選択の場合、エラーメッセージを表示
-			if ((error = iv.deptIdValidate(gender)) != null) {
+			if ((error = iv.genderValidate(gender)) != null) {
 				errorMessages.add(error);
 			}
 			//住所を受け取る
 			String address = request.getParameter("address");
 			//住所が無記入の場合、エラーメッセージを表示
-			if ((error = iv.deptIdValidate(address)) != null) {
+			if ((error = iv.addressValidate(address)) != null) {
 				errorMessages.add(error);
 			}
 			//生年月日を受け取る
 			String birthday = request.getParameter("birthday");
+			birthday = DateFormat.selectFormatDate(birthday);
 			//生年月日が無記入の場合、エラーメッセージを表示
-			if ((error = iv.deptIdValidate(birthday)) != null) {
+			if ((error = iv.birthdayValidate(birthday)) != null) {
 				errorMessages.add(error);
 			}
 			String authority = request.getParameter("authority");
 			//権限を受け取る
-			if ((error = iv.deptIdValidate(authority)) != null) {
+			if ((error = iv.authorityValidate(authority)) != null) {
 				errorMessages.add(error);
 			}
 			//部署名を受け取る
-			String department = request.getParameter("deptName");
+			String department = request.getParameter("deptId");
 			//部署名が無無記入の場合、エラーメッセージを表示//
-			if ((error = iv.deptNameValidate(department)) != null) {
+			if ((error = iv.deptIdValidate(department)) != null) {
 				errorMessages.add(error);
 			}
 			//変数を格納する
-			//社員名
 			//パスワード
 			emp.setEmpPass(password);
 			//社員名
@@ -106,9 +104,10 @@ public class InsertCheckServlet extends HttpServlet {
 			emp.setAddress(address);
 			//生年月日
 			emp.setBirthday(birthday);
+			//権限
+			emp.setAuthority(authority);
 			//部署名
-			emp.setDeptName(department);
-			EmpDao.insert(emp);
+			emp.setDeptId(department);
 			//入力チェック
 			if (errorMessages.isEmpty()) {
 				request.setAttribute("emp", emp);
