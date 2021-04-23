@@ -19,6 +19,19 @@
     <url-pattern>/jsp/*</url-pattern>
   </filter-mapping>
 
+  <filter>
+    <filter-name>AuthorityCheck</filter-name>
+    <filter-class>jp.co.sss.emanage.filter.AuthorityCheck</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AuthorityCheck</filter-name>
+    <url-pattern>/jsp/update/*</url-pattern>
+    <url-pattern>/jsp/insert/*</url-pattern>
+    <url-pattern>/jsp/manage/*</url-pattern>
+    <url-pattern>/jsp/managePass/*</url-pattern>
+    <url-pattern>/jsp/delete/*</url-pattern>
+  </filter-mapping>
+
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
