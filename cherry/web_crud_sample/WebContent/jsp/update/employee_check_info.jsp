@@ -36,9 +36,12 @@
 			<input type="hidden" name="birthday" value="${emp.birthday} "/>
 			<input type="hidden" name="department" value="${emp.deptName} "/>
 			<input type="submit" value="実行" />
-			<input type="button" value="戻る"/>
+
 
 		</form>
+		<form method="get" action="<%=request.getContextPath()%>/jsp/update/employee_update_info.jsp">
+						<input type="submit" value="戻る" />
+						</form>
 	</article>
 	<%@include file="/jsp/common/footer.jsp"%>
 </body>
