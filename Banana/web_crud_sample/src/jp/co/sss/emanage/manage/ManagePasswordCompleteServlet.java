@@ -52,13 +52,19 @@ public class ManagePasswordCompleteServlet extends HttpServlet {
 		String error1 = passValid1.passwordValidate(newpassword1);
 		String error2 = passValid2.passwordValidate(newpassword2);
 
-		if (error1 == null && error2 == null ) {
+		if ((error1 == null && error2 == null) && newpassword1.equals(newpassword2)) {
 			String empId = request.getParameter("empId");
 			EmpDao.updatePassword(empId, newpassword1);
 			request.getRequestDispatcher("jsp/manage/managepass_complete.jsp").forward(request, response);
+			return;
+		} else if (!newpassword1.equals(newpassword2)) {
+			request.setAttribute("password_error", "パスワードが一致しません");
+			request.getRequestDispatcher("jsp/manage/managepass_insert.jsp").forward(request, response);
+			return;
 		} else if (error1 != null) {
 			request.setAttribute("password_error", error1);
 			request.getRequestDispatcher("jsp/manage/managepass_insert.jsp").forward(request, response);
+			return;
 		} else {
 			request.setAttribute("password_error", error2);
 			request.getRequestDispatcher("jsp/manage/managepass_insert.jsp").forward(request, response);
