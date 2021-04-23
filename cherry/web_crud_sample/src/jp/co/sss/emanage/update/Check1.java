@@ -31,6 +31,8 @@ public class Check1 extends HttpServlet {
 	        String birthday = request.getParameter("birthday");
 	        String authority = request.getParameter("authority");
 	        String deptName = request.getParameter("deptName");
+	        
+	        
 
 	        // InputValidatorクラスのメソッドを用いてエラーチェック
 	        InputValidator vali = new InputValidator();

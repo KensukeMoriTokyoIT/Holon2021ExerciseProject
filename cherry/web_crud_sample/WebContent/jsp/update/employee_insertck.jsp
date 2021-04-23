@@ -11,9 +11,9 @@
 	<div id="header">
 		<%@include file="/jsp/common/header.jsp"%>
 	</div>
-		<p>社員登録確認画面</p>
-		<p class="cen">以下の内容で社員情報を登録しますか？</p>
+			<p>社員登録確認画面</p>
 		<div id="main">
+		<p class="cen">以下の内容で社員情報を登録しますか？</p>
 			<table>
 				<tr>
 					<td>パスワード:</td>
@@ -54,7 +54,7 @@
 			<input type="hidden" name="deptName" value="${emp.deptName} "/>
 			<input type="submit" value="実行" />
 		</form>
-			<form method="get" action="<%=request.getContextPath()%>/ManageTopServlet" >
+			<form method="get" action="<%=request.getContextPath()%>/InsertInputServlet" >
       				<input type="submit" value="戻る" />
    			</form>
    		</div>
