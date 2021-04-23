@@ -12,7 +12,8 @@
 		<%@include file="/jsp/common/header_login.jsp"%>
 	</div>
 
-		<p>社員登録入力画面 <span text-align="center">登録する社員の情報を入力してください</span></p>
+		<p>社員登録入力画面</p>
+		<p class="cen">登録する社員の情報を入力してください</p>
 
 	<div id="main">
 		<form id="inputform" method="post" action="<%=request.getContextPath()%>/Check1" >

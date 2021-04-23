@@ -182,3 +182,7 @@ h3 {
 input[type="submit"] {
 	margin: 0px 5px;
 }
+
+p.cen {
+	text-align: center;
+}
