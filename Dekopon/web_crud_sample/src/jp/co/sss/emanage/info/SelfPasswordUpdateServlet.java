@@ -10,9 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import jp.co.sss.emanage.action.UserCheck;
 import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.EmpDao;
 import jp.co.sss.emanage.util.InputValidator; //入力チェック
@@ -38,13 +36,7 @@ public class SelfPasswordUpdateServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//セッション取得
-		HttpSession session = request.getSession();
-		EmpBean user = (EmpBean) session.getAttribute("user");
 
-		//ログイン管理
-		if (UserCheck.loginCheck(user)) {
-			//ログインOK -->処理実行
 			//入力チェック用クラス
 			InputValidator iv = new InputValidator();
 			String error = new String();
@@ -100,12 +92,6 @@ public class SelfPasswordUpdateServlet extends HttpServlet {
 						.getRequestDispatcher("/jsp/error/error.jsp");
 				dispatcher.forward(request, response);
 			}
-
-		} else {
-			//ログインNG
-			//ログイン画面へ遷移
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
-		}
 
 	}
 
