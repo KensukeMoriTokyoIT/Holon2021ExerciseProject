@@ -12,10 +12,11 @@
 			<div id="header">
 				<%@include file="/jsp/common/header_login.jsp"%>
 			</div>
-		<p><div>社員削除完了画面</div></p>
+		<div>社員削除完了画面</div>
 		<div id="main">
 				<div class="contents">
 		<article class="main">
+		<p>${emp.empId}</p>
 		<p><font color="red">社員情報削除処理が完了しました。</font></p>
 		<form action="<%=request.getContextPath()%>/online/authority/ManageTopServlet"
 			id="inputform">
