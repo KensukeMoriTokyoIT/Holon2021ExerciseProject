@@ -44,7 +44,6 @@ public class AuthorityCheckFilter implements Filter {
 		// pass the request along the filter chain
 		HttpSession session = ((HttpServletRequest)request).getSession();
 		if (session.getAttribute("user") == null) {
-			System.out.println("null");
 			RequestDispatcher dispatcher = request
 	                .getRequestDispatcher("/index.jsp");
 	        dispatcher.forward(request, response);
