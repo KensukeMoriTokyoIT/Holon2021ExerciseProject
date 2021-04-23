@@ -10,8 +10,6 @@
 	<article class="main">
 		<p>社員情報更新入力画面</p>
 		<form action="<%=request.getContextPath()%>/Check2" method="post">
-		//エラーメッセージ未実
-		//valueに入力する値はどうする？
 			<p>
 				<input type="hidden" name="empId" value="${empBean.empId}">
 			</p>

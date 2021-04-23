@@ -41,11 +41,8 @@
 			<input type="hidden" name="authority" value="${emp.authority} "/>
 			<input type="hidden" name="deptName" value="${emp.deptName} "/>
 			<input type="submit" value="実行" />
-			<form method="get" action="<%=request.getContextPath()%>/ManageTopServlet" >
       				<input type="submit" value="戻る" />
    				 </form>
-			//ログアウトボタンをどこにつけ、遷移先をどう設定するか
-		</form>
 	</article>
 	<%@include file="/jsp/common/footer.jsp"%>
 </body>

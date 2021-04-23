@@ -29,7 +29,6 @@
 			<p>
 				部署名:${emp.deptName}
 			</p>
-			//コンテキストパス未実装
 		<form action="<%=request.getContextPath()%>/Update1" method="post">
 			<input type="hidden" name="empId" value="${emp.empId} "/>
 			<input type="hidden" name="empName" value="${emp.empName} "/>
@@ -40,7 +39,6 @@
 			<input type="hidden" name="deptName" value="${emp.deptName} "/>
 			<input type="submit" value="実行" />
 			<input type="button" value="戻る"/>
-			//ログアウトボタンをどこにつけ、遷移先をどう設定するか
 		</form>
 	</article>
 	<%@include file="/jsp/common/footer.jsp"%>

@@ -11,12 +11,10 @@
 	<article class="main">
 		<p>社員登録完了画面</p>
 		<p>社員登録処理が完了しました。</p>
-		//コンテキストパス以下のURL設定
 		<form action="<%=request.getContextPath() %>" method="post">
 		<input type="submit" value="社員一覧に戻る"/>
 		</form>
 	</article>
-	//ログアウトボタンとその遷移先を設定
 	<%@include file="/jsp/common/footer.jsp"%>
 </body>
 </html>
