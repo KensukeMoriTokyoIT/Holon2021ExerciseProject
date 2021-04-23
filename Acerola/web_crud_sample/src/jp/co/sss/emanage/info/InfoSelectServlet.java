@@ -36,6 +36,10 @@ public class InfoSelectServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 
+		request.setCharacterEncoding("UTF-8");
+
+
+
 
 	    // 入力された検索情報を受け取るフォームの準備
         SelfSelectForm selfSelectForm = new SelfSelectForm();
@@ -62,7 +66,7 @@ public class InfoSelectServlet extends HttpServlet {
 
             // 検索キーが入力されていない場合,社員全件表示画面に遷移
             RequestDispatcher dispatcher = request
-                    .getRequestDispatcher("jsp/info/info.jsp");
+                    .getRequestDispatcher("/jsp/info/info.jsp");
             dispatcher.forward(request, response);
         }
 
@@ -83,7 +87,7 @@ public class InfoSelectServlet extends HttpServlet {
                 request.setAttribute("empList", empList);
                 // 社員情報一覧表示画面へ遷移する
                 RequestDispatcher dispatcher = request
-                        .getRequestDispatcher("jsp/info/info.jsp");
+                        .getRequestDispatcher("/jsp/info/info.jsp");
                 dispatcher.forward(request, response);
             }
 
@@ -91,7 +95,7 @@ public class InfoSelectServlet extends HttpServlet {
             else if (empList == null || empList.isEmpty()) {
                 // エラーページへと遷移する
                 RequestDispatcher dispatcher = request
-                        .getRequestDispatcher("jsp/select/not_found.jsp");
+                        .getRequestDispatcher("/jsp/select/not_found.jsp");
                 dispatcher.forward(request, response);
             }
         }
@@ -109,7 +113,7 @@ public class InfoSelectServlet extends HttpServlet {
                 request.setAttribute("empList", empList);
                 // 社員情報一覧表示画面へ遷移する
                 RequestDispatcher dispatcher = request
-                        .getRequestDispatcher("jsp/info/info.jsp");
+                        .getRequestDispatcher("/jsp/info/info.jsp");
                 dispatcher.forward(request, response);
             }
 
@@ -117,7 +121,7 @@ public class InfoSelectServlet extends HttpServlet {
             else if (empList == null || empList.isEmpty()) {
                 // エラーページへと遷移する
                 RequestDispatcher dispatcher = request
-                        .getRequestDispatcher("jsp/select/not_found.jsp");
+                        .getRequestDispatcher("/jsp/select/not_found.jsp");
                 dispatcher.forward(request, response);
             }
         }
@@ -135,14 +139,14 @@ public class InfoSelectServlet extends HttpServlet {
                 request.setAttribute("empList", empList);
                 // 社員情報一覧表示画面へ遷移する
                 RequestDispatcher dispatcher = request
-                        .getRequestDispatcher("jsp/info/info.jsp");
+                        .getRequestDispatcher("/jsp/info/info.jsp");
                 dispatcher.forward(request, response);
             }
             // 検索結果が0件の場合
             else if (empList == null || empList.isEmpty()) {
                 // エラーページへと遷移する
                 RequestDispatcher dispatcher = request
-                        .getRequestDispatcher("jsp/select/not_found.jsp");
+                        .getRequestDispatcher("/jsp/select/not_found.jsp");
                 dispatcher.forward(request, response);
             }
 
