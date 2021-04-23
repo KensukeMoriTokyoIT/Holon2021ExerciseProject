@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.*;
 
-@WebServlet("/check")
+@WebServlet("/jsp/delete/employee_complete")
 public class Check extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String empId = request.getParameter("empId");
 		EmpBean emp = EmpDao.findById(empId);
 		request.setAttribute("emp",emp);
-		request.getRequestDispatcher("/jsp/delete/employee_check").
+		request.getRequestDispatcher("/jsp/delete/employee_complete.jsp").
 		forward(request,response);
 	}
 }

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import jp.co.sss.emanage.dao.*;
 
-@WebServlet("/Delete")
+@WebServlet()   //
 public class Delete extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
