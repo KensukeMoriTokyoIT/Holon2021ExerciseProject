@@ -20,7 +20,6 @@ public class Update1 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 			String empId = request.getParameter("empId");
-	        String empPass = request.getParameter("empPass");
 	        String empName = request.getParameter("empName");
 	        String gender = request.getParameter("gender");
 	        String address = request.getParameter("address");
@@ -29,15 +28,23 @@ public class Update1 extends HttpServlet {
 	        String deptName = request.getParameter("deptName");
 	        EmpBean emp = new EmpBean();
 	        emp.setEmpId(empId);
-	        emp.setEmpPass(empPass);
 	        emp.setEmpName(empName);
 	        emp.setGender(gender);
 	        emp.setAddress(address);
 	        emp.setBirthday(birthday);
 	        emp.setAuthority(authority);
-	        emp.setDeptName(deptName);
+	        emp.setDeptId(deptName);
 	        EmpDao.update(emp);
-	        request.getRequestDispatcher("/jsp/update/employee_insertcon.jsp").forward(request, response);
+
+	        System.out.println(empId);
+	        System.out.println(empName);
+	        System.out.println(gender);
+	        System.out.println(address);
+	        System.out.println(birthday);
+	        System.out.println(authority);
+	        System.out.println(deptName);
+
+	        request.getRequestDispatcher("/jsp/update/employee_updatecon.jsp").forward(request, response);
 
 	}
 

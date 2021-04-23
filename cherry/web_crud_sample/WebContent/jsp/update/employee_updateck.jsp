@@ -12,9 +12,6 @@
 		<p>社員情報更新確認画面</p>
 		<p>以下の内容で社員情報を更新しますか？</p>
 			<p>
-				パスワード:${emp.empPass}
-			</p>
-			<p>
 				社員名:${emp.empName}
 			</p>
 			<p>
@@ -34,13 +31,13 @@
 			</p>
 			//コンテキストパス未実装
 		<form action="<%=request.getContextPath()%>/Update1" method="post">
-			<input type="hidden" name="password" value="${emp.empPass} "/>
-			<input type="hidden" name="name" value="${emp.empName} "/>
+			<input type="hidden" name="empId" value="${emp.empId} "/>
+			<input type="hidden" name="empName" value="${emp.empName} "/>
 			<input type="hidden" name="gender" value="${emp.gender} "/>
-			<input type="hidden" name="adress" value="${emp.address} "/>
+			<input type="hidden" name="address" value="${emp.address} "/>
 			<input type="hidden" name="birthday" value="${emp.birthday} "/>
 			<input type="hidden" name="authority" value="${emp.authority} "/>
-			<input type="hidden" name="department" value="${emp.deptName} "/>
+			<input type="hidden" name="deptName" value="${emp.deptName} "/>
 			<input type="submit" value="実行" />
 			<input type="button" value="戻る"/>
 			//ログアウトボタンをどこにつけ、遷移先をどう設定するか
