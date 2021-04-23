@@ -35,8 +35,8 @@ public class InfoSelectServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-
 		request.setCharacterEncoding("UTF-8");
+
 
 	    // 入力された検索情報を受け取るフォームの準備
         SelfSelectForm selfSelectForm = new SelfSelectForm();
