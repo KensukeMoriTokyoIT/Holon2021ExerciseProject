@@ -34,9 +34,9 @@
 			</p>
 			<input type="submit" value="更新" />
 			</form>
-			<form action="<%=request.getContextPath()%>/jsp/info/info.jsp"method="post">
-			<input type="button" value="社員一覧表示に戻る"></form>
-
+			<form method="get" action="<%=request.getContextPath()%>/InfoTopServlet">
+						<input type="submit" value="戻る" />
+						</form>
 	</article>
 	<%@include file="/jsp/common/footer.jsp"%>
 </body>

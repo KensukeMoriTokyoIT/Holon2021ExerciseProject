@@ -18,7 +18,7 @@
 				社員名:${empBean.empName}
 			</p>
 			<p>
-				性別:${empBean.gender}
+				性別:${emp.gender == 1 ? "男性" : "女性"}
 			</p>
 			<p>
 				住所:${empBean.address}
@@ -27,7 +27,7 @@
 				生年月日:${empBean.birthday}
 			</p>
 			<p>
-				権限:${empBean.authority}
+				権限:${emp.authority == 2 ? "管理者" : "一般"}
 			</p>
 			<p>
 				部署名:${empBean.deptName}
