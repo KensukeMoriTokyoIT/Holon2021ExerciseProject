@@ -23,6 +23,11 @@
 
 		<table class="deleatecheck">
 
+         <tr>
+         <th>社員ID</th>
+         <td>${ deleteForm.empId}</td>
+         </tr>
+
 			<tr>
 				<th>パスワード：</th>
 				<td>＊非表示</td>

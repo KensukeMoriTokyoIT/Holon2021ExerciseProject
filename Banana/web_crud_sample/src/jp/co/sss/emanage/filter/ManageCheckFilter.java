@@ -44,6 +44,12 @@ public class ManageCheckFilter implements Filter{
 		}
 
 		EmpBean emp = (EmpBean) session.getAttribute("user");
+
+		if (emp == null) { //empがnullだったらログイン画面に飛ばす。
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+			dispatcher.forward(request, response);
+		}
+
 		String empAuth = emp.getAuthority();
 
 		if (empAuth.equals("2")) {

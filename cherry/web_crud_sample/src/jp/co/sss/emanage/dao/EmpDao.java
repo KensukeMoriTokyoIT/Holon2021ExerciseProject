@@ -545,14 +545,14 @@ public class EmpDao {
 
         try {
             con = DBManager.getConnection();
-            ps = con.prepareStatement("UPDATE employee SET emp_id = SEQ_EMP.nextval,emp_pass = ?,emp_name = ?,gender = ?,address = ?,birthday ? ,authority = ?,dept_id = ?");
-            ps.setString(1, emp.getEmpPass());
-            ps.setString(2, emp.getEmpName());
-            ps.setString(3, emp.getGender());
-            ps.setString(4, emp.getAddress());
-            ps.setString(5, emp.getBirthday());
-            ps.setString(6, emp.getAuthority());
-            ps.setString(7, emp.getDeptId());
+            ps = con.prepareStatement("UPDATE employee SET emp_name = ?,gender = ?,address = ?,birthday = ?,authority = ?,dept_id = ? WHERE emp_id = ?");
+            ps.setString(1, emp.getEmpName());
+            ps.setString(2, emp.getGender());
+            ps.setString(3, emp.getAddress());
+            ps.setString(4, emp.getBirthday());
+            ps.setString(5, emp.getAuthority());
+            ps.setString(6, emp.getDeptId());
+            ps.setString(7, emp.getEmpId());
             ps.executeUpdate();
 
         } catch (SQLException e) {

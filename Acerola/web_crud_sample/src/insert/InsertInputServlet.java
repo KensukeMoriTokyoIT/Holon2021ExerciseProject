@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.EmpDao;
-import jp.co.sss.emanage.util.DateFormat;
 
 
 
@@ -23,7 +22,7 @@ public class InsertInputServlet extends HttpServlet {
 		String empId = request.getParameter("empId");
 		empBeans = EmpDao.findById(empId);
 
-		empBeans.setBirthday(DateFormat.selectFormatDate(empBeans.getBirthday()));
+
 
 		request.setAttribute("user", empBeans);
 

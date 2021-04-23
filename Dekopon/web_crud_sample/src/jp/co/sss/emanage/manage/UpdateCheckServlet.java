@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import jp.co.sss.emanage.action.UserCheck;
 import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.form.UpdateForm;
+import jp.co.sss.emanage.util.DateFormat;
 import jp.co.sss.emanage.util.InputValidator; //入力チェック
 
 /**
@@ -82,7 +83,7 @@ public class UpdateCheckServlet extends HttpServlet {
 			}
 			//生年月日
 			String birthday = request.getParameter("birthday");
-			birthday=birthday.replace("-", "/");
+			birthday=DateFormat.selectFormatDate(birthday);
 			updateForm.setBirthday(birthday);
 			if ((error = iv.birthdayValidate(birthday)) != null) {
 				errorMessages.add(error);

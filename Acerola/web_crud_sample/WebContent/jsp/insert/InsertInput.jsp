@@ -24,18 +24,20 @@
 				<tr>
 					<th>社員名:</th>
 					<td style="border-style: none; text-align: center;"><input
-						type="text" name="empName" value="${user.empName}" maxlength="30"><label
-						style="color: red">${eName}</label></td>
+						type="text" name="empName"  maxlength="30"><label
+						style="color: red">${eName}</label></td></tr>
+						<tr>
+					<th>パスワード:</th>
+					<td style="border-style: none; text-align: center;"><input
+						type="password" name="empPass"  maxlength="16"><label
+						style="color: red">${ePassword}</label></td></tr>
+
 				<tr>
 					<th>性別:</th>
 					<td>
 								<input type="radio" name="gender" value="1" checked="checked">男性<label
 									style="color: red">${eGender}</label>
 								<input type="radio" name="gender" value="2">女性
-
-								<input type="radio" name="gender" value="1">男性<label
-									style="color: red">${eGender}</label>
-								<input type="radio" name="gender" value="2" checked="checked">女性
 					</td>
 
 				</tr>
@@ -60,9 +62,6 @@
 					<input type="radio" name="authority" value="2" id="inputform">管理<label
 									style="color: red">${eAuthority}</label>
 
-								<input type="radio" name="authority" value="1">一般
-					<input type="radio" name="authority" value="2" checked="checked">管理<label
-									style="color: red">${eAuthority}</label>
 					</td>
 
 				</tr>
@@ -74,22 +73,7 @@
 									<option value="2">経理部</option>
 									<option value="3">総務部</option>
 								</select>
-								<label style="color: red">${eDeptName}</label>
-
-								<select name="deptId" id=>
-									<option value="1">営業部</option>
-									<option value="2" selected>経理部</option>
-									<option value="3">総務部</option>
-								</select>
-								<label style="color: red">${eDeptName}</label>
-
-
-								<select name="deptId">
-									<option value="1">営業部</option>
-									<option value="2">経理部</option>
-									<option value="3" selected>総務部</option>
-								</select>
-								<label style="color: red">${eDeptName}</label>
+								<label style="color: red">${eDept}</label>
 
 						</td>
 

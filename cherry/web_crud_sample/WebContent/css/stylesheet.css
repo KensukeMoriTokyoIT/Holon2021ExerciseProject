@@ -144,6 +144,12 @@ table.tac {
 	margin: 0 auto;
 }
 
+table.checktac {
+	text-align: left;
+	margin-right: auto;
+	margin-left: auto;
+}
+
 table.w300 {
 	width: 300px;
 }

@@ -20,6 +20,46 @@
 		<filter-name>LoginCheckFilter</filter-name>
 		<url-pattern>/InfoSelectServlet</url-pattern>
 	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoginCheckFilter</filter-name>
+		<url-pattern>/InfoSelectServlet</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoginCheckFilter</filter-name>
+		<url-pattern>/SelfPassUpdateServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>LoginCheckFilter</filter-name>
+		<url-pattern>/SelfPasswordInputServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>LoginCheckFilter</filter-name>
+		<url-pattern>/SelfUpdateCompleteServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>LoginCheckFilter</filter-name>
+		<url-pattern>/SelfUpdateConfirmServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>LoginCheckFilter</filter-name>
+		<url-pattern>/SelfUpdateInputServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>LoginCheckFilter</filter-name>
+		<url-pattern>/InfoReturn</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>LoginCheckFilter</filter-name>
+		<url-pattern>/InfoSelectServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>LoginCheckFilter</filter-name>
+		<url-pattern>/InfoTopServlet</url-pattern>
+	</filter-mapping>
+
+
 	<filter>
 		<filter-name>ManageCheckFilter</filter-name>
 		<filter-class>jp.co.sss.emanage.filter.ManageCheckFilter</filter-class>
@@ -28,6 +68,57 @@
 		<filter-name>ManageCheckFilter</filter-name>
 		<url-pattern>/ManageSelectServlet</url-pattern>
 	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ManageCheckFilter</filter-name>
+		<url-pattern>/DelectCompleteServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ManageCheckFilter</filter-name>
+		<url-pattern>/DelectConfirmServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ManageCheckFilter</filter-name>
+		<url-pattern>/DeptManageServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ManageCheckFilter</filter-name>
+		<url-pattern>/InsertCompleteServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ManageCheckFilter</filter-name>
+		<url-pattern>/InsertConfirmServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ManageCheckFilter</filter-name>
+		<url-pattern>/InsertImputServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ManageCheckFilter</filter-name>
+		<url-pattern>/ManagePasswordCompleteServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ManageCheckFilter</filter-name>
+		<url-pattern>/ManagePasswordInputServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ManageCheckFilter</filter-name>
+		<url-pattern>/ManageTopServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ManageCheckFilter</filter-name>
+		<url-pattern>/UpdateCompleteServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ManageCheckFilter</filter-name>
+		<url-pattern>/UpdateConfirmServlet</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ManageCheckFilter</filter-name>
+		<url-pattern>/UpdateInputServlet</url-pattern>
+	</filter-mapping>
+
+
+
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>

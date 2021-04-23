@@ -14,5 +14,23 @@
 				<input type="submit" value="ログアウト">
 			</form>
 		</div>
+		<c:choose>
+			<c:when test="${user.authority.equals(\"1\")}">
+				<form method="get"
+					action="<%=request.getContextPath()%>/InfoTopServlet">
+					<input type="submit" value="社員情報一覧">
+				</form>
+			</c:when>
+			<c:when test="${user.authority.equals(\"2\")}">
+				<form method="get"
+					action="<%=request.getContextPath()%>/ManageTopServlet">
+					<input type="submit" value="社員情報一覧">
+				</form>
+				<form method="get"
+					action="<%=request.getContextPath()%>/DeptManageServlet">
+					<input type="submit" value="部署情報一覧">
+				</form>
+			</c:when>
+		</c:choose>
 	</div>
 </c:if>
