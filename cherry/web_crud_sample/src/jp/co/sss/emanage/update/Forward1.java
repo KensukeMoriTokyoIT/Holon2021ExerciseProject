@@ -16,7 +16,12 @@ public class Forward1 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
+		//隠し属性のIDの値をスコープに入れる
+		String id = request.getParameter("empId");
+		request.setAttribute("empId", id);
+
+
 		request.getRequestDispatcher("/jsp/update/employee_insert.jsp").forward(request, response);
 
 	}

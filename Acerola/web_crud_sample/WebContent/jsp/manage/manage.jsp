@@ -15,7 +15,7 @@
 		<div id="main">
 
 			<div class="select_func">
-				<form id="selectform" method="post" action="<%=request.getContextPath()%>/ManageSelectServlet">
+				<form id="selectform" method="post" action="<%=request.getContextPath()%>/online/authority/ManageSelectServlet">
 					<input type="radio" name="radio" value="1" checked="checked" />
 					社員ID:
 					<input type="text" name="empId" />
@@ -31,7 +31,7 @@
 					</select>
 					<input type="submit" value="検索実行" />
 				</form>
-				<form method="get" action="<%=request.getContextPath()%>/InsertInputServlet">
+				<form method="get" action="<%=request.getContextPath()%>/online/authority/InsertInputServlet">
 					<input type="submit" value="社員新規登録" />
 				</form>
 			</div>
@@ -70,19 +70,19 @@
 								<c:out value="${emp.deptName}" />
 							</td>
 							<td>
-								<form method="get" action="<%=request.getContextPath()%>/UpdateInputServlet">
+								<form method="get" action="<%=request.getContextPath()%>/online/authority/UpdateInputServlet">
 									<input type="hidden" name="empId" value="${emp.empId}" />
 									<input type="submit" value="更新" />
 								</form>
 							</td>
 							<td>
-								<form method="post" action="<%=request.getContextPath()%>/ManagePasswordInputServlet">
+								<form method="post" action="<%=request.getContextPath()%>/online/authority/ManagePasswordInputServlet">
 									<input type="hidden" name="empId" value="${emp.empId}" />
 									<input type="submit" value="変更" />
 								</form>
 							</td>
 							<td>
-								<form method="post" action="<%=request.getContextPath()%>/DeleteConfirmServlet">
+								<form method="post" action="<%=request.getContextPath()%>/online/authority/DeleteConfirmServlet">
 									<input type="hidden" name="empId" value="${emp.empId}" />
 									<input type="submit" value="削除" />
 								</form>

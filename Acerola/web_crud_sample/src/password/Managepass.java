@@ -16,7 +16,7 @@ import jp.co.sss.emanage.util.Property;
 /**
  * Servlet implementation class pass
  */
-@WebServlet("/ManagePass")
+@WebServlet("/online/authority/ManagePass")
 public class Managepass extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

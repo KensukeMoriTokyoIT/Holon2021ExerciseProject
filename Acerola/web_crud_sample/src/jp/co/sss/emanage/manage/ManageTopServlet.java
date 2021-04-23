@@ -22,7 +22,7 @@ import jp.co.sss.emanage.util.Property;
  *
  * @author System Shared
  */
-@WebServlet("/ManageTopServlet")
+@WebServlet("/online/authority/ManageTopServlet")
 public class ManageTopServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -57,7 +57,7 @@ public class ManageTopServlet extends HttpServlet {
 
         // 管理者用一覧表示画面へ画面遷移を行う
         RequestDispatcher dispatcher = request
-                .getRequestDispatcher("jsp/manage/manage.jsp");
+                .getRequestDispatcher("/jsp/manage/manage.jsp");
         dispatcher.forward(request, response);
     }
 }

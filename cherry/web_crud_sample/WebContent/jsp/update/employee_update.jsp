@@ -13,27 +13,25 @@
 		//エラーメッセージ未実
 		//valueに入力する値はどうする？
 			<p>
-				<input type="text" name="empId" value=>
+				<input type="hidden" name="empId" value="${empBean.empId}">
+			</p>
+
+			<p>
+				社員名:<input type="text" name="empName" value="${empBean.empName}"/>
 			</p>
 			<p>
-				パスワード:<input type="password" name="empPass" value= />
+				性別:<label><input type="radio" name="gender" <c:if test="${empBean.gender == 1}">checked</c:if> value="1"  />男</label>
+					 <label><input type="radio" name="gender" <c:if test="${empBean.gender == 2}">checked</c:if> value="2"  />女</label>
 			</p>
 			<p>
-				社員名:<input type="text" name="empName" value=""/>
+				住所:<input type="text" name="address" value="${empBean.address}"/>
 			</p>
 			<p>
-				性別:<label><input type="radio" name="gender" value="1" />男</label>
-					 <label><input type="radio" name="gender" value="2"/>女</label>
+				生年月日:<input type="text" name="birthday" value="${empBean.birthday}" />
 			</p>
 			<p>
-				住所:<input type="text" name="address" value=/>
-			</p>
-			<p>
-				生年月日:<input type="text" name="birthday" value= />
-			</p>
-			<p>
-				権限:<label><input type="radio" name="authority" value="1" />一般</label>
-					 <label><input type="radio" name="authority" value="2"/>管理</label>
+				権限:<label><input type="radio" name="authority" <c:if test="${empBean.authority == 1}">checked</c:if> value="1" />一般</label>
+					 <label><input type="radio" name="authority" <c:if test="${empBean.authority == 2}">checked</c:if> value="2" />管理</label>
 			</p>
 			<p>
 				部署名:<select name="deptName">

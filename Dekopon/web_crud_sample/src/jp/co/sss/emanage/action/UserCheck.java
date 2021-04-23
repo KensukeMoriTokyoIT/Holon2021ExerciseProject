@@ -27,7 +27,7 @@ public class UserCheck {
  */
 	public static boolean authorityCheck(EmpBean user) {
 		boolean isAdmin = false;
-		if(user.getAuthority()=="2") {
+		if(user.getAuthority().equals("2")) {
 			isAdmin = true;
 		}
 		return isAdmin;

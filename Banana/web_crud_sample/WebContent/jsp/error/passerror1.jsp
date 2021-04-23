@@ -5,7 +5,6 @@
 <link href="<%=request.getContextPath()%>/css/stylesheet.css" rel="stylesheet" type="text/css" />
 <title>一般用パスワード変更画面</title>
 </head>
-
 <body>
 	<div id="contents">
 		<div id="header">
@@ -16,16 +15,17 @@
 			<div class="contents">
 				<form id="loginform" method="post" action="<%=request.getContextPath()%>/SelfPasswordInputServlet">
 								<p style="color: red">${errorMessage}</p>
+								<from action"=<%=request.getContextPath()%>/SelfPassupdatetServlet"method="post">
 					<table class="tac">
 			<h2>パスワード変更入力画面</h2>
 							<tr>
 							<th>現在のパスワード：</th>
-							<td style="border-style: none; text-align: center;">
-								<input type="text" name="oldpass" maxlength="16" />
+							<td style="border-style: none">
+								<input type="password" name="oldpass" maxlength="16" />
 							</td>
 						</tr>
 						<tr>
-						<h3>パスワードが違います</h3>
+						<h3>パスワードが違います</h3>S
 							<th>新しいパスワード：</th>
 							<td style="border-style: none">
 								<input type="password" name="newpass1" maxlength="16" />
@@ -39,11 +39,12 @@
 							<!--  <td><html:errors property="empPass" /></td> -->
 						</tr>
 				</table>
-				<imput type="hidden" name="empId" />
+				<imput type="hidden" name="empId" value="${empId}" />
 
-				<from action"=<%=request.getContextPath()%>/SelfPasswordInputServlet"method="post">
+
 					<input type="submit" value="変更" />
-						<from action="<%=request.getContextPath()%>/InfoRetum" method="post">
+					</from>
+						<from action="<%=request.getContextPath()%>/InfoReturn" method="post">
 					<input type="submit" value="社員一覧に戻る" />
 
 				</form>

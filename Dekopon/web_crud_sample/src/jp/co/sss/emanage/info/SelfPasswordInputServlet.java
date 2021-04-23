@@ -8,7 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import jp.co.sss.emanage.action.UserCheck;
 import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.EmpDao;
 
@@ -19,28 +21,43 @@ import jp.co.sss.emanage.dao.EmpDao;
 public class SelfPasswordInputServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SelfPasswordInputServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public SelfPasswordInputServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//前ページから送られた社員ID取得
-		String empId = request.getParameter("empId");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		//セッション取得
+		HttpSession session = request.getSession();
+		EmpBean user = (EmpBean) session.getAttribute("user");
 
-		//ID検索して情報取得
-		EmpBean empBean = EmpDao.findById(empId);
+		//ログイン管理
+		if (UserCheck.loginCheck(user)) {
+			//ログインOK -->処理実行
+			//前ページから送られた社員ID取得
+			String empId = request.getParameter("empId");
 
-		request.setAttribute("empBean", empBean);
-		RequestDispatcher dispatcher = request
-                .getRequestDispatcher("jsp/selfPass/selfPassInput.jsp");
-        dispatcher.forward(request, response);
+			//ID検索して情報取得
+			EmpBean empBean = EmpDao.findById(empId);
+
+			request.setAttribute("empBean", empBean);
+			RequestDispatcher dispatcher = request
+					.getRequestDispatcher("jsp/selfPass/selfPassInput.jsp");
+			dispatcher.forward(request, response);
+
+		} else {
+			//ログインNG
+			//ログイン画面へ遷移
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		}
+
 	}
 
 }
