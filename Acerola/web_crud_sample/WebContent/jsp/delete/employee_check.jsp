@@ -47,9 +47,11 @@
 				<td>${dept.deptName}</td>
 			</tr>
 		</table>
-			<form action="<%=request.getContextPath()%>/jsp/delete/employee_complete.jsp" method="post">
+			<form action="<%=request.getContextPath()%>/jsp/delete/employee_complete" method="post">
 				<p><input type="submit" value="実行"/></p>
-				<p><div><input type="submit" value="戻る"/></div></p>		<!-- form actionの使って、"戻る"は社員情報一覧へ飛ばす -->
+			</form>
+			<form action="<%=request.getContextPath()%>/online/authority/ManageTopServlet" id="inputform">
+				<p><div><input type="submit" value="戻る"/></div></p>
 			</form>
 	</article>
 				</div>

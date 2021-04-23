@@ -17,9 +17,9 @@
 				<div class="contents">
 		<article class="main">
 		<p><font color="red">社員情報削除処理が完了しました。</font></p>
-		<form action="<%=request.getContextPath()%>/jsp/delete/employee_check.jsp"
-		method="post">										<!-- 社員情報一覧へ飛ばす -->
-			<input type="submit" value="社員一覧に戻る"/>
+		<form action="<%=request.getContextPath()%>/online/authority/ManageTopServlet"
+			id="inputform">
+			<input type="submit" value="社員一覧表示に戻る">
 		</form>
 	</article>
 	</div>
