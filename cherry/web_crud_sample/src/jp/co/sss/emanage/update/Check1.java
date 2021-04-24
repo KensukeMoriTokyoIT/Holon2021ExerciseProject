@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.sss.emanage.bean.EmpBean;
+import jp.co.sss.emanage.util.DateFormat;
 import jp.co.sss.emanage.util.InputValidator;
 //DAOとの連携
 
@@ -31,8 +32,8 @@ public class Check1 extends HttpServlet {
 	        String birthday = request.getParameter("birthday");
 	        String authority = request.getParameter("authority");
 	        String deptName = request.getParameter("deptName");
-	        
-	        
+
+
 
 	        // InputValidatorクラスのメソッドを用いてエラーチェック
 	        InputValidator vali = new InputValidator();
@@ -65,6 +66,7 @@ public class Check1 extends HttpServlet {
 
 	        if (count == 0) {
 	        	EmpBean emp = new EmpBean();
+	        	birthday = DateFormat.tempFormatDate(birthday);
 	        	emp.setEmpId(empId);
 	        	emp.setEmpPass(empPass);
 	        	emp.setEmpName(empName);

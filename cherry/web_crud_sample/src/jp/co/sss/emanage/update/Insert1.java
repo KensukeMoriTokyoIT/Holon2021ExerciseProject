@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import jp.co.sss.emanage.bean.EmpBean;
 import jp.co.sss.emanage.dao.EmpDao;
+import jp.co.sss.emanage.util.DateFormat;
 
 /**
  * Servlet implementation class Check1
@@ -27,13 +28,18 @@ public class Insert1 extends HttpServlet {
 	        String birthday = request.getParameter("birthday");
 	        String authority = request.getParameter("authority");
 	        String deptName = request.getParameter("deptName");
+
 	        EmpBean emp = new EmpBean();
+
+	        //年月日から/に変換
+	        String birthday_slash = DateFormat.selectFormatDate(birthday);
+
 	        emp.setEmpId(empId);
 	        emp.setEmpPass(empPass);
 	        emp.setEmpName(empName);
 	        emp.setGender(gender);
 	        emp.setAddress(address);
-	        emp.setBirthday(birthday);
+	        emp.setBirthday(birthday_slash);
 	        emp.setAuthority(authority);
 	        emp.setDeptId(deptName);
 	        EmpDao.insert(emp);

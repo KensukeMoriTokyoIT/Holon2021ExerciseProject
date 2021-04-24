@@ -58,7 +58,7 @@ public class Check2 extends HttpServlet {
 	        }
 
 	        EmpBean emp = new EmpBean();
-	        birthday = DateFormat.tempformatDate(birthday);
+	        birthday = DateFormat.tempFormatDate(birthday);
         	emp.setEmpId(empId);
         	emp.setEmpPass(empPass);
         	emp.setEmpName(empName);
