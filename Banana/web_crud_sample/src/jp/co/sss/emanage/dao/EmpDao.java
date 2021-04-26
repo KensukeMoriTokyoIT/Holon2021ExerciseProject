@@ -49,7 +49,9 @@ public class EmpDao {
     /** 社員新規登録のSQL*/
     private static final String EMP_INSERT_NEWBIE = "insert into employee values(seq_emp.nextval,?,?,?,?,?,?,?)";
     /** 社員のパスワード変更のSQL*/
-    private static final String EMP_UPDATE_PASSWORD = "update employee set empPass = ? where empId = ?";
+    private static final String EMP_UPDATE_PASSWORD = "update employee set emp_Pass = ? where emp_Id = ?";
+    /** 社員のプロフィール変更のSQL*/
+    private static final String EMP_UPDATE_PROFILE = "update employee set emp_Pass = ?, emp_Name = ?, gender = ?, address = ?, birthday = ?, authority = ?, dept_id = ?  where emp_Id = ?";
 
 
     /**
@@ -547,7 +549,9 @@ public class EmpDao {
         return empList;
     }
 
-
+    /**
+     * 社員情報削除のメソッド
+     */
 	public static void delete(String empId) {
 
         Connection con = null;
@@ -568,7 +572,9 @@ public class EmpDao {
 		return;
 	}
 
-
+    /**
+     * 社員情報新規登録のメソッド
+     */
 	public static void insert(EmpBean emp) {
 
         Connection con = null;
@@ -594,6 +600,10 @@ public class EmpDao {
         }
 		return;
 	}
+
+    /**
+     * パスワード変更のメソッド
+     */
 	public static void updatePassword(String empId,String newPass) {
 
         Connection con = null;
@@ -615,4 +625,36 @@ public class EmpDao {
 		return;
 	}
 
+
+    /**
+     * 社員情報更新のメソッド
+     */
+	public static void update(String empId, String passWord, String empName, String gender, String address,
+			String birthday, String authority, String deptId) {
+
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        try {
+            con = DBManager.getConnection();
+            ps = con.prepareStatement(EMP_UPDATE_PROFILE);
+            ps.setString(1, passWord);
+            ps.setString(2, empName);
+            ps.setString(3, gender);
+            ps.setString(4, address);
+            ps.setString(5, birthday);
+            ps.setString(6, authority);
+            ps.setString(7, deptId);
+            ps.setString(8, empId);
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // DB切断処理
+            DBManager.close(ps, con);
+        }
+		return;
+	}
 }

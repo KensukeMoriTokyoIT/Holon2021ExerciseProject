@@ -42,9 +42,27 @@ public class DateFormat {
 
         selectDate = selectDate.replace('年', '/');
         selectDate = selectDate.replace('月', '/');
+        selectDate = selectDate.replace('日', ' ');
         selectDate = selectDate.substring(0,selectDate.length()-1);
 
         return selectDate;
+
+    }
+
+    public static String tempFormatDate(String tempdate) {
+
+        // 戻り値dateを初期化
+        String date_jp = "";
+
+        // yyyy年MM月dd日の形式から年月日だけを取り出して、それぞれの変数へ代入
+        String yearStr = tempdate.substring(0, 4);
+        String monthStr = tempdate.substring(5, 7);
+        String dayStr = tempdate.substring(8, 10);
+
+        // 取り出した変数をyyyy年MM月dd日と並び替える。
+        date_jp = yearStr + "年" + monthStr + "月" + dayStr + "日";
+
+        return date_jp;
 
     }
 

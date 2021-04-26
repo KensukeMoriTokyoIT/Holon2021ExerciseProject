@@ -13,26 +13,27 @@
 		<%@include file="/jsp/common/header_login.jsp"%>
 	</div>
 	<p>パスワード変更入力画面</p>
-	<input type="hidden" name="">
+
 	<div id=main>
-	<form action="<%=request.getContextPath()%>/Managepass" method="post">
+	<form action="<%=request.getContextPath()%>/online/authority/ManagePass" method="post">
+	<input type = "hidden" name = "empId" value ="${user.empId}" >
 	<table>
 		<tr>
 			<td>新しいパスワード</td>
 			<td><input
-				type="password" name="newpass" maxlength="16"></td>
+				type="password" name="newPass" maxlength="16"><label style="color: red">${eNewPass}</label></td>
 			</tr>
 			<tr>
 			<td>新しいパスワード(再入力)</td>
-			<td><input type="password" name="newpass2" maxlength="16"></td>
+			<td><input type="password" name="passCheck" maxlength="16"><label style="color: red">${ePassCheck}</label></td>
 		</tr>
 	</table>
 	<input type="submit" value="変更">
 	</form>
-</div>
-<form action="<%=request.getContextPath()%>/ManageTopServlet">
+
+<form action="<%=request.getContextPath()%>/online/authority/ManageTopServlet">
 		<input type="submit" value="社員一覧に戻る">
-	</form>
+	</form></div>
 	<div id="footer">
 		<%@include file="/jsp/common/footer.jsp"%>
 	</div>

@@ -17,25 +17,32 @@ import jp.co.sss.emanage.dao.EmpDao;
 @WebServlet("/InsertCompleteServlet")
 public class InsertCompleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private EmpBean EmpBean;
-
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public InsertCompleteServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public InsertCompleteServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		EmpDao.insert(EmpBean);
-	 request.getRequestDispatcher("/jsp/Insert/insertcomplete.jsp").forward(request, response);
+			EmpBean empBean = new EmpBean();
+
+			empBean.setEmpPass(request.getParameter("empPass"));
+			empBean.setEmpName(request.getParameter("empName"));
+			empBean.setGender(request.getParameter("gender"));
+			empBean.setAddress(request.getParameter("address"));
+			empBean.setBirthday(request.getParameter("birthday"));
+			empBean.setAuthority(request.getParameter("authority"));
+			empBean.setDeptId(request.getParameter("deptId"));
+			EmpDao.insert(empBean);
+			request.getRequestDispatcher("/jsp/Insert/insertcomplete.jsp").forward(request, response);
+
 	}
 
 }

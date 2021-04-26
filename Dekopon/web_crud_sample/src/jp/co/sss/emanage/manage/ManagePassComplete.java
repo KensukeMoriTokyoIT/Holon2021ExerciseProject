@@ -22,60 +22,55 @@ public class ManagePassComplete extends HttpServlet {
 	public ManagePassComplete() {
 		super();
 	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		InputValidator iv = new InputValidator();
-		String error = new String();
-		List<String> errorMessages = new ArrayList<>();
+			InputValidator iv = new InputValidator();
+			String error = new String();
+			List<String> errorMessages = new ArrayList<>();
 
-		String empId = request.getParameter("empId");
-		String newPass = request.getParameter("newPass");
-		String newPassTwo = request.getParameter("newPassTwo");
+			String empId = request.getParameter("empId");
+			String newPass = request.getParameter("newPass");
+			String newPassTwo = request.getParameter("newPassTwo");
 
-		EmpBean empBean = EmpDao.findById(empId);
+			EmpBean empBean = EmpDao.findById(empId);
 
-		request.setAttribute("empBean", empBean);
+			request.setAttribute("empBean", empBean);
 
-		if (empBean != null) {
+			if (empBean != null) {
+				if ((error = iv.passwordValidate(newPass)) != null) {
+					errorMessages.add(error);
+				}
+				//新しいパスワードの再入力があっているか
+				if (!newPass.equals(newPassTwo)) {
+					errorMessages.add("再入力されたパスワードが一致していません");
+				}
 
+				if (errorMessages.isEmpty()) {
+					//新しいパスワードに変更
+					empBean.setEmpPass(newPass);
+					//データベースに反映
+					EmpDao.update(empBean);
 
-		if((error=iv.passwordValidate(newPass))!=null){
-			errorMessages.add(error);
-		}
-		//新しいパスワードの再入力があっているか
-		if(!newPass.equals(newPassTwo)) {
-			errorMessages.add("再入力されたパスワードが一致していません");
-		}
+					//完了画面に遷移
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("jsp/managePass/managePassComplete.jsp");
+					dispatcher.forward(request, response);
 
-		if(errorMessages.isEmpty()) {
-			//新しいパスワードに変更
-			empBean.setEmpPass(newPass);
-			//データベースに反映
-			EmpDao.update(empBean);
-
-			//完了画面に遷移
-			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("jsp/managePass/managePassComplete.jsp");
-			dispatcher.forward(request, response);
-
-		}else {
-			request.setAttribute("errorMessages", errorMessages);
-			// 入力画面へ遷移を行う
-			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("/jsp/managePass/managePassInput.jsp");
-			dispatcher.forward(request, response);
+				} else {
+					request.setAttribute("errorMessages", errorMessages);
+					// 入力画面へ遷移を行う
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("/jsp/managePass/managePassInput.jsp");
+					dispatcher.forward(request, response);
+				}
+			} else {
+				// エラー画面へ遷移を行う
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("/jsp/error/error.jsp");
+				dispatcher.forward(request, response);
 			}
-	}else {
-	// エラー画面へ遷移を行う
-	RequestDispatcher dispatcher = request
-			.getRequestDispatcher("/jsp/error/error.jsp");
-	dispatcher.forward(request, response );
-			}
-
-		}
 
 	}
-
-
-
+}

@@ -37,7 +37,7 @@
 									<th>新しいパスワード(再入力)</th>
 									<td><input type="password" name="newPassTwo"
 										maxlength='15' /></td>
-								</tr>
+									</tr>
 							</table>
 						</td>
 
@@ -46,7 +46,7 @@
 							<table>
 								<c:forEach var="errorMessage" items="${errorMessages}">
 									<tr>
-										<td><p style="color: red">${errorMessage}</p></td>
+										<td><font color=red>${errorMessage}</font></td>
 									</tr>
 								</c:forEach>
 							</table>

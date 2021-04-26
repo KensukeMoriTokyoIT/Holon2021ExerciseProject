@@ -8,9 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import jp.co.sss.emanage.bean.EmpBean;
+import jp.co.sss.emanage.dao.EmpDao;
 import jp.co.sss.emanage.util.InputValidator;
 /**
  * Servlet implementation class ManagePasswordChangeServlet
@@ -35,19 +35,12 @@ public class ManagePasswordUpdateServlet extends HttpServlet {
 			// setCharacterEncodingメソッドを使って受け取った文字列の文字コードを指定
             request.setCharacterEncoding("UTF-8");
 
-            // セッションを利用する準備
-            HttpSession session = ((HttpServletRequest)request).getSession(false);
-
-            EmpBean empBean = (EmpBean) session.getAttribute("user");
-
             //パスワードと確認用のパスワードの値を受け取る
             String password = request.getParameter("empPass");
             String repassword = request.getParameter("empRePass");
+
             //指定されたid情報を受け取る
             String id = request.getParameter("empId");
-
-            System.out.println(password);
-            System.out.println(repassword);
 
             //InputValidatorクラスのpasswrodValidateメソッドを使う
             InputValidator vali = new InputValidator();
@@ -61,7 +54,6 @@ public class ManagePasswordUpdateServlet extends HttpServlet {
                         .getRequestDispatcher("/jsp/password/manage_pass.jsp");
                 dispatcher.forward(request, response);
 
-
             }else if (error != null)
             {
             	request.setAttribute("errorMessage",error);
@@ -72,6 +64,11 @@ public class ManagePasswordUpdateServlet extends HttpServlet {
 
 
             }else {
+            	EmpBean emp = new EmpBean();
+            	emp.setEmpId(id);
+            	emp.setEmpPass(password);
+
+            	EmpDao.updateEmployeePassword(emp);
 
             	 RequestDispatcher dispatcher = request
                  		.getRequestDispatcher("/jsp/password/manage_pass_complete.jsp");

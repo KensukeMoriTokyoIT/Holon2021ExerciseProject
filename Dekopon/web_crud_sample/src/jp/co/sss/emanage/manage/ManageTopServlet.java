@@ -24,40 +24,42 @@ import jp.co.sss.emanage.util.Property;
  */
 @WebServlet("/ManageTopServlet")
 public class ManageTopServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ManageTopServlet() {
-        super();
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ManageTopServlet() {
+		super();
+	}
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-         // 社員テーブルを検索し、全項目を取得する
-        List<EmpBean> empList = EmpDao.findAll();
+			// 社員テーブルを検索し、全項目を取得する
+			List<EmpBean> empList = EmpDao.findAll();
 
-        // 検索結果の入ったリストをリクエスト属性に登録しておく
-        request.setAttribute("empList", empList);
+			// 検索結果の入ったリストをリクエスト属性に登録しておく
+			request.setAttribute("empList", empList);
 
-        // 条件検索キーの初期値をリクエストに格納
-        ManageSelectForm manageForm = new ManageSelectForm();
-        manageForm.setFindKey(Property.FINDKEY_EMP_ID);
-        request.setAttribute("manageForm", manageForm);
+			// 条件検索キーの初期値をリクエストに格納
+			ManageSelectForm manageForm = new ManageSelectForm();
+			manageForm.setFindKey(Property.FINDKEY_EMP_ID);
+			request.setAttribute("manageForm", manageForm);
 
-        // 部署テーブルの全件を取得
-        List<DeptBean> deptList = DeptDao.findAll();
+			// 部署テーブルの全件を取得
+			List<DeptBean> deptList = DeptDao.findAll();
 
-        // 部署テーブルの全件が入ったリストをセッション属性に登録しておく
-        request.setAttribute("deptList", deptList);
+			// 部署テーブルの全件が入ったリストをセッション属性に登録しておく
+			request.setAttribute("deptList", deptList);
 
-        // 管理者用一覧表示画面へ画面遷移を行う
-        RequestDispatcher dispatcher = request
-                .getRequestDispatcher("jsp/manage/manage.jsp");
-        dispatcher.forward(request, response);
-    }
+			// 管理者用一覧表示画面へ画面遷移を行う
+			RequestDispatcher dispatcher = request
+					.getRequestDispatcher("jsp/manage/manage.jsp");
+			dispatcher.forward(request, response);
+
+	}
 }

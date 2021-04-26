@@ -31,7 +31,7 @@
 				<input type="submit" value="検索実行" />
 			</form>
 
-			<form method="get" action="<%=request.getContextPath()%>/SelfUpdateInputServlet">
+			<form method="get" action="<%=request.getContextPath()%>/InsertServlet">
 				<input type="hidden" name="empId" value="${user.empId}" />
 				<input type="submit" value="社員情報更新" />
 			</form>

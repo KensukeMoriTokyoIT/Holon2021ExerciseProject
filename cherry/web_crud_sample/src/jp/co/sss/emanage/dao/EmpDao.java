@@ -538,4 +538,93 @@ public class EmpDao {
         return empList;
     }
 
+    public static void update(EmpBean emp) {
+
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        try {
+            con = DBManager.getConnection();
+            ps = con.prepareStatement("UPDATE employee SET emp_name = ?,gender = ?,address = ?,birthday = ?,authority = ?,dept_id = ? WHERE emp_id = ?");
+            ps.setString(1, emp.getEmpName());
+            ps.setString(2, emp.getGender());
+            ps.setString(3, emp.getAddress());
+            ps.setString(4, emp.getBirthday());
+            ps.setString(5, emp.getAuthority());
+            ps.setString(6, emp.getDeptId());
+            ps.setString(7, emp.getEmpId());
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBManager.close(ps, con);
+        }
+    }
+    public static void insert(EmpBean emp) {
+
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        try {
+            con = DBManager.getConnection();
+            ps = con.prepareStatement("INSERT INTO employee (emp_id,emp_pass,emp_name,gender,address,birthday,authority,dept_id) "
+            		+ "VALUES(SEQ_EMP.nextval,?,?,?,?,?,?,?)");
+            ps.setString(1, emp.getEmpPass());
+            ps.setString(2, emp.getEmpName());
+            ps.setString(3, emp.getGender());
+            ps.setString(4,emp.getAddress());
+            ps.setString(5, emp.getBirthday());
+            ps.setString(6, emp.getAuthority());
+            ps.setString(7, emp.getDeptId());
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBManager.close(ps, con);
+        }
+    }
+
+    public static void delete(String empId) {
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        try {
+            con = DBManager.getConnection();
+            ps = con.prepareStatement("DELETE FROM employee WHERE emp_id = ?");
+
+            ps.setString(1, empId);
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBManager.close(ps, con);
+        }
+    }
+
+    /**
+     * パスワード変更メソッド
+     */
+    public static void updateEmployeePassword(EmpBean emp) {
+
+    	Connection con = null;
+    	PreparedStatement ps = null;
+
+    	try {
+    		con = DBManager.getConnection();
+    		ps = con.prepareStatement("UPDATE employee SET emp_pass = ? WHERE emp_id = ?");
+
+    		ps.setString(1, emp.getEmpPass());
+    		ps.setString(2, emp.getEmpId());
+
+    		ps.executeUpdate();
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    	} finally {
+    		// DB切断処理
+    		DBManager.close(ps, con);
+    }
+}
 }

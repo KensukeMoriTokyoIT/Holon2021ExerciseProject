@@ -30,9 +30,10 @@ public class Delete extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String empId = request.getParameter("empId");
-		EmpDao.delete(empId);
-		request.getRequestDispatcher("/jsp/delete/deletecomplete.jsp").forward(request, response);
+			String empId = request.getParameter("empId");
+			EmpDao.delete(empId);
+			request.getRequestDispatcher("/jsp/delete/deletecomplete.jsp").forward(request, response);
+
 
 	}
 }

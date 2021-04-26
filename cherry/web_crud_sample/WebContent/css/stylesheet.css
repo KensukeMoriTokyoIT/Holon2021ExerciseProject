@@ -131,6 +131,10 @@ div.table_manage {
 	display: flex;
 }
 
+div.cen {
+	text-align: center;
+}
+
 table.w90p {
 	width: 100%;
 }
@@ -142,6 +146,12 @@ table.w75p {
 table.tac {
 	text-align: left;
 	margin: 0 auto;
+}
+
+table.checktac {
+	text-align: left;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 table.w300 {
@@ -175,4 +185,8 @@ h3 {
 
 input[type="submit"] {
 	margin: 0px 5px;
+}
+
+p.cen {
+	text-align: center;
 }

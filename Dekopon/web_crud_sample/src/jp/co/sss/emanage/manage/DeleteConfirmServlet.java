@@ -33,22 +33,22 @@ public class DeleteConfirmServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		DeleteForm deleteForm = new DeleteForm();
-		//DBからID検索
+			DeleteForm deleteForm = new DeleteForm();
+			//DBからID検索
+			EmpBean empBean = EmpDao.findById(request.getParameter("empId"));
 
-		EmpBean empBean = EmpDao.findById(request.getParameter("empId"));
+			deleteForm.setEmpId(empBean.getEmpId());
+			deleteForm.setEmpName(empBean.getEmpName());
+			deleteForm.setGender(empBean.getGender());
+			deleteForm.setAddress(empBean.getAddress());
+			deleteForm.setBirthday(empBean.getBirthday());
+			deleteForm.setAuthority(empBean.getAuthority());
+			deleteForm.setDeptId(empBean.getDeptId());
+			deleteForm.setDeptName(empBean.getDeptName());
 
-		deleteForm.setEmpId(empBean.getEmpId());
-		deleteForm.setEmpName(empBean.getEmpName());
-		deleteForm.setGender(empBean.getGender());
-		deleteForm.setAddress(empBean.getAddress());
-		deleteForm.setBirthday(empBean.getBirthday());
-		deleteForm.setAuthority(empBean.getAuthority());
-		deleteForm.setDeptId(empBean.getDeptId());
-		deleteForm.setDeptName(empBean.getDeptName());
+			request.setAttribute("deleteForm", deleteForm);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/delete/deletecheck.jsp");
+			dispatcher.forward(request, response);
 
-		request.setAttribute("deleteForm", deleteForm);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/delete/deletecheck.jsp");
-		dispatcher.forward(request, response);
 	}
 }

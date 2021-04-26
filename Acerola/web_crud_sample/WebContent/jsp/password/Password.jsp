@@ -13,25 +13,29 @@
 		<%@include file="/jsp/common/header_login.jsp"%>
 	</div>
 	<p>パスワード変更入力画面</p>
-	<input type="hidden" name="">
 	<div id=main>
-	<form action="<%=request.getContextPath()%>/pass" method="post">
+	<form action="<%=request.getContextPath()%>/online/pass" method="post">
+	<input type ="hidden" name = "empPass" value="${user.empPass}">
+	<input type ="hidden" name = "empId" value="${user.empId}">
+
 	<table>
+	<tr>
+
 	<tr>
 			<td>現在のパスワード</td>
 			<td><input
-				type="password" name="newpass" maxlength="16"><label style="color: red">${ePassword}</label></td>
+				type="password" name="oldPass" maxlength="16"><label style="color: red">${eOldPass}</label></td>
 			</tr>
 		<tr>
 			<td>新しいパスワード</td>
 			<td><input
-				type="password" name="newpass" maxlength="16">
-				<label style="color: red">${newpass}</label></td>
+				type="password" name="newPass" maxlength="16">
+				<label style="color: red">${eNewPass}</label></td>
 			</tr>
 
 			<tr>
 			<td>新しいパスワード(再入力)</td>
-			<td><input type="password" name="newpass2" maxlength="16">
+			<td><input type="password" name="passCheck" maxlength="16"><label style="color: red">${ePassCheck}</label>
 
 			</td>
 
@@ -41,10 +45,10 @@
 	</table>
 	<input type="submit" value="変更">
 	</form>
-</div>
-<form action="<%=request.getContextPath()%>/InfoTopServlet">
+
+<form action="<%=request.getContextPath()%>/online/InfoTopServlet">
 		<input type="submit" value="社員一覧に戻る">
-	</form>
+	</form></div>
 	<div id="footer">
 		<%@include file="/jsp/common/footer.jsp"%>
 	</div>

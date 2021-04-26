@@ -21,13 +21,13 @@
 
     <div>
       <c:if test="${user.authority == 1}">
-          <a href="/web_crud_sample/InfoTopServlet">社員一覧に戻る</a>
+          <a href="/web_crud_acelora/online/InfoTopServlet">社員一覧に戻る</a>
            </c:if>
     </div>
 
     <div>
       <c:if test="${user.authority == 2}">
-        <a href="/web_crud_sample/ManageTopServlet">社員一覧に戻る</a>
+        <a href="/web_crud_acelora/online/authority/ManageTopServlet">社員一覧に戻る</a>
       </c:if>
     </div>
 

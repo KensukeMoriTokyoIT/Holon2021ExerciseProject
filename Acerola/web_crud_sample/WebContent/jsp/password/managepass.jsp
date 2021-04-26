@@ -8,7 +8,7 @@
 	rel="stylesheet" type="text/css" />
 	<link href="<%=request.getContextPath()%>/css/stylesheet.css"
 	rel="stylesheet" type="text/css" />
-<title>Insert title here</title>
+<title>パスワード変更完了画面</title>
 </head>
 <body>
 <div id="header">
@@ -16,7 +16,7 @@
 	</div>
 パスワード変更完了画面
 <p>変更が完了しました。</p>
-<form action="<%=request.getContextPath()%>/ManageTopServlet">
+<form action="<%=request.getContextPath()%>/online/authority/ManageTopServlet">
 		<input type="submit" value="社員一覧に戻る"></form>
 <div id="footer">
 <%@include file="/jsp/common/footer.jsp"%>	</div>

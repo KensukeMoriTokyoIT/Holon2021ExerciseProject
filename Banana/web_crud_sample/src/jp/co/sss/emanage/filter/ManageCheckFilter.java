@@ -43,18 +43,20 @@ public class ManageCheckFilter implements Filter{
 			dispatcher.forward(request, response);
 		}
 
-		System.out.println(session);
 		EmpBean emp = (EmpBean) session.getAttribute("user");
+
+		if (emp == null) { //empがnullだったらログイン画面に飛ばす。
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+			dispatcher.forward(request, response);
+		}
+
 		String empAuth = emp.getAuthority();
-		System.out.println(empAuth);
 
 		if (empAuth.equals("2")) {
 			// 管理者でログインしていれば、通常どおりの遷移
-			System.out.println("管理者である");
 			chain.doFilter(request, response);
 		} else {
 			//管理者でないならば、ログイン画面へ飛ばす
-			System.out.println("管理者ではない");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
 			dispatcher.forward(request, response);
 		}

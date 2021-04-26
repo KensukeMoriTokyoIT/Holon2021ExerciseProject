@@ -13,31 +13,98 @@
 	<div id="header">
 		<%@ include file="/jsp/common/header_login.jsp"%>
 	</div>
-	<p>社員情報更新入力画面</p>
-	<div id="main">
-		<form action="<%=request.getContextPath()%>/UpdateCheck">
-		<input type = "hidden" value = "${user.empId }">
-		<input type ="password" name = "Newpassword" maxlength = "16">
-		<input type = "text" value ="${user.empName}">
+	<p>社員情報変更入力画面</p>
+	<div id="main" id="contents">
 
+		<form action="<%=request.getContextPath()%>/online/UpdateCheckServlet"
+			id="inputform" method="post">
+			<input type="hidden" name="empId" value="${user.empId }">
+			<input type="hidden" name="authority" value ="${user.authority}">
+			<table class="tac">
 
-		<c:choose>
-		<c:when test = "${user.empGender == 0}">
-		<label><input type = "radio" name = "gender_u" value = "0" selected>男性</label>
-		<label><input type = "radio" name = "gender_u" value = "1">女性</label>
-		</c:when>
-		<c:when test = "${user.empGender == 1}">
-		<label><input type = "radio" name = "gender_u" value = "0" >男性</label>
-		<label><input type = "radio" name = "gender_u" value = "1" selected>女性</label>
-		</c:when>
-		</c:choose>
+				<tr>
+					<th>社員名:</th>
+					<td style="border-style: none; text-align: center;"><input
+						type="text" name="empName" value="${user.empName}" maxlength="30"><label
+						style="color: red">${eName}</label></td>
+				<tr>
+					<th>性別:</th>
+					<td><c:choose>
+							<c:when test="${user.gender == 1}">
+								<input type="radio" name="gender" value="1" checked="checked">男性<label
+									style="color: red">${eGender}</label>
+								<input type="radio" name="gender" value="2">女性
+					</c:when>
+							<c:when test="${user.gender == 2}">
+								<input type="radio" name="gender" value="1">男性<label
+									style="color: red">${eGender}</label>
+								<input type="radio" name="gender" value="2" checked="checked">女性
+				</c:when>
+						</c:choose></td>
 
+				</tr>
+				<tr>
+					<th>住所:</th>
+					<td><input type="text" name="address" value="${user.address}"
+						maxlength="60"><label style="color: red">${eAddress}</label></td>
+
+				</tr>
+
+				<tr>
+					<th>生年月日:</th>
+					<td><input type="text" name="birthday"
+						value="${user.birthday}">(yyyy/MM/dd)<label
+						style="color: red">${eBirthday}</label></td>
+
+				</tr>
+				<tr>
+					<th>部署名:</th>
+					<td><c:choose>
+							<c:when test="${user.deptId == 1}">
+								<select name="deptId">
+									<option value="1" selected>営業部</option>
+									<option value="2">経理部</option>
+									<option value="3">総務部</option>
+								</select>
+								<label style="color: red">${eDeptName}</label>
+							</c:when>
+							<c:when test="${user.deptId == 2}">
+								<select name="deptId" id=>
+									<option value="1">営業部</option>
+									<option value="2" selected>経理部</option>
+									<option value="3">総務部</option>
+								</select>
+								<label style="color: red">${eDeptName}</label>
+							</c:when>
+							<c:when test="${user.deptId == 3}">
+								<select name="deptId">
+									<option value="1">営業部</option>
+									<option value="2">経理部</option>
+									<option value="3" selected>総務部</option>
+								</select>
+								<label style="color: red">${eDeptName}</label>
+
+							</c:when>
+						</c:choose></td>
+
+				</tr>
+			</table>
+			<input type="submit" value="更新確認">
+
+		</form>
+		<p></p>
+		<form action="<%=request.getContextPath()%>/online/InfoTopServlet"
+			id="inputform">
+			<input type="submit" value="社員一覧表示に戻る">
 		</form>
 
 	</div>
 
+
+</body>
+<footer>
 	<div id="footer">
 		<%@ include file="/jsp/common/footer.jsp"%>
 	</div>
-</body>
+</footer>
 </html>

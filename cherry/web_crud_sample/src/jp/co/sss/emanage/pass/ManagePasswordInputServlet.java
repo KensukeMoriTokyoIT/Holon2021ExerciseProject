@@ -27,7 +27,11 @@ public class ManagePasswordInputServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-       	// 管理者用パスワード変更画面へ遷移を行う
+		//隠し属性のIDの値をスコープに入れる
+		String id = request.getParameter("empId");
+		request.setAttribute("empId", id);
+
+    	// 管理者用パスワード変更画面へ遷移を行う
          RequestDispatcher dispatcher = request
                         .getRequestDispatcher("/jsp/password/manage_pass.jsp");
                 dispatcher.forward(request, response);

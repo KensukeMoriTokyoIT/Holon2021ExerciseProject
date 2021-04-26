@@ -12,13 +12,13 @@
 　　
   <div id="contents">
   <div id="header">
-		<%@include file="/jsp/common/header_login.jsp"%>
+		<%@include file="/jsp/common/header.jsp"%>
   </div>
 社員登録完了画面
   <div id="main">
 
 			<h3>社員登録処理が完了しました。</h3>
-			   	<form action="<%=request.getContextPath()%>/jsp/manage/manage.jsp" >
+			   	<form action="<%=request.getContextPath()%>/ManageTopServlet" >
 	            	<input type="submit" value="社員一覧に戻る" />
 	          	</form>
 	</div>

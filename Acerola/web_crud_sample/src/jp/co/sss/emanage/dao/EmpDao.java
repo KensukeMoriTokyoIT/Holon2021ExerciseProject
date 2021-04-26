@@ -548,17 +548,17 @@ public class EmpDao {
 
     	try {
     	con = DBManager.getConnection();
-    	ps = con.prepareStatement("UPDATE employee SET emp_pass= ?, emp_name = ?,gender = ?,address =?, birthday=?,authority = ?, dept_id = ? where emp_id = ? ");
+    	ps = con.prepareStatement("UPDATE employee SET  emp_name = ?,gender = ?,address =?, birthday=?,authority = ?, dept_id = ? where emp_id = ? ");
 
 
-    	ps.setString(1, empBean.getEmpPass());
-    	ps.setString(2, empBean.getEmpName());
-    	ps.setString(3, empBean.getGender());
-    	ps.setString(4, empBean.getAddress());
-    	ps.setString(5, DateFormat.formatDate(empBean.getBirthday()));
-    	ps.setString(6, empBean.getAuthority());
-    	ps.setString(7, empBean.getDeptId());
-    	ps.setString(8, empBean.getEmpId());
+
+    	ps.setString(1, empBean.getEmpName());
+    	ps.setString(2, empBean.getGender());
+    	ps.setString(3, empBean.getAddress());
+    	ps.setString(4, DateFormat.formatDate(empBean.getBirthday()));
+    	ps.setString(5, empBean.getAuthority());
+    	ps.setString(6, empBean.getDeptId());
+    	ps.setString(7, empBean.getEmpId());
 
     	ps.executeUpdate();
     	}catch(SQLException e){
@@ -573,23 +573,22 @@ public class EmpDao {
      * 登録の反映
      * @param empBean
      */
-    public static void insert(EmpBean empBean) {
+    public static void insert(EmpBean emp) {
     	Connection con = null;
     	PreparedStatement ps = null;
 
     	try {
     	con = DBManager.getConnection();
-    	ps = con.prepareStatement("insert into employee (emp_id emp_pass emp_name gender address  birthday authority  dept_id  emp_id) values(?,?,?,?,?,?,?,?) ");
+    	ps = con.prepareStatement("insert into employee ( emp_pass, emp_name, gender, address,  birthday, authority,  dept_id,  emp_id) values(?,?,?,?,?,?,?, seq_emp.NEXTVAL) ");
 
 
-    	ps.setString(1, empBean.getEmpPass());
-    	ps.setString(2, empBean.getEmpName());
-    	ps.setString(3, empBean.getGender());
-    	ps.setString(4, empBean.getAddress());
-    	ps.setString(5, DateFormat.formatDate(empBean.getBirthday()));
-    	ps.setString(6, empBean.getAuthority());
-    	ps.setString(7, empBean.getDeptId());
-    	ps.setString(8, empBean.getEmpId());
+    	ps.setString(1, emp.getEmpPass());
+    	ps.setString(2, emp.getEmpName());
+    	ps.setString(3, emp.getGender());
+    	ps.setString(4, emp.getAddress());
+    	ps.setString(5, emp.getBirthday());
+    	ps.setString(6, emp.getAuthority());
+    	ps.setString(7, emp.getDeptId());
 
     	ps.executeUpdate();
     	}catch(SQLException e){
@@ -625,5 +624,24 @@ public class EmpDao {
         }
 
     	}
+    public static void updateNewPass(String newPass, String empId) {
+    	Connection con = null;
+    	PreparedStatement ps = null;
+
+    	try {
+    	con = DBManager.getConnection();
+    	ps = con.prepareStatement("UPDATE employee SET emp_pass= ? where emp_id = ? ");
+
+    	ps.setString(1, newPass);
+    	ps.setString(2, empId);
+
+    	ps.executeUpdate();
+    	}catch(SQLException e){
+    		  e.printStackTrace();
+        } finally {
+            // DB切断処理
+            DBManager.close(ps, con);
+        }
+    }
 
 }

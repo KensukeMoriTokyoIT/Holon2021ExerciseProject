@@ -50,7 +50,7 @@
     <tr>
 		<td>生年月日：</td>
 		<td><input type="text" name="birthday"></td>
-		<td>YYYY/MM/DD</td>
+		<td>(YYYY/MM/DD)</td>
 		<td>${birthday_error}</td>
     </tr>
     <tr>
@@ -60,7 +60,7 @@
 		<label><input type="radio" name="authority" value="2"/>管理</label>
 		</td>
 		<td> </td>
-		<td>${authority_error}"</td>
+		<td>${authority_error}</td>
     </tr>
     <tr>
 		<td>部署名：</td>
@@ -69,6 +69,8 @@
 		<option value="1">営業部</option>
 		<option value="2">経理部</option>
 		<option value="3">総務部</option>
+		</select>
+		</td>
 		<td> </td>
 		<td>${deptId_error}</td>
     </table>
