@@ -1,0 +1,178 @@
+@CHARSET "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background-color: Snow;
+}
+
+div#contents {
+	width: 95%;
+	margin: 0 auto; /* センタリング */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+	flex-wrap: wrap;
+}
+
+div#header {
+	width: 100%;
+	background-color: DimGray;
+	color: White;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+div#headerinfo {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+div#main {
+	text-align: center;
+	height: auto;
+	padding-top: 20px;
+	background-color: Snow;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: auto;
+}
+
+div#footer {
+	background-color: DimGray;
+	height: 50px;
+}
+
+div.footer {
+	text-align: center;
+	padding-top: 14px;
+	margin: 0px auto;
+	color: White;
+}
+
+div.select_func {
+	margin: 10px 5% 0 5%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+	align-content: space-between;
+}
+
+form#selectform {
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	align-content: space-between;
+}
+
+form#inputform {
+	text-align: center;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+form#loginform {
+	padding: 50px 0px 50px 0px;
+}
+
+div.top_link {
+	display: inline-block; /*for modern*/
+	margin-left: auto;
+	margin-right: 0;
+}
+
+div.select_empId {
+	margin-top: 3px;
+	margin-right: 3px;
+	margin-left: 5px;
+}
+
+div.select_empName {
+	margin-top: 3px;
+	margin-right: 3px;
+}
+
+div.select_deptId {
+	margin-top: 3px;
+	margin-right: 3px;
+}
+
+div.select_submit {
+	margin-top: 3px;
+}
+
+div.update_submit {
+	margin-top: 3px;
+}
+
+div.insert_submit {
+	margin-top: 3px;
+}
+
+div.table_manage {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	display: flex;
+}
+
+table.w100p {
+	width: 100%;
+}
+
+table.w75p {
+	width: 75%;
+}
+
+table.tac {
+	text-align: left;
+	margin: 0 auto;
+}
+
+table.w300 {
+	width: 300px;
+}
+
+table.w500 {
+	width: 500px;
+}
+
+td {
+	text-align: center;
+	vertical-align: top;
+	padding: 0.5em;
+}
+
+th {
+	text-align: center;
+	vertical-align: top;
+	padding: 0.5em;
+}
+
+h2.header {
+	padding: 0 1.5em;
+}
+
+h3 {
+	margin-top: 0;
+	color: Red;
+}
+
+input[type="submit"] {
+	margin: 0px 5px;
+}
